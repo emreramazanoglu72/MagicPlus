@@ -1,0 +1,13 @@
+// Signing defaults, shared by every build configuration.
+//
+// The defaults below are deliberately empty so a fresh clone builds and tests without
+// anyone's credentials. To sign locally, copy Local.example.xcconfig to Local.xcconfig
+// and put your Apple Developer Team ID there; that file is not tracked by git, so your
+// team ID never lands in a commit and pulling never fights your local setup.
+
+DEVELOPMENT_TEAM =
+CODE_SIGN_STYLE = Automatic
+
+// Optional and intentionally last: values here win over the defaults above.
+// The "?" means "skip silently if the file does not exist".
+#include? "Local.xcconfig"

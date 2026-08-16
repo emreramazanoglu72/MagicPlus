@@ -1,0 +1,10 @@
+// Copy this file to Config/Local.xcconfig and fill in your own values.
+// Config/Local.xcconfig is gitignored — it never gets committed.
+//
+// Find your Team ID at https://developer.apple.com/account under Membership details,
+// or in Xcode: Settings → Accounts → your Apple ID → the team's "Team ID" column.
+//
+// Leaving this file uncopied is fine: the app still builds and the tests still run,
+// they are just signed ad-hoc and cannot be distributed.
+
+DEVELOPMENT_TEAM = YOUR_TEAM_ID

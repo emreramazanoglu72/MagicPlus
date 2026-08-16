@@ -1,0 +1,30 @@
+name: Feature request
+description: Suggest something MagicPlus should do
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before opening this, please check the "Deliberately out of scope" section of the
+        README — several obvious-sounding features are impossible on current macOS without
+        private or entitlement-gated APIs.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem are you running into?
+      description: Describe the situation, not the solution. What do you do today instead?
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: What would you like it to do?
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Anything you have tried, or other apps that do this well?

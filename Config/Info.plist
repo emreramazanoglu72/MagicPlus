@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!--
+	  Merged with the generated Info.plist (GENERATE_INFOPLIST_FILE stays on). Only keys
+	  Xcode's INFOPLIST_KEY_ build settings cannot express live here.
+	-->
+	<!--
+	  Sparkle updates. Before the first public release:
+	  1. Generate keys once:   ./bin/generate_keys   (from the Sparkle distribution)
+	  2. Put the printed public key into SUPublicEDKey below.
+	  3. Point SUFeedURL at the hosted appcast (site/appcast.xml on your server).
+	  4. Flip SUEnableAutomaticChecks to true.
+	-->
+	<key>SUFeedURL</key>
+	<string>https://magicplus.emreramazanoglu.com.tr/appcast.xml</string>
+	<key>SUEnableAutomaticChecks</key>
+	<false/>
+	<key>NSAudioCaptureUsageDescription</key>
+	<string>MagicPlus adjusts each app's volume by tapping its audio and replaying it at the level you set.</string>
+</dict>
+</plist>

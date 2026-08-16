@@ -1,0 +1,80 @@
+name: Bug report
+description: Something behaves differently than it should
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report. Please fill in enough that the bug can be reproduced without
+        guessing — that is almost always the difference between a fix and a stalled issue.
+
+  - type: input
+    id: version
+    attributes:
+      label: MagicPlus version
+      description: Menu bar icon → Settings → General, or the version in the About window.
+      placeholder: "1.0"
+    validations:
+      required: true
+
+  - type: input
+    id: macos
+    attributes:
+      label: macOS version and Mac
+      placeholder: "macOS 26.5, MacBook Pro M3"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Which part?
+      options:
+        - Window manager (tiling, snapping, layouts)
+        - Notch panel / Dynamic Island
+        - Clipboard history
+        - Window switcher
+        - Dock previews
+        - System monitor
+        - Audio mixer / display brightness
+        - Meeting tools (mic, camera, presentation mode, OCR)
+        - Keep awake
+        - Settings, shortcuts or permissions
+        - Something else
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open ...
+        2. Press ⌃⌥→
+        3. ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect, and what happened instead?
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: permissions
+    attributes:
+      label: Permissions granted
+      description: Many silent failures come down to a missing permission.
+      options:
+        - label: Accessibility
+        - label: Screen Recording
+        - label: Camera
+        - label: Calendar
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Anything else
+      description: Screenshots, a screen recording, a crash log — all welcome.

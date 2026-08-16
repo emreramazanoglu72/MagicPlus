@@ -1,0 +1,2960 @@
+{
+  "sourceLanguage": "en",
+  "strings": {
+    "%.1f%%": {
+      "shouldTranslate": false
+    },
+    "%.2fs": {
+      "shouldTranslate": false
+    },
+    "%@ +%lld": {
+      "comment": "Multiple copied files: first file name, then how many more",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ +%lld"
+          }
+        }
+      }
+    },
+    "%@ does not allow resizing.": {
+      "comment": "Shown when an app refuses to be resized; the placeholder is the app name",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ yeniden boyutlandırmaya izin vermiyor."
+          }
+        }
+      }
+    },
+    "%@, %@": {
+      "shouldTranslate": false
+    },
+    "%@: %@": {
+      "shouldTranslate": false
+    },
+    "%@: %@ percent CPU": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@: yüzde %@ işlemci"
+          }
+        }
+      }
+    },
+    "%lld": {
+      "shouldTranslate": false
+    },
+    "%lld characters": {
+      "comment": "Length of copied text",
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld character"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld characters"
+                }
+              }
+            }
+          }
+        },
+        "tr": {
+          "variations": {
+            "plural": {
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld karakter"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld files": {
+      "comment": "How many files were copied",
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld file"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld files"
+                }
+              }
+            }
+          }
+        },
+        "tr": {
+          "variations": {
+            "plural": {
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld dosya"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld items": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld item"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld items"
+                }
+              }
+            }
+          }
+        },
+        "tr": {
+          "variations": {
+            "plural": {
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld öğe"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld windows": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld window"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld windows"
+                }
+              }
+            }
+          }
+        },
+        "tr": {
+          "variations": {
+            "plural": {
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld pencere"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld windows · %@": {
+      "comment": "Layout row subtitle: window count then the apps involved",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld pencere · %@"
+          }
+        }
+      }
+    },
+    "%lld × %lld px": {
+      "shouldTranslate": false
+    },
+    "%lld%%": {
+      "shouldTranslate": false
+    },
+    "%lldpt": {
+      "shouldTranslate": false
+    },
+    "Accessibility": {
+      "comment": "macOS permission name",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Erişilebilirlik"
+          }
+        }
+      }
+    },
+    "Accessibility access is required to move windows.": {
+      "comment": "Shown when a window command runs without permission",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pencereleri taşımak için Erişilebilirlik izni gerekiyor."
+          }
+        }
+      }
+    },
+    "Accessibility access needed": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Erişilebilirlik izni gerekiyor"
+          }
+        }
+      }
+    },
+    "Accessibility is required": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Erişilebilirlik zorunlu"
+          }
+        }
+      }
+    },
+    "Add": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ekle"
+          }
+        }
+      }
+    },
+    "Add Rule…": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kural Ekle…"
+          }
+        }
+      }
+    },
+    "Added to shelf": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rafa eklendi"
+          }
+        }
+      }
+    },
+    "Agenda": {
+      "comment": "Notch tab: upcoming calendar events",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ajanda"
+          }
+        }
+      }
+    },
+    "Allow": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "İzin Ver"
+          }
+        }
+      }
+    },
+    "Allow Calendar access to see your next meeting": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sıradaki toplantını görmek için Takvim erişimine izin ver"
+          }
+        }
+      }
+    },
+    "Allow MagicPlus under Screen & System Audio Recording to control app volume": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uygulama sesini kontrol etmek için Ekran ve Sistem Sesi Kaydı altında MagicPlus'a izin ver"
+          }
+        }
+      }
+    },
+    "Already used by %@": {
+      "comment": "Recorder rejects a combo bound to another action in this app; placeholder is that action's name",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Already used by %@"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zaten %@ tarafından kullanılıyor"
+          }
+        }
+      }
+    },
+    "Also keep the display on": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ekranı da açık tut"
+          }
+        }
+      }
+    },
+    "App": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uygulama"
+          }
+        }
+      }
+    },
+    "Arrange your windows, then save the layout to bring it back any time.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pencerelerini yerleştir, sonra düzeni kaydet ve istediğin an geri getir."
+          }
+        }
+      }
+    },
+    "Asked on first use": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "İlk kullanımda sorulur"
+          }
+        }
+      }
+    },
+    "Back on screen": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ekrana döndü"
+          }
+        }
+      }
+    },
+    "Bottom": {
+      "comment": "Window placement: bottom half of the screen",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alt"
+          }
+        }
+      }
+    },
+    "Bottom Left": {
+      "comment": "Window placement: bottom-left quarter",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sol Alt"
+          }
+        }
+      }
+    },
+    "Bottom Right": {
+      "comment": "Window placement: bottom-right quarter",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sağ Alt"
+          }
+        }
+      }
+    },
+    "Bottom half": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alt yarı"
+          }
+        }
+      }
+    },
+    "Bottom left quarter": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sol alt çeyrek"
+          }
+        }
+      }
+    },
+    "Bottom right quarter": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sağ alt çeyrek"
+          }
+        }
+      }
+    },
+    "Bottom third": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alt üçte bir"
+          }
+        }
+      }
+    },
+    "Bottom two thirds": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alt üçte iki"
+          }
+        }
+      }
+    },
+    "Browse and search every open window": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Açık tüm pencerelerde gez ve ara"
+          }
+        }
+      }
+    },
+    "CPU load": {
+      "comment": "Menu bar metric option",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "İşlemci yükü"
+          }
+        }
+      }
+    },
+    "Calendar": {
+      "comment": "macOS permission name",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Takvim"
+          }
+        }
+      }
+    },
+    "Camera": {
+      "comment": "macOS permission name",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kamera"
+          }
+        }
+      }
+    },
+    "Camera in use": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kamera kullanımda"
+          }
+        }
+      }
+    },
+    "Camera mirror": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kamera aynası"
+          }
+        }
+      }
+    },
+    "Cancel": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "İptal"
+          }
+        }
+      }
+    },
+    "Capture Text (OCR)": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Metin Yakala (OCR)"
+          }
+        }
+      }
+    },
+    "Capture live window images": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Canlı pencere görüntüleri yakala"
+          }
+        }
+      }
+    },
+    "Capture live window thumbnails for Dock previews and the switcher.": {
+      "comment": "What Screen Recording permission unlocks",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dock önizlemeleri ve pencere geçişi için canlı pencere görüntüleri yakalar."
+          }
+        }
+      }
+    },
+    "Center": {
+      "comment": "Window placement: centred on screen",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ortala"
+          }
+        }
+      }
+    },
+    "Centre third": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Orta üçte bir"
+          }
+        }
+      }
+    },
+    "Centred": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ortalanmış"
+          }
+        }
+      }
+    },
+    "Check for Updates…": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Güncellemeleri Denetle…"
+          }
+        }
+      }
+    },
+    "Choose an app": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uygulama seç"
+          }
+        }
+      }
+    },
+    "Choose the output device": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Çıkış aygıtını seç"
+          }
+        }
+      }
+    },
+    "Clear": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Temizle"
+          }
+        }
+      }
+    },
+    "Clear History": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Geçmişi Temizle"
+          }
+        }
+      }
+    },
+    "Clear search": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aramayı temizle"
+          }
+        }
+      }
+    },
+    "Click to record a shortcut": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kısayol kaydetmek için tıkla"
+          }
+        }
+      }
+    },
+    "Clipboard": {
+      "comment": "Popover tab: clipboard history",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pano"
+          }
+        }
+      }
+    },
+    "Clipboard History": {
+      "comment": "Status item menu",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pano Geçmişi"
+          }
+        }
+      }
+    },
+    "Clipboard contents from these bundle identifiers are never recorded.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu paket kimliklerine sahip uygulamaların pano içeriği hiçbir zaman kaydedilmez."
+          }
+        }
+      }
+    },
+    "Compact list": {
+      "comment": "Switcher layout showing a plain list",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sade liste"
+          }
+        }
+      }
+    },
+    "Continue": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Devam Et"
+          }
+        }
+      }
+    },
+    "Controls still drive whatever is playing": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Denetimler yine de çalan şeyi yönetir"
+          }
+        }
+      }
+    },
+    "Copied": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kopyalandı"
+          }
+        }
+      }
+    },
+    "Copied as text": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Metin olarak kopyalandı"
+          }
+        }
+      }
+    },
+    "Copy": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kopyala"
+          }
+        }
+      }
+    },
+    "Core %lld: %@": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Çekirdek %lld: %@"
+          }
+        }
+      }
+    },
+    "Decode": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Çöz"
+          }
+        }
+      }
+    },
+    "Delete": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sil"
+          }
+        }
+      }
+    },
+    "Delete %@": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ düzenini sil"
+          }
+        }
+      }
+    },
+    "Delete item": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Öğeyi sil"
+          }
+        }
+      }
+    },
+    "Delete this item": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu öğeyi sil"
+          }
+        }
+      }
+    },
+    "Delete this layout": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu düzeni sil"
+          }
+        }
+      }
+    },
+    "Discard": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vazgeç"
+          }
+        }
+      }
+    },
+    "Disk almost full": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Disk dolmak üzere"
+          }
+        }
+      }
+    },
+    "Displays": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ekranlar"
+          }
+        }
+      }
+    },
+    "Dock previews": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dock önizlemeleri"
+          }
+        }
+      }
+    },
+    "Downloaded": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "İndirildi"
+          }
+        }
+      }
+    },
+    "Drag them out again whenever you need them": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "İhtiyacın olduğunda tekrar dışarı sürükle"
+          }
+        }
+      }
+    },
+    "Drop files here": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dosyaları buraya bırak"
+          }
+        }
+      }
+    },
+    "Duration": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Süre"
+          }
+        }
+      }
+    },
+    "Empty the shelf": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rafı boşalt"
+          }
+        }
+      }
+    },
+    "External Display %lld": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Harici Ekran %lld"
+          }
+        }
+      }
+    },
+    "Files": {
+      "comment": "Clipboard entry holding files",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dosyalar"
+          }
+        }
+      }
+    },
+    "Floor": {
+      "shouldTranslate": false
+    },
+    "Full screen": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tam ekran"
+          }
+        }
+      }
+    },
+    "Gap between tiled windows": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yerleştirilen pencereler arası boşluk"
+          }
+        }
+      }
+    },
+    "Gap between windows": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pencereler arası boşluk"
+          }
+        }
+      }
+    },
+    "General": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Genel"
+          }
+        }
+      }
+    },
+    "Grant": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "İzin Ver"
+          }
+        }
+      }
+    },
+    "Grant Access": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Erişime İzin Ver"
+          }
+        }
+      }
+    },
+    "Granted": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verildi"
+          }
+        }
+      }
+    },
+    "Grant…": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "İzin ver…"
+          }
+        }
+      }
+    },
+    "History is paused": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Geçmiş duraklatıldı"
+          }
+        }
+      }
+    },
+    "History limit": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Geçmiş sınırı"
+          }
+        }
+      }
+    },
+    "Holds off display sleep, system sleep, disk spin-down and the idle lock screen — the same set of assertions as `caffeinate -dims`. Turning the display option off lets the screen sleep, which also locks the Mac.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ekran uykusunu, sistem uykusunu, disklerin durmasını ve boştaki kilit ekranını engeller — `caffeinate -dims` ile aynı bildirimleri kullanır. Ekran seçeneğini kapatırsan ekran uyur ve Mac de kilitlenir."
+          }
+        }
+      }
+    },
+    "Hot": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sıcak"
+          }
+        }
+      }
+    },
+    "Hover delay": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bekleme süresi"
+          }
+        }
+      }
+    },
+    "Hover the notch for the file shelf and playback controls. Displays without a notch use a strip in the middle of the menu bar.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dosya rafı ve oynatma denetimleri için çentiğe gel. Çentiği olmayan ekranlarda menü çubuğunun ortasındaki şerit kullanılır."
+          }
+        }
+      }
+    },
+    "Icon only": {
+      "comment": "Menu bar shows no metric",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yalnızca simge"
+          }
+        }
+      }
+    },
+    "Ignored apps": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yok sayılan uygulamalar"
+          }
+        }
+      }
+    },
+    "Image": {
+      "comment": "Clipboard entry kind",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Görsel"
+          }
+        }
+      }
+    },
+    "Image %lld×%lld": {
+      "comment": "Copied image with its pixel dimensions",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Görsel %lld×%lld"
+          }
+        }
+      }
+    },
+    "Join": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Katıl"
+          }
+        }
+      }
+    },
+    "Keep Awake": {
+      "comment": "Status item menu",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uyanık Tut"
+          }
+        }
+      }
+    },
+    "Keep Awake on · %@ left": {
+      "comment": "Menu bar tooltip while keep-awake runs; placeholder is a countdown like 1:04:09",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uyanık Tut açık · %@ kaldı"
+          }
+        }
+      }
+    },
+    "Keep Awake on · until turned off": {
+      "comment": "Menu bar tooltip while keep-awake runs with no timer",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uyanık Tut açık · kapatılana kadar"
+          }
+        }
+      }
+    },
+    "Keep awake": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uyanık tut"
+          }
+        }
+      }
+    },
+    "Keep awake %@": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ uyanık tut"
+          }
+        }
+      }
+    },
+    "Keep awake for": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Şu kadar uyanık tut"
+          }
+        }
+      }
+    },
+    "Keep the Mac awake": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mac'i uyanık tut"
+          }
+        }
+      }
+    },
+    "Language": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dil"
+          }
+        }
+      }
+    },
+    "Launch at login": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Girişte başlat"
+          }
+        }
+      }
+    },
+    "Layout": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Düzen"
+          }
+        }
+      }
+    },
+    "Layout %lld": {
+      "comment": "Workspace layout slot, numbered from 1",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Düzen %lld"
+          }
+        }
+      }
+    },
+    "Layout name": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Düzen adı"
+          }
+        }
+      }
+    },
+    "Left": {
+      "comment": "Window placement: left half of the screen",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sol"
+          }
+        }
+      }
+    },
+    "Left half": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sol yarı"
+          }
+        }
+      }
+    },
+    "Left third": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sol üçte bir"
+          }
+        }
+      }
+    },
+    "Left two thirds": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sol üçte iki"
+          }
+        }
+      }
+    },
+    "Lid closed or forced sleep": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kapak kapandı veya zorla uyutuldu"
+          }
+        }
+      }
+    },
+    "Low battery": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pil zayıf"
+          }
+        }
+      }
+    },
+    "Mac slept despite Keep Awake": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mac, Uyanık Tut açıkken uyudu"
+          }
+        }
+      }
+    },
+    "MagicPlus": {
+      "shouldTranslate": false
+    },
+    "MagicPlus Settings": {
+      "comment": "Settings window title",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MagicPlus Ayarları"
+          }
+        }
+      }
+    },
+    "MagicPlus needs permission to move windows and paste for you.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MagicPlus'nün pencereleri taşıması ve senin yerine yapıştırması için izin gerekiyor."
+          }
+        }
+      }
+    },
+    "Maximize": {
+      "comment": "Window placement: fill the screen",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tam Ekran"
+          }
+        }
+      }
+    },
+    "Media keys": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Medya tuşları"
+          }
+        }
+      }
+    },
+    "Memory used": {
+      "comment": "Menu bar metric option",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kullanılan bellek"
+          }
+        }
+      }
+    },
+    "Menu bar shows": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menü çubuğunda"
+          }
+        }
+      }
+    },
+    "Mic live": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mikrofon açık"
+          }
+        }
+      }
+    },
+    "Mic muted": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mikrofon susturuldu"
+          }
+        }
+      }
+    },
+    "Microphone in use": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mikrofon kullanımda"
+          }
+        }
+      }
+    },
+    "Microphone muted": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mikrofon susturuldu"
+          }
+        }
+      }
+    },
+    "Minimised": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Küçültülmüş"
+          }
+        }
+      }
+    },
+    "Mirror": {
+      "comment": "Notch tab: camera preview",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ayna"
+          }
+        }
+      }
+    },
+    "Mixer": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Karıştırıcı"
+          }
+        }
+      }
+    },
+    "Move and switch windows, list them for previews, and paste for you.": {
+      "comment": "What Accessibility permission unlocks",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pencereleri taşır, aralarında geçiş yapar, önizleme için listeler ve senin yerine yapıştırır."
+          }
+        }
+      }
+    },
+    "Music & Browsers": {
+      "comment": "Automation permission, named by what it covers",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Müzik ve Tarayıcılar"
+          }
+        }
+      }
+    },
+    "Mute Microphone": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mikrofonu Sustur"
+          }
+        }
+      }
+    },
+    "Mute this app": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu uygulamayı sustur"
+          }
+        }
+      }
+    },
+    "Next": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sonraki"
+          }
+        }
+      }
+    },
+    "No focused window to move.": {
+      "comment": "Shown when no window could be targeted",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Taşınacak odaklı pencere yok."
+          }
+        }
+      }
+    },
+    "No matches": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Eşleşme yok"
+          }
+        }
+      }
+    },
+    "No menus could be read": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menüler okunamadı"
+          }
+        }
+      }
+    },
+    "No open windows found": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Açık pencere bulunamadı"
+          }
+        }
+      }
+    },
+    "Normal": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Normal"
+          }
+        }
+      }
+    },
+    "Not granted": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verilmedi"
+          }
+        }
+      }
+    },
+    "Notch": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Çentik"
+          }
+        }
+      }
+    },
+    "Nothing copied yet": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Henüz bir şey kopyalanmadı"
+          }
+        }
+      }
+    },
+    "Nothing is playing right now": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Şu anda bir şey çalmıyor"
+          }
+        }
+      }
+    },
+    "Nothing playing": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bir şey çalmıyor"
+          }
+        }
+      }
+    },
+    "Nothing scheduled": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Planlanmış bir şey yok"
+          }
+        }
+      }
+    },
+    "Nothing to save — no windows found.": {
+      "comment": "Shown when saving a layout with no open windows",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kaydedilecek bir şey yok — pencere bulunamadı."
+          }
+        }
+      }
+    },
+    "Now": {
+      "comment": "Notch tab: what is playing right now",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Şimdi"
+          }
+        }
+      }
+    },
+    "Off": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kapalı"
+          }
+        }
+      }
+    },
+    "On": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Açık"
+          }
+        }
+      }
+    },
+    "One line": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tek satır"
+          }
+        }
+      }
+    },
+    "Open": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aç"
+          }
+        }
+      }
+    },
+    "Open MagicPlus": {
+      "comment": "Status item menu",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MagicPlus'yü aç"
+          }
+        }
+      }
+    },
+    "Open Settings": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ayarları Aç"
+          }
+        }
+      }
+    },
+    "Open the full clipboard panel": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tam pano panelini aç"
+          }
+        }
+      }
+    },
+    "Open the meeting link": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toplantı bağlantısını aç"
+          }
+        }
+      }
+    },
+    "Output device": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Çıkış aygıtı"
+          }
+        }
+      }
+    },
+    "Output volume": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Çıkış ses düzeyi"
+          }
+        }
+      }
+    },
+    "Paste": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yapıştır"
+          }
+        }
+      }
+    },
+    "Paste automatically after selecting": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seçtikten sonra otomatik yapıştır"
+          }
+        }
+      }
+    },
+    "Paste with this change applied": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu değişiklikle yapıştır"
+          }
+        }
+      }
+    },
+    "Per core load": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Çekirdek başına yük"
+          }
+        }
+      }
+    },
+    "Permissions": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "İzinler"
+          }
+        }
+      }
+    },
+    "Pin": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sabitle"
+          }
+        }
+      }
+    },
+    "Pinned": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sabitlenmiş"
+          }
+        }
+      }
+    },
+    "Play or pause": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Oynat veya duraklat"
+          }
+        }
+      }
+    },
+    "Playback controls still work; only track details are missing.": {
+      "comment": "What happens without Automation access",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Oynatma denetimleri yine çalışır; yalnızca parça bilgileri eksik kalır."
+          }
+        }
+      }
+    },
+    "Playback position": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Oynatma konumu"
+          }
+        }
+      }
+    },
+    "Power the Mirror tab in the notch panel.": {
+      "comment": "What Camera permission unlocks",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Çentik panelindeki Ayna sekmesini çalıştırır."
+          }
+        }
+      }
+    },
+    "Presentation Mode": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sunum Modu"
+          }
+        }
+      }
+    },
+    "Press the new shortcut, or Esc to cancel": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yeni kısayola bas, iptal için Esc"
+          }
+        }
+      }
+    },
+    "Previews": {
+      "comment": "Switcher layout showing window thumbnails",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Önizlemeler"
+          }
+        }
+      }
+    },
+    "Previews fall back to app icons.": {
+      "comment": "What happens without Screen Recording",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Önizlemeler uygulama simgelerine düşer."
+          }
+        }
+      }
+    },
+    "Previous": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Önceki"
+          }
+        }
+      }
+    },
+    "Quick Note": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hızlı Not"
+          }
+        }
+      }
+    },
+    "Quit": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Çık"
+          }
+        }
+      }
+    },
+    "Quit %@": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ uygulamasından çık"
+          }
+        }
+      }
+    },
+    "Quit MagicPlus": {
+      "comment": "Status item menu",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MagicPlus'den çık"
+          }
+        }
+      }
+    },
+    "Read what Music, Spotify or your browser is playing.": {
+      "comment": "What Automation permission unlocks",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Music, Spotify veya tarayıcında ne çaldığını okur."
+          }
+        }
+      }
+    },
+    "Ready to go": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hazır"
+          }
+        }
+      }
+    },
+    "Record clipboard history": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pano geçmişini kaydet"
+          }
+        }
+      }
+    },
+    "Relaunch Now": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Şimdi Yeniden Başlat"
+          }
+        }
+      }
+    },
+    "Remove": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kaldır"
+          }
+        }
+      }
+    },
+    "Remove %@": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ öğesini kaldır"
+          }
+        }
+      }
+    },
+    "Remove all unpinned items": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sabitlenmemiş tüm öğeleri kaldır"
+          }
+        }
+      }
+    },
+    "Remove shortcut": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kısayolu kaldır"
+          }
+        }
+      }
+    },
+    "Remove shortcut for %@": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ kısayolunu kaldır"
+          }
+        }
+      }
+    },
+    "Required": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zorunlu"
+          }
+        }
+      }
+    },
+    "Required to move windows and to paste automatically.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pencereleri taşımak ve otomatik yapıştırmak için gerekli."
+          }
+        }
+      }
+    },
+    "Rescue Windows": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pencereleri Kurtar"
+          }
+        }
+      }
+    },
+    "Restore": {
+      "comment": "Window placement: back to its previous frame",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Geri Al"
+          }
+        }
+      }
+    },
+    "Restore %@": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ düzenini geri yükle"
+          }
+        }
+      }
+    },
+    "Restore Defaults": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Varsayılanlara Dön"
+          }
+        }
+      }
+    },
+    "Restored %lld of %lld; %lld not open.": {
+      "comment": "Layout partly restored: restored count, total count, missing count",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld/%lld pencere geri yüklendi; %lld tanesi açık değil."
+          }
+        }
+      }
+    },
+    "Restored %lld windows.": {
+      "comment": "Layout restored fully; placeholder is the number of windows",
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Restored %lld window."
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Restored %lld windows."
+                }
+              }
+            }
+          }
+        },
+        "tr": {
+          "variations": {
+            "plural": {
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld pencere geri yüklendi."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Resume": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sürdür"
+          }
+        }
+      }
+    },
+    "Resume when MagicPlus launches": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MagicPlus açıldığında sürdür"
+          }
+        }
+      }
+    },
+    "Reveal in Finder": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Finder'da Göster"
+          }
+        }
+      }
+    },
+    "Review All Permissions…": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tüm İzinleri Gözden Geçir…"
+          }
+        }
+      }
+    },
+    "Right": {
+      "comment": "Window placement: right half of the screen",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sağ"
+          }
+        }
+      }
+    },
+    "Right half": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sağ yarı"
+          }
+        }
+      }
+    },
+    "Right third": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sağ üçte bir"
+          }
+        }
+      }
+    },
+    "Right two thirds": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sağ üçte iki"
+          }
+        }
+      }
+    },
+    "Rules": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kurallar"
+          }
+        }
+      }
+    },
+    "Run": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Çalıştır"
+          }
+        }
+      }
+    },
+    "Sample": {
+      "shouldTranslate": false
+    },
+    "Save": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kaydet"
+          }
+        }
+      }
+    },
+    "Save current": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Şu anki düzeni kaydet"
+          }
+        }
+      }
+    },
+    "Save layout": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Düzeni kaydet"
+          }
+        }
+      }
+    },
+    "Save the position of every open window": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Açık her pencerenin konumunu kaydet"
+          }
+        }
+      }
+    },
+    "Save to shelf": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rafa kaydet"
+          }
+        }
+      }
+    },
+    "Screen Recording": {
+      "comment": "macOS permission name",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ekran Kaydı"
+          }
+        }
+      }
+    },
+    "Screenshot": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ekran görüntüsü"
+          }
+        }
+      }
+    },
+    "Search": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ara"
+          }
+        }
+      }
+    },
+    "Search Menus": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menülerde Ara"
+          }
+        }
+      }
+    },
+    "Search clipboard…": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Panoda ara…"
+          }
+        }
+      }
+    },
+    "Search menu commands…": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menü komutlarında ara…"
+          }
+        }
+      }
+    },
+    "Search windows…": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pencerelerde ara…"
+          }
+        }
+      }
+    },
+    "Select an item to preview it": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Önizlemek için bir öğe seç"
+          }
+        }
+      }
+    },
+    "Settings": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ayarlar"
+          }
+        }
+      }
+    },
+    "Settings…": {
+      "comment": "Status item menu",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ayarlar…"
+          }
+        }
+      }
+    },
+    "Share or AirDrop these files": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu dosyaları paylaş veya AirDrop'la gönder"
+          }
+        }
+      }
+    },
+    "Shelf": {
+      "comment": "Notch tab: parked files",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Raf"
+          }
+        }
+      }
+    },
+    "Shortcuts": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kısayollar"
+          }
+        }
+      }
+    },
+    "Show the notch panel": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Çentik panelini göster"
+          }
+        }
+      }
+    },
+    "Show window previews on Dock hover": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dock simgesine gelince pencere önizlemelerini göster"
+          }
+        }
+      }
+    },
+    "Show your next meeting in the notch, with a button to join it.": {
+      "comment": "What Calendar permission unlocks",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sıradaki toplantını katılma düğmesiyle birlikte çentikte gösterir."
+          }
+        }
+      }
+    },
+    "Skip card numbers, keys and tokens": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kart numaralarını, anahtarları ve token'ları kaydetme"
+          }
+        }
+      }
+    },
+    "Snap when dragged to a screen edge": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ekran kenarına sürüklenince yerleştir"
+          }
+        }
+      }
+    },
+    "Stats": {
+      "comment": "Popover tab: system monitor",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ölçümler"
+          }
+        }
+      }
+    },
+    "Switch Windows": {
+      "comment": "Floating panel title",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pencere Değiştir"
+          }
+        }
+      }
+    },
+    "Switch or open": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Geç veya aç"
+          }
+        }
+      }
+    },
+    "Switch to this window": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu pencereye geç"
+          }
+        }
+      }
+    },
+    "System audio": {
+      "comment": "Media source that could not be identified",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sistem sesi"
+          }
+        }
+      }
+    },
+    "System default": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sistem varsayılanı"
+          }
+        }
+      }
+    },
+    "Takes effect after relaunch": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yeniden başlatınca etkinleşir"
+          }
+        }
+      }
+    },
+    "The Agenda tab stays empty.": {
+      "comment": "What happens without Calendar access",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ajanda sekmesi boş kalır."
+          }
+        }
+      }
+    },
+    "The Mirror tab stays empty.": {
+      "comment": "What happens without Camera access",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ayna sekmesi boş kalır."
+          }
+        }
+      }
+    },
+    "Thermal pressure": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Isıl baskı"
+          }
+        }
+      }
+    },
+    "Throttling": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kısılıyor"
+          }
+        }
+      }
+    },
+    "Thumbnails": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Küçük görüntüler"
+          }
+        }
+      }
+    },
+    "Time remaining": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kalan süre"
+          }
+        }
+      }
+    },
+    "Title": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Başlık"
+          }
+        }
+      }
+    },
+    "Top": {
+      "comment": "Window placement: top half of the screen",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Üst"
+          }
+        }
+      }
+    },
+    "Top Left": {
+      "comment": "Window placement: top-left quarter",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sol Üst"
+          }
+        }
+      }
+    },
+    "Top Right": {
+      "comment": "Window placement: top-right quarter",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sağ Üst"
+          }
+        }
+      }
+    },
+    "Top half": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Üst yarı"
+          }
+        }
+      }
+    },
+    "Top left quarter": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sol üst çeyrek"
+          }
+        }
+      }
+    },
+    "Top right quarter": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sağ üst çeyrek"
+          }
+        }
+      }
+    },
+    "Top third": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Üst üçte bir"
+          }
+        }
+      }
+    },
+    "Top two thirds": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Üst üçte iki"
+          }
+        }
+      }
+    },
+    "Trim": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kırp"
+          }
+        }
+      }
+    },
+    "Turn Off": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kapat"
+          }
+        }
+      }
+    },
+    "UPPER": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "BÜYÜK"
+          }
+        }
+      }
+    },
+    "Unmute": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sesi aç"
+          }
+        }
+      }
+    },
+    "Unpin": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sabitlemeyi kaldır"
+          }
+        }
+      }
+    },
+    "Until turned off": {
+      "comment": "Keep-awake session with no timer",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kapatılana kadar"
+          }
+        }
+      }
+    },
+    "Value": {
+      "shouldTranslate": false
+    },
+    "Warm": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ilık"
+          }
+        }
+      }
+    },
+    "Welcome to MagicPlus": {
+      "comment": "Onboarding window title",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MagicPlus'ye hoş geldin"
+          }
+        }
+      }
+    },
+    "When one of these apps opens, its first window is placed for you.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu uygulamalardan biri açıldığında ilk penceresi senin yerine yerleştirilir."
+          }
+        }
+      }
+    },
+    "Window gap": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pencere boşluğu"
+          }
+        }
+      }
+    },
+    "Window switcher": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pencere geçişi"
+          }
+        }
+      }
+    },
+    "Windows": {
+      "comment": "Popover tab: window management",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pencereler"
+          }
+        }
+      }
+    },
+    "Windows, clipboard, previews and system stats in one place.\nGrant what you need — each feature says what it uses.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pencereler, pano, önizlemeler ve sistem ölçümleri tek yerde.\nİhtiyacın olan izinleri ver — her özellik neyi kullandığını söylüyor."
+          }
+        }
+      }
+    },
+    "Without this permission previews fall back to application icons.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu izin olmadan önizlemeler uygulama simgelerine düşer."
+          }
+        }
+      }
+    },
+    "com.example.app": {
+      "shouldTranslate": false
+    },
+    "current setup": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "şu anki düzen"
+          }
+        }
+      }
+    },
+    "in %lldm": {
+      "comment": "Minutes until a meeting starts",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld dk sonra"
+          }
+        }
+      }
+    },
+    "lower": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "küçük"
+          }
+        }
+      }
+    },
+    "now": {
+      "comment": "A meeting that has already started",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "şimdi"
+          }
+        }
+      }
+    },
+    "of %@": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "/ %@"
+          }
+        }
+      }
+    },
+    "·": {
+      "shouldTranslate": false
+    },
+    "· click again to cycle": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "· döngü için tekrar tıkla"
+          }
+        }
+      }
+    },
+    "· press again to cycle": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "· döngü için tekrar bas"
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}

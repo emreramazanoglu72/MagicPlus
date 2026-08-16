@@ -1,0 +1,61 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+# Build-and-test only: the workflow never writes to the repo, so the token stays read-only.
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: Build & test
+    # MagicPlus targets macOS 26, so the runner image needs Xcode 26 or newer.
+    # Bump this label as GitHub ships newer images.
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Select the newest available Xcode
+        run: |
+          ls /Applications | grep -i '^Xcode' || true
+          NEWEST=$(ls -d /Applications/Xcode*.app | sort -V | tail -1)
+          echo "Using $NEWEST"
+          sudo xcode-select -s "$NEWEST"
+          xcodebuild -version
+
+      - name: Check the SDK is new enough
+        run: |
+          SDK=$(xcodebuild -showsdks | grep -oE 'macosx[0-9]+\.[0-9]+' | tail -1 | sed 's/macosx//')
+          echo "Latest macOS SDK on this runner: $SDK"
+          MAJOR=${SDK%%.*}
+          if [ "$MAJOR" -lt 26 ]; then
+            echo "::error::This project needs the macOS 26 SDK (Xcode 26+), but the runner only has $SDK. Wait for the GitHub image to ship Xcode 26, or run the tests locally."
+            exit 1
+          fi
+
+      - name: Resolve package dependencies
+        # -disableAutomaticPackageResolution: fail loudly if Package.resolved is stale
+        # instead of silently re-resolving to a newer dependency version.
+        run: xcodebuild -resolvePackageDependencies -disableAutomaticPackageResolution -project tabmenu.xcodeproj
+
+      # No Developer ID on CI: build and test ad-hoc signed. Config/Local.xcconfig does not
+      # exist here, so DEVELOPMENT_TEAM stays empty and nothing tries to reach a keychain.
+      - name: Test
+        run: |
+          xcodebuild test \
+            -project tabmenu.xcodeproj \
+            -scheme tabmenu \
+            -destination 'platform=macOS' \
+            CODE_SIGN_IDENTITY="-" \
+            CODE_SIGN_STYLE=Manual \
+            -quiet

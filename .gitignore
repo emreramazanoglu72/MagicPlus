@@ -1,0 +1,33 @@
+# macOS
+.DS_Store
+
+# Xcode
+build/
+DerivedData/
+*.xcuserstate
+xcuserdata/
+*.xcscmblueprint
+*.xccheckout
+*.moved-aside
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Local signing configuration (see Config/Local.example.xcconfig)
+Config/Local.xcconfig
+
+# Release artifacts
+*.dmg
+*.zip
+
+# Credentials — never commit these
+.env
+.env.*
+*.p12
+*.mobileprovision
+*.cer
+
+# Marketing site, developed and deployed separately
+website/
+node_modules/
