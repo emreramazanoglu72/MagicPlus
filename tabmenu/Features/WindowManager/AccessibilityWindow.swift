@@ -130,8 +130,15 @@ extension NSScreen {
         return NSScreen.screens.first { $0.frame.contains(cocoaPoint) }
     }
 
-    /// Usable area (menu bar and Dock excluded) in Accessibility space.
+    /// Usable area in Accessibility space: menu bar, Dock, and any strip the app's own dock has
+    /// taken.
+    ///
+    /// The one place that answer is worked out, which is why the reservation is applied here — every
+    /// tiling command, every drag-to-edge snap and every saved layout reads this, so a dock down the
+    /// left of the screen stops being covered by all of them at once rather than one at a time.
     var accessibilityVisibleFrame: CGRect {
-        visibleFrame.flippedBetweenScreenSpaces()
+        DockReservation.shared
+            .applying(to: visibleFrame, screenNumber: deviceNumber)
+            .flippedBetweenScreenSpaces()
     }
 }

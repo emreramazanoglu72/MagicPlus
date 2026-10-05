@@ -37,7 +37,7 @@ enum PermissionKind: String, CaseIterable, Identifiable {
             String(localized: "Move and switch windows, list them for previews, and paste for you.",
                    comment: "What Accessibility permission unlocks")
         case .screenRecording:
-            String(localized: "Capture live window thumbnails for Dock previews and the switcher.",
+            String(localized: "Capture window thumbnails for Dock previews, and the artwork of hidden menu bar items.",
                    comment: "What Screen Recording permission unlocks")
         case .calendar:
             String(localized: "Show your next meeting in the notch, with a button to join it.",

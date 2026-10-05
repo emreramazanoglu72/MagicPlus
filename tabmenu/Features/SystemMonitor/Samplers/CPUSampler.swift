@@ -10,8 +10,6 @@ nonisolated struct CPULoad: Sendable, Equatable {
     var user: Double = 0
     var system: Double = 0
     var cores: [Double] = []
-
-    var coreCount: Int { cores.count }
 }
 
 /// Reads per-core tick counters from the Mach host and converts consecutive samples into load.

@@ -12,10 +12,19 @@ struct MenuBarRootView: View {
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Namespace private var tabHighlight
 
+    /// Tabs for modules that are switched on. A tab for something that is not running would be a
+    /// tab with nothing behind it.
+    private var visibleTabs: [MenuBarTab] {
+        MenuBarTab.allCases.filter { tab in
+            guard let module = tab.module else { return true }
+            return environment.preferences.isEnabled(module)
+        }
+    }
+
     var body: some View {
         VStack(alignment: .leading, spacing: Metrics.spacing) {
             header
-            tabBar
+            if !visibleTabs.isEmpty { tabBar }
 
             ScrollView {
                 content
@@ -34,6 +43,15 @@ struct MenuBarRootView: View {
         .padding(12)
         .frame(width: Metrics.panelWidth)
         .frame(maxHeight: 560)
+        .onAppear(perform: selectSomethingVisible)
+        .onChange(of: visibleTabs, selectSomethingVisible)
+    }
+
+    /// A selection remembered from before a module was switched off would leave the popover
+    /// showing nothing at all.
+    private func selectSomethingVisible() {
+        guard !visibleTabs.contains(selectedTab), let first = visibleTabs.first else { return }
+        selectedTab = first
     }
 
     private var header: some View {
@@ -62,7 +80,7 @@ struct MenuBarRootView: View {
     /// highlight sliding between them.
     private var tabBar: some View {
         HStack(spacing: 2) {
-            ForEach(MenuBarTab.allCases) { tab in
+            ForEach(visibleTabs) { tab in
                 Button {
                     withMotion(Motion.fluid, reduceMotion: reduceMotion) { selectedTab = tab }
                 } label: {
@@ -99,8 +117,38 @@ struct MenuBarRootView: View {
         .motion(Motion.fluid, value: selectedTab)
     }
 
+    /// Every module with a tab can be switched off at once, which would otherwise leave the last
+    /// selection on screen — a pane for something that is not running.
+    private var everythingOff: some View {
+        VStack(spacing: 8) {
+            Image(systemName: "square.grid.2x2")
+                .font(.system(size: 26))
+                .foregroundStyle(.secondary)
+            Text("Nothing switched on")
+                .font(.callout.weight(.medium))
+            Text("Turn a module on in Settings and it appears here.")
+                .font(.caption)
+                .foregroundStyle(.secondary)
+                .multilineTextAlignment(.center)
+            Button("Open Settings") { SettingsWindow.open() }
+                .controlSize(.small)
+                .padding(.top, 2)
+        }
+        .frame(maxWidth: .infinity)
+        .padding(.vertical, 28)
+    }
+
     @ViewBuilder
     private var content: some View {
+        if visibleTabs.isEmpty {
+            everythingOff
+        } else {
+            paneForSelectedTab
+        }
+    }
+
+    @ViewBuilder
+    private var paneForSelectedTab: some View {
         switch selectedTab {
         case .windows:
             WindowManagerView(
@@ -117,10 +165,32 @@ struct MenuBarRootView: View {
                 shortcut: environment.preferences.shortcut(for: .showClipboard),
                 onOpenPanel: { environment.clipboardPanel.show() }
             )
+        case .downloads:
+            DownloadsCard(
+                store: environment.downloads.store,
+                onAddLink: { environment.downloads.showManualEntry() }
+            )
+        case .menuBar:
+            MenuBarManagerView(
+                service: environment.menuBarManager,
+                preferences: environment.preferences,
+                shortcut: environment.preferences.shortcut(for: .searchMenuBarItems),
+                onSearch: { environment.menuBarSearch.show() },
+                onEnable: {
+                    environment.preferences.isMenuBarManagerEnabled = true
+                    environment.menuBarManager.updateConfiguration()
+                }
+            )
         case .stats:
             VStack(alignment: .leading, spacing: Metrics.spacing) {
                 KeepAwakeCard(service: environment.keepAwake)
                 SystemMonitorView(service: environment.monitor)
+                SensorsCard(service: environment.hardware)
+                BatteryCard(
+                    service: environment.hardware,
+                    chargeLimit: environment.chargeLimit,
+                    onOpenSettings: { SettingsWindow.open() }
+                )
             }
         }
     }
@@ -151,7 +221,7 @@ private struct HeaderButton: View {
 }
 
 enum MenuBarTab: String, CaseIterable, Identifiable {
-    case windows, clipboard, stats
+    case windows, clipboard, downloads, menuBar, stats
 
     var id: String { rawValue }
 
@@ -160,6 +230,8 @@ enum MenuBarTab: String, CaseIterable, Identifiable {
         switch self {
         case .windows: String(localized: "Windows", comment: "Popover tab: window management")
         case .clipboard: String(localized: "Clipboard", comment: "Popover tab: clipboard history")
+        case .downloads: String(localized: "Downloads", comment: "Popover tab: the download queue")
+        case .menuBar: String(localized: "Menu Bar", comment: "Popover tab: menu bar sections")
         case .stats: String(localized: "Stats", comment: "Popover tab: system monitor")
         }
     }
@@ -168,7 +240,20 @@ enum MenuBarTab: String, CaseIterable, Identifiable {
         switch self {
         case .windows: "macwindow.on.rectangle"
         case .clipboard: "doc.on.clipboard"
+        case .downloads: "arrow.down.circle"
+        case .menuBar: "menubar.rectangle"
         case .stats: "waveform.path.ecg"
+        }
+    }
+
+    /// The module this tab belongs to, so a tab for something switched off is not offered.
+    var module: AppModule? {
+        switch self {
+        case .windows: .windows
+        case .clipboard: .clipboard
+        case .downloads: .downloads
+        case .menuBar: .menuBar
+        case .stats: .systemMonitor
         }
     }
 
@@ -176,6 +261,8 @@ enum MenuBarTab: String, CaseIterable, Identifiable {
         switch self {
         case .windows: Accent.windows
         case .clipboard: Accent.clipboard
+        case .downloads: Accent.network
+        case .menuBar: Accent.menuBar
         case .stats: .green
         }
     }

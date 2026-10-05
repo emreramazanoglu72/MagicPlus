@@ -21,6 +21,8 @@ enum HotKeyAction: Hashable, Identifiable {
     case quickNote
     case togglePresentation
     case rescueWindows
+    case toggleHiddenItems
+    case searchMenuBarItems
 
     static let allCases: [HotKeyAction] =
         WindowAction.allCases.map(HotKeyAction.window)
@@ -28,7 +30,8 @@ enum HotKeyAction: Hashable, Identifiable {
         + [
             .showClipboard, .switchWindows, .togglePanel, .toggleKeepAwake,
             .toggleMicMute, .captureText, .searchMenus, .quickNote,
-            .togglePresentation, .rescueWindows
+            .togglePresentation, .rescueWindows, .toggleHiddenItems,
+            .searchMenuBarItems
         ]
 
     /// Stable identifier used both for SwiftUI identity and defaults persistence.
@@ -46,6 +49,8 @@ enum HotKeyAction: Hashable, Identifiable {
         case .quickNote: "note.quick"
         case .togglePresentation: "presentation.toggle"
         case .rescueWindows: "window.rescue"
+        case .toggleHiddenItems: "menuBar.toggleHidden"
+        case .searchMenuBarItems: "menuBar.search"
         }
     }
 
@@ -75,6 +80,10 @@ enum HotKeyAction: Hashable, Identifiable {
             String(localized: "Presentation Mode", comment: "Shortcut name")
         case .rescueWindows:
             String(localized: "Rescue Windows", comment: "Shortcut name")
+        case .toggleHiddenItems:
+            String(localized: "Show Hidden Menu Bar Items", comment: "Shortcut name")
+        case .searchMenuBarItems:
+            String(localized: "Search Menu Bar Items", comment: "Shortcut name")
         }
     }
 
@@ -107,6 +116,10 @@ enum HotKeyAction: Hashable, Identifiable {
             return HotKeyCombo(keyCode: UInt16(kVK_ANSI_P), modifiers: [.control, .option, .shift])
         case .rescueWindows:
             return HotKeyCombo(keyCode: UInt16(kVK_ANSI_R), modifiers: [.control, .option])
+        case .toggleHiddenItems:
+            return HotKeyCombo(keyCode: UInt16(kVK_ANSI_H), modifiers: [.control, .option])
+        case .searchMenuBarItems:
+            return HotKeyCombo(keyCode: UInt16(kVK_ANSI_S), modifiers: [.control, .option])
         }
     }
 }

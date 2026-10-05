@@ -1,0 +1,49 @@
+<!doctype html>
+<meta charset="utf-8" />
+<title>MagicPlus Downloads</title>
+<style>
+  :root { color-scheme: light dark; }
+  body {
+    font: 13px/1.5 -apple-system, system-ui, sans-serif;
+    margin: 0; padding: 16px; width: 340px;
+  }
+  h1 { font-size: 14px; margin: 0 0 12px; }
+  .row { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+  .status { display: flex; align-items: center; gap: 6px; font-weight: 500; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: #999; flex: none; }
+  .dot.on { background: #34c759; }
+  .dot.off { background: #ff9f0a; }
+  p { margin: 0 0 12px; opacity: 0.7; }
+  button { font: inherit; padding: 4px 12px; }
+  label { display: flex; align-items: center; gap: 6px; }
+  input[type="number"] { width: 64px; font: inherit; }
+</style>
+
+<h1 data-i18n="optionsTitle">MagicPlus Downloads</h1>
+
+<div class="row">
+  <span class="status"><span id="dot" class="dot"></span><span id="state" data-i18n="checking">Checking…</span></span>
+  <button id="connect" data-i18n="connect" hidden>Connect</button>
+</div>
+
+<p id="detail"></p>
+
+<div class="row">
+  <label><input type="checkbox" id="autoCatch" /> <span data-i18n="autoCatch">Catch downloads automatically</span></label>
+</div>
+
+<div class="row">
+  <label><input type="checkbox" id="sniffMedia" /> <span data-i18n="sniffMedia">Offer video playing on a page</span></label>
+</div>
+
+<div class="row">
+  <label>
+    <span data-i18n="onlyOver">Only files over</span>
+    <input type="number" id="minBytes" min="0" step="1" />
+    <span data-i18n="megabytes">MB</span>
+  </label>
+</div>
+
+<p data-i18n="contextHint">Right-click any link, video, image — or the page itself — to send it over even when auto-catch is off.</p>
+
+<script type="module" src="options.js"></script>

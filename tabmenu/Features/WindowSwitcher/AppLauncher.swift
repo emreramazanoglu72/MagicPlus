@@ -80,6 +80,27 @@ enum AppLauncher {
             .map { $0 }
     }
 
+    private static var icons: [String: NSImage] = [:]
+
+    /// The application's icon, kept once it has been read.
+    ///
+    /// `LaunchableApp.icon` is a computed property that goes to disk through `NSWorkspace` every
+    /// time it is read, which is fine for the five rows the switcher shows and not fine for a grid
+    /// of every application installed — that asks for a hundred and fifty icons on every pass the
+    /// view makes.
+    static func icon(for app: LaunchableApp, size: CGFloat) -> NSImage {
+        let key = "\(app.id)|\(Int(size))"
+        if let cached = icons[key] { return cached }
+
+        let image = NSWorkspace.shared.icon(forFile: app.url.path)
+        image.size = NSSize(width: size, height: size)
+        // Bounded: a Mac has a few hundred applications, and a cache without a ceiling is a leak
+        // with a friendly name.
+        if icons.count > 400 { icons.removeAll() }
+        icons[key] = image
+        return image
+    }
+
     static func launch(_ app: LaunchableApp) {
         NSWorkspace.shared.openApplication(at: app.url, configuration: NSWorkspace.OpenConfiguration())
     }

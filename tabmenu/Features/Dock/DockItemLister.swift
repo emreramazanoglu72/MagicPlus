@@ -63,6 +63,43 @@ enum DockItemLister {
         }
     }
 
+    /// The notification counts the Dock is drawing, keyed by bundle identifier.
+    ///
+    /// There is no API for another app's badge — the red number belongs to the Dock, and nothing
+    /// public hands it over. But the Dock is an application like any other, and it publishes each
+    /// tile's badge through Accessibility as `AXStatusLabel`, which is where this reads it. Needs
+    /// the Accessibility permission the Dock previews already ask for; without it, no badges rather
+    /// than no dock.
+    static func badges() -> [String: String] {
+        guard let list = dockItemList() else { return [:] }
+
+        var value: CFTypeRef?
+        guard AXUIElementCopyAttributeValue(list, kAXChildrenAttribute as CFString, &value) == .success,
+              let children = value as? [AXUIElement]
+        else { return [:] }
+
+        let running = NSWorkspace.shared.runningApplications
+        var result: [String: String] = [:]
+
+        for child in children {
+            guard string(child, attribute: kAXSubroleAttribute) == applicationDockItemSubrole else { continue }
+            guard let label = string(child, attribute: "AXStatusLabel"), !label.isEmpty else { continue }
+
+            let title = string(child, attribute: kAXTitleAttribute)
+            let bundleURL = copy(child, attribute: kAXURLAttribute) as? URL
+            let identifier = running.first { candidate in
+                if let bundleURL, let candidateURL = candidate.bundleURL {
+                    return candidateURL.standardizedFileURL == bundleURL.standardizedFileURL
+                }
+                return candidate.localizedName == title
+            }?.bundleIdentifier ?? bundleURL?.deletingPathExtension().lastPathComponent
+
+            if let identifier { result[identifier] = label }
+        }
+
+        return result
+    }
+
     // MARK: - Dock element
 
     private static func dockItemList() -> AXUIElement? {

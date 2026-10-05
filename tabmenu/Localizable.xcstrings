@@ -1,11 +1,82 @@
 {
   "sourceLanguage": "en",
   "strings": {
+    "\nChecks for updates once a day.": {
+      "comment": "About panel: automatic update checks are on",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "\nGünde bir kez güncelleme denetler."
+          }
+        }
+      }
+    },
+    "—": {
+      "shouldTranslate": false
+    },
+    "·": {
+      "shouldTranslate": false
+    },
+    "· click again to cycle": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "· döngü için tekrar tıkla"
+          }
+        }
+      }
+    },
+    "· press again to cycle": {
+      "extractionState": "stale",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "· döngü için tekrar bas"
+          }
+        }
+      }
+    },
     "%.1f%%": {
       "shouldTranslate": false
     },
     "%.2fs": {
       "shouldTranslate": false
+    },
+    "%@ — %@": {
+      "comment": "Menu bar item name, then the app it belongs to",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ — %@"
+          }
+        }
+      }
+    },
+    "%@ — retrying in %@": {
+      "comment": "Download waiting to retry",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ — %@ içinde yeniden denenecek"
+          }
+        }
+      }
+    },
+    "%@ — trying again": {
+      "comment": "Download retrying now",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ — yeniden deneniyor"
+          }
+        }
+      }
     },
     "%@ +%lld": {
       "comment": "Multiple copied files: first file name, then how many more",
@@ -14,6 +85,33 @@
           "stringUnit": {
             "state": "translated",
             "value": "%@ +%lld"
+          }
+        }
+      }
+    },
+    "%@ and %lld more": {
+      "comment": "Agent step detail: first result plus a count",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@ and %2$lld more"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ ve %lld tane daha"
+          }
+        }
+      }
+    },
+    "%@ brightness": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ parlaklığı"
           }
         }
       }
@@ -29,8 +127,34 @@
         }
       }
     },
+    "%@ volume": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ sesi"
+          }
+        }
+      }
+    },
     "%@, %@": {
       "shouldTranslate": false
+    },
+    "%@, %lld windows": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@, %2$lld windows"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@, %lld pencere"
+          }
+        }
+      }
     },
     "%@: %@": {
       "shouldTranslate": false
@@ -48,8 +172,46 @@
     "%lld": {
       "shouldTranslate": false
     },
+    "%lld × %lld px": {
+      "shouldTranslate": false
+    },
+    "%lld active": {
+      "comment": "Downloads in flight",
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld active"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld active"
+                }
+              }
+            }
+          }
+        },
+        "tr": {
+          "variations": {
+            "plural": {
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld etkin"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "%lld characters": {
-      "comment": "Length of copied text",
+      "comment": "Length of captured text\nLength of copied text",
       "localizations": {
         "en": {
           "variations": {
@@ -84,7 +246,7 @@
       }
     },
     "%lld files": {
-      "comment": "How many files were copied",
+      "comment": "Files added to the shelf\nHow many files were copied",
       "localizations": {
         "en": {
           "variations": {
@@ -114,6 +276,34 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "%lld formats": {
+      "comment": "How many qualities were found",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld format"
+          }
+        }
+      }
+    },
+    "%lld in, %lld out": {
+      "comment": "Agent: token usage split",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$lld in, %2$lld out"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld giriş, %lld çıkış"
           }
         }
       }
@@ -152,7 +342,64 @@
         }
       }
     },
+    "%lld items hidden": {
+      "comment": "Number of menu bar items currently hidden",
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld item hidden"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld items hidden"
+                }
+              }
+            }
+          }
+        },
+        "tr": {
+          "variations": {
+            "plural": {
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld öğe gizli"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld more": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld tane daha"
+          }
+        }
+      }
+    },
+    "%lld tokens": {
+      "comment": "Agent: what the conversation has used",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld token"
+          }
+        }
+      }
+    },
     "%lld windows": {
+      "comment": "Windows pulled back on screen",
       "localizations": {
         "en": {
           "variations": {
@@ -188,6 +435,7 @@
     },
     "%lld windows · %@": {
       "comment": "Layout row subtitle: window count then the apps involved",
+      "extractionState": "stale",
       "localizations": {
         "tr": {
           "stringUnit": {
@@ -197,14 +445,221 @@
         }
       }
     },
-    "%lld × %lld px": {
-      "shouldTranslate": false
-    },
-    "%lld%%": {
-      "shouldTranslate": false
-    },
     "%lldpt": {
       "shouldTranslate": false
+    },
+    "%llds": {
+      "shouldTranslate": false
+    },
+    "A blank tile the Dock has always understood, to group icons apart. Your own icons are never rearranged — one is added at the end, or the blank ones are taken out again.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dock'un ta baştan beri anladığı boş bir kutucuk; simgeleri gruplamak için. Kendi simgelerin asla yeniden dizilmez — sona bir tane eklenir ya da boş olanlar geri çıkarılır."
+          }
+        }
+      }
+    },
+    "A browser cannot be asked what it is downloading — no API exposes that — so the extension comes to MagicPlus instead, over a port bound to this machine alone. It hands over the cookies and referer the site expects, which is what keeps a signed link working outside the browser. Nothing reaches the queue until you have approved a dialog naming the extension, and disconnecting revokes its token at once.": {
+      "comment": "Explains the browser bridge",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bir tarayıcıya ne indirdiği sorulamaz — hiçbir API bunu açmaz — bu yüzden eklenti MagicPlus'a geliyor; yalnızca bu makineye bağlı bir port üzerinden. Sitenin beklediği çerezleri ve referer'ı da devrediyor; imzalı bir bağlantının tarayıcı dışında çalışmasını sağlayan şey bu. Eklentiyi adıyla gösteren bir pencereyi onaylamadan kuyruğa hiçbir şey ulaşmıyor, bağlantıyı kesmek de anahtarı anında geçersiz kılıyor."
+          }
+        }
+      }
+    },
+    "A browser extension is asking to pass downloads to MagicPlus, along with the cookies and referer for each one so the server accepts them. Only allow this if you installed the extension yourself.\n\n%@": {
+      "comment": "Bridge pairing dialog body",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bir tarayıcı eklentisi, indirmeleri MagicPlus'a devretmek istiyor; sunucunun kabul etmesi için her birinin çerezlerini ve referer'ını da gönderecek. Eklentiyi kendiniz kurduysanız izin verin.\n\n%@"
+          }
+        }
+      }
+    },
+    "A button on the bar opens a chat that can search files, open applications, take notes and read this Mac's status.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Çubuktaki bir düğme, dosya arayabilen, uygulama açabilen, not alabilen ve bu Mac'in durumunu okuyabilen bir sohbet açar."
+          }
+        }
+      }
+    },
+    "A chevron and a divider are added to the menu bar. Hold ⌘ and drag an item across the divider to hide it; everything to the right of the divider stays on show. Nothing is moved for you, and quitting MagicPlus puts every item back.": {
+      "comment": "Menu bar settings",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menü çubuğuna bir ok ve bir ayıraç eklenir. Bir öğeyi gizlemek için ⌘ tuşunu basılı tutarak ayıracın soluna sürükleyin; ayıracın sağında kalan her şey görünür kalır. Hiçbir öğe sizin yerinize taşınmaz ve MagicPlus kapatıldığında hepsi eski yerine döner."
+          }
+        }
+      }
+    },
+    "A column down the edge listing every open window by title, not just its app. Windows this app places keep out of its way.": {
+      "comment": "Dock theme summary",
+      "extractionState": "stale",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kenarda bir kolon; her açık pencereyi yalnızca uygulamasıyla değil başlığıyla listeler. Bu uygulamanın yerleştirdiği pencereler onun alanına girmez."
+          }
+        }
+      }
+    },
+    "A dock answers which apps you have. A list of windows answers which windows are open and what is in them, which needs Accessibility to read their titles.": {
+      "extractionState": "stale",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dock hangi uygulamaların olduğunu söyler. Pencere listesi hangi pencerelerin açık olduğunu ve içinde ne olduğunu söyler; başlıkları okumak için Erişilebilirlik gerekir."
+          }
+        }
+      }
+    },
+    "A dock the shape of the system's, in black, with larger icons.": {
+      "comment": "Dock theme summary",
+      "extractionState": "stale",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sistemin dock'uyla aynı biçim, siyah ve daha büyük simgelerle."
+          }
+        }
+      }
+    },
+    "A download queue with resume, the link grabber and the browser extension bridge.": {
+      "comment": "Module summary",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kaldığı yerden devam eden indirme kuyruğu, bağlantı yakalayıcı ve tarayıcı eklentisi köprüsü."
+          }
+        }
+      }
+    },
+    "A floating pill of glass. Icons grow under the pointer, a dot marks what is running.": {
+      "comment": "Dock theme summary",
+      "extractionState": "stale",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Camdan yüzen bir kapsül. Simgeler imlecin altında büyür, çalışanı bir nokta işaretler."
+          }
+        }
+      }
+    },
+    "A hidden Dock waits half a second before sliding out. This removes the wait.": {
+      "comment": "Dock tweak summary",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gizlenmiş Dock kayarak çıkmadan önce yarım saniye bekler. Bu, o beklemeyi kaldırır."
+          }
+        }
+      }
+    },
+    "A link you copy is offered in the island, and clicking the capsule opens the prompt — nothing is ever downloaded without that. Watching the browser reads only the address of the tab in front, which is the one thing macOS lets an app ask a browser; it needs Automation permission the first time, and it notices media pages and file links only.": {
+      "comment": "Explains how links are noticed",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kopyaladığınız bağlantı adada teklif edilir ve kapsüle tıklamak pencereyi açar — bu olmadan hiçbir şey indirilmez. Tarayıcı izleme yalnızca öndeki sekmenin adresini okur; macOS'un bir uygulamaya tarayıcıdan sormasına izin verdiği tek şey budur. İlk seferinde Otomasyon izni ister ve yalnızca medya sayfalarını ve dosya bağlantılarını fark eder."
+          }
+        }
+      }
+    },
+    "A palette over the frontmost app's menus.": {
+      "comment": "Module summary",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Öndeki uygulamanın menüleri üzerinde bir palet."
+          }
+        }
+      }
+    },
+    "A panel that cycles through open windows with previews.": {
+      "comment": "Module summary",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Açık pencereler arasında önizlemeli geçiş yapan panel."
+          }
+        }
+      }
+    },
+    "A revealed section waits for any menu opened from it to close before it folds away again.": {
+      "comment": "Menu bar settings",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gösterilen bir bölüm, içinden açılan menü kapanmadan yeniden gizlenmez."
+          }
+        }
+      }
+    },
+    "A scroll up over an icon opens that app's windows, without a click.": {
+      "comment": "Dock tweak summary",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Simgenin üstünde yukarı kaydırmak, tıklamadan o uygulamanın pencerelerini açar."
+          }
+        }
+      }
+    },
+    "A theme sets everything below it. Change any of those afterwards and the theme stays chosen only until it no longer matches.": {
+      "extractionState": "stale",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tema aşağıdaki her şeyi ayarlar. Sonra birini değiştirirsen tema, artık eşleşmediği anda seçili görünmez."
+          }
+        }
+      }
+    },
+    "About MagicPlus": {
+      "comment": "Status item menu",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MagicPlus Hakkında"
+          }
+        }
+      }
+    },
+    "Accept downloads from the browser extension": {
+      "comment": "Downloads setting",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tarayıcı eklentisinden indirme kabul et"
+          }
+        }
+      }
     },
     "Accessibility": {
       "comment": "macOS permission name",
@@ -248,12 +703,55 @@
         }
       }
     },
+    "Accessibility is what lets this read window titles.": {
+      "extractionState": "stale",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pencere başlıklarını okumayı sağlayan şey Erişilebilirlik iznidir."
+          }
+        }
+      }
+    },
+    "Accessibility Shortcuts": {
+      "comment": "Menu bar item name",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Erişilebilirlik Kısayolları"
+          }
+        }
+      }
+    },
+    "Account ID": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hesap kimliği"
+          }
+        }
+      }
+    },
     "Add": {
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
             "value": "Ekle"
+          }
+        }
+      }
+    },
+    "Add an always-hidden section": {
+      "comment": "Menu bar settings",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Her zaman gizli bir bölüm ekle"
           }
         }
       }
@@ -269,11 +767,45 @@
       }
     },
     "Added to shelf": {
+      "comment": "Where the files went",
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
             "value": "Rafa eklendi"
+          }
+        }
+      }
+    },
+    "Address": {
+      "comment": "Manual download prompt field",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Adres"
+          }
+        }
+      }
+    },
+    "After": {
+      "comment": "Menu bar settings",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Süre"
+          }
+        }
+      }
+    },
+    "After a delay": {
+      "comment": "Rehide strategy",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belirli bir süre sonra"
           }
         }
       }
@@ -289,7 +821,18 @@
         }
       }
     },
+    "AI": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yapay Zekâ"
+          }
+        }
+      }
+    },
     "Allow": {
+      "comment": "Bridge pairing dialog button",
       "localizations": {
         "tr": {
           "stringUnit": {
@@ -300,11 +843,34 @@
       }
     },
     "Allow Calendar access to see your next meeting": {
+      "extractionState": "stale",
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
             "value": "Sıradaki toplantını görmek için Takvim erişimine izin ver"
+          }
+        }
+      }
+    },
+    "Allow it and your next meetings appear here, with a button to join them.": {
+      "comment": "Agenda pane, empty state",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "İzin verdiğinizde yaklaşan toplantılarınız, katılma düğmesiyle birlikte burada görünür."
+          }
+        }
+      }
+    },
+    "Allow MagicPlus under Privacy & Security → Automation, then switch the setting off and on again.": {
+      "comment": "How to recover from a denied Automation permission",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gizlilik ve Güvenlik → Otomasyon altında MagicPlus'a izin verin, ardından ayarı kapatıp yeniden açın."
           }
         }
       }
@@ -346,12 +912,145 @@
         }
       }
     },
+    "Always Hidden": {
+      "comment": "Menu bar section: items kept out of the way",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Her Zaman Gizli"
+          }
+        }
+      }
+    },
+    "Ambient": {
+      "comment": "Temperature sensor group",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ortam"
+          }
+        }
+      }
+    },
+    "An app wanting attention stays still and lights its indicator instead.": {
+      "comment": "Dock tweak summary",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dikkat isteyen uygulama zıplamaz, yalnızca göstergesini yakar."
+          }
+        }
+      }
+    },
+    "API key": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "API anahtarı"
+          }
+        }
+      }
+    },
     "App": {
+      "comment": "Window rule: which application",
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
             "value": "Uygulama"
+          }
+        }
+      }
+    },
+    "Appear instantly": {
+      "comment": "Dock tweak",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anında görün"
+          }
+        }
+      }
+    },
+    "Appearance": {
+      "comment": "Menu bar settings",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Görünüm"
+          }
+        }
+      }
+    },
+    "Application icons": {
+      "comment": "Dock layout",
+      "extractionState": "stale",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uygulama simgeleri"
+          }
+        }
+      }
+    },
+    "Applications": {
+      "comment": "Start menu section: everything installed",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uygulamalar"
+          }
+        }
+      }
+    },
+    "Apply": {
+      "comment": "Menu bar settings",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uygula"
+          }
+        }
+      }
+    },
+    "Apps appear here as soon as they make a sound.": {
+      "comment": "Mixer pane, empty state",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uygulamalar ses çıkarır çıkarmaz burada belirir."
+          }
+        }
+      }
+    },
+    "Apps you have hidden with ⌘H show through at half strength, so you can tell.": {
+      "comment": "Dock tweak summary",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "⌘H ile gizlediğin uygulamalar yarı saydam görünür, böylece ayırt edebilirsin."
+          }
+        }
+      }
+    },
+    "Around the highlight": {
+      "comment": "Menu bar settings",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vurgunun çevresi"
           }
         }
       }
@@ -366,6 +1065,28 @@
         }
       }
     },
+    "Ask about this Mac": {
+      "comment": "Agent panel: empty state title",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu Mac hakkında sor"
+          }
+        }
+      }
+    },
+    "Ask anything about this Mac": {
+      "comment": "Agent input placeholder",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu Mac ile ilgili her şeyi sor"
+          }
+        }
+      }
+    },
     "Asked on first use": {
       "localizations": {
         "tr": {
@@ -376,7 +1097,41 @@
         }
       }
     },
+    "Assistant": {
+      "comment": "Agent panel title\nBar segment",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Asistan"
+          }
+        }
+      }
+    },
+    "Audio": {
+      "comment": "A sniffed audio-only stream",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ses"
+          }
+        }
+      }
+    },
+    "Audio only": {
+      "comment": "Video download quality",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yalnızca ses"
+          }
+        }
+      }
+    },
     "Back on screen": {
+      "comment": "Notch activity",
       "localizations": {
         "tr": {
           "stringUnit": {
@@ -386,13 +1141,100 @@
         }
       }
     },
+    "Bar": {
+      "comment": "Dock running indicator",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Çubuk"
+          }
+        }
+      }
+    },
+    "Battery": {
+      "comment": "Battery card heading\nMenu bar item name\nTemperature sensor group",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pil"
+          }
+        }
+      }
+    },
+    "Best available": {
+      "comment": "Video download quality",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "En iyi kalite"
+          }
+        }
+      }
+    },
+    "Between items": {
+      "comment": "Menu bar settings",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Öğeler arası"
+          }
+        }
+      }
+    },
+    "Blank tiles in the Dock": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dock'taki boş kutucuklar"
+          }
+        }
+      }
+    },
+    "Bluetooth": {
+      "comment": "Menu bar item name",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bluetooth"
+          }
+        }
+      }
+    },
+    "Both can be rebound in the Shortcuts tab.": {
+      "comment": "Menu bar settings",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "İkisi de Kısayollar sekmesinden değiştirilebilir."
+          }
+        }
+      }
+    },
     "Bottom": {
-      "comment": "Window placement: bottom half of the screen",
+      "comment": "Bar edge\nWindow placement: bottom half of the screen",
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
             "value": "Alt"
+          }
+        }
+      }
+    },
+    "Bottom half": {
+      "comment": "Window zone",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alt yarı"
           }
         }
       }
@@ -408,6 +1250,17 @@
         }
       }
     },
+    "Bottom left quarter": {
+      "comment": "Window zone",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sol alt çeyrek"
+          }
+        }
+      }
+    },
     "Bottom Right": {
       "comment": "Window placement: bottom-right quarter",
       "localizations": {
@@ -419,27 +1272,8 @@
         }
       }
     },
-    "Bottom half": {
-      "localizations": {
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Alt yarı"
-          }
-        }
-      }
-    },
-    "Bottom left quarter": {
-      "localizations": {
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sol alt çeyrek"
-          }
-        }
-      }
-    },
     "Bottom right quarter": {
+      "comment": "Window zone",
       "localizations": {
         "tr": {
           "stringUnit": {
@@ -450,6 +1284,7 @@
       }
     },
     "Bottom third": {
+      "comment": "Window zone",
       "localizations": {
         "tr": {
           "stringUnit": {
@@ -460,11 +1295,35 @@
       }
     },
     "Bottom two thirds": {
+      "comment": "Window zone",
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
             "value": "Alt üçte iki"
+          }
+        }
+      }
+    },
+    "Bridge": {
+      "comment": "Status of the loopback listener the extension talks to",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Köprü"
+          }
+        }
+      }
+    },
+    "Bring to Front": {
+      "comment": "Sidebar row menu",
+      "extractionState": "stale",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Öne getir"
           }
         }
       }
@@ -479,13 +1338,13 @@
         }
       }
     },
-    "CPU load": {
-      "comment": "Menu bar metric option",
+    "Browser extension": {
+      "comment": "Downloads settings section",
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "İşlemci yükü"
+            "value": "Tarayıcı eklentisi"
           }
         }
       }
@@ -497,6 +1356,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Takvim"
+          }
+        }
+      }
+    },
+    "Calendar access is off": {
+      "comment": "Agenda pane, empty state title",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Takvim erişimi kapalı"
           }
         }
       }
@@ -542,12 +1412,35 @@
         }
       }
     },
-    "Capture Text (OCR)": {
+    "Cancelled": {
+      "comment": "Download failure",
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Metin Yakala (OCR)"
+            "value": "İptal edildi"
+          }
+        }
+      }
+    },
+    "Cannot create the download folder": {
+      "comment": "Download failure",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "İndirme klasörü oluşturulamıyor"
+          }
+        }
+      }
+    },
+    "Cannot write to the download folder": {
+      "comment": "Download failure",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "İndirme klasörüne yazılamıyor"
           }
         }
       }
@@ -562,13 +1455,35 @@
         }
       }
     },
-    "Capture live window thumbnails for Dock previews and the switcher.": {
+    "Capture Text (OCR)": {
+      "comment": "Shortcut name\nStatus item menu",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Metin Yakala (OCR)"
+          }
+        }
+      }
+    },
+    "Capture window thumbnails for Dock previews, and the artwork of hidden menu bar items.": {
       "comment": "What Screen Recording permission unlocks",
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Dock önizlemeleri ve pencere geçişi için canlı pencere görüntüleri yakalar."
+            "value": "Dock önizlemeleri için pencere küçük resimlerini ve gizli menü çubuğu öğelerinin simgelerini yakalar."
+          }
+        }
+      }
+    },
+    "Captures a thought to a file on the shelf without opening an editor.": {
+      "comment": "Module summary",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bir düşünceyi editör açmadan rafa dosya olarak kaydeder."
           }
         }
       }
@@ -585,6 +1500,7 @@
       }
     },
     "Centre third": {
+      "comment": "Window zone",
       "localizations": {
         "tr": {
           "stringUnit": {
@@ -595,6 +1511,7 @@
       }
     },
     "Centred": {
+      "comment": "Dock alignment\nWindow zone",
       "localizations": {
         "tr": {
           "stringUnit": {
@@ -604,12 +1521,101 @@
         }
       }
     },
+    "Charge limit": {
+      "comment": "Battery settings",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Şarj limiti"
+          }
+        }
+      }
+    },
+    "Charging": {
+      "comment": "Notch activity",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Şarj oluyor"
+          }
+        }
+      }
+    },
+    "Charging allowed": {
+      "comment": "Charge limit state",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Şarja izin veriliyor"
+          }
+        }
+      }
+    },
+    "Charging paused": {
+      "comment": "Charge limit state",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Şarj duraklatıldı"
+          }
+        }
+      }
+    },
+    "Charging paused at %@": {
+      "comment": "Charge limit state, with the target level",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Şarj %@ seviyesinde duraklatıldı"
+          }
+        }
+      }
+    },
+    "Charging up to %@": {
+      "comment": "Charge limit state, with the target level",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ seviyesine kadar şarj oluyor"
+          }
+        }
+      }
+    },
+    "Check Again": {
+      "comment": "Battery settings",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yeniden Denetle"
+          }
+        }
+      }
+    },
     "Check for Updates…": {
+      "comment": "Status item menu",
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
             "value": "Güncellemeleri Denetle…"
+          }
+        }
+      }
+    },
+    "Choose": {
+      "comment": "Folder picker confirm button",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seç"
           }
         }
       }
@@ -624,6 +1630,17 @@
         }
       }
     },
+    "Choose quality": {
+      "comment": "Opens the download prompt on a page with several formats",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kalite seç"
+          }
+        }
+      }
+    },
     "Choose the output device": {
       "localizations": {
         "tr": {
@@ -634,12 +1651,46 @@
         }
       }
     },
+    "Choose…": {
+      "comment": "Folder picker button",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seç…"
+          }
+        }
+      }
+    },
     "Clear": {
+      "comment": "Start menu search field",
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
             "value": "Temizle"
+          }
+        }
+      }
+    },
+    "Clear finished": {
+      "comment": "Downloads setting action",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tamamlananları temizle"
+          }
+        }
+      }
+    },
+    "Clear finished downloads": {
+      "comment": "Downloads pane action",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tamamlanan indirmeleri temizle"
           }
         }
       }
@@ -674,6 +1725,17 @@
         }
       }
     },
+    "Clicking an app hides the others": {
+      "comment": "Dock tweak",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bir uygulamaya tıklamak diğerlerini gizler"
+          }
+        }
+      }
+    },
     "Clipboard": {
       "comment": "Popover tab: clipboard history",
       "localizations": {
@@ -681,17 +1743,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Pano"
-          }
-        }
-      }
-    },
-    "Clipboard History": {
-      "comment": "Status item menu",
-      "localizations": {
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pano Geçmişi"
           }
         }
       }
@@ -706,6 +1757,64 @@
         }
       }
     },
+    "Clipboard History": {
+      "comment": "Floating panel title\nModule name\nShortcut name\nStatus item menu",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pano Geçmişi"
+          }
+        }
+      }
+    },
+    "Clock": {
+      "comment": "Menu bar item name",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Saat"
+          }
+        }
+      }
+    },
+    "Close": {
+      "comment": "Dismisses a panel that has nothing to confirm",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kapat"
+          }
+        }
+      }
+    },
+    "Cloudflare needs an account ID. Add it in Settings → AI.": {
+      "comment": "Agent error",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cloudflare bir hesap kimliği istiyor. Ayarlar → Yapay Zekâ bölümünden ekleyin."
+          }
+        }
+      }
+    },
+    "Colour": {
+      "comment": "Menu bar settings",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Renk"
+          }
+        }
+      }
+    },
+    "com.example.app": {
+      "shouldTranslate": false
+    },
     "Compact list": {
       "comment": "Switcher layout showing a plain list",
       "localizations": {
@@ -713,6 +1822,27 @@
           "stringUnit": {
             "state": "translated",
             "value": "Sade liste"
+          }
+        }
+      }
+    },
+    "Connected": {
+      "comment": "AI settings: connection test passed",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bağlandı"
+          }
+        }
+      }
+    },
+    "Contents": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "İçerik"
           }
         }
       }
@@ -727,12 +1857,35 @@
         }
       }
     },
+    "Control Center": {
+      "comment": "Menu bar item name",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Denetim Merkezi"
+          }
+        }
+      }
+    },
     "Controls still drive whatever is playing": {
+      "comment": "Media pane, no track",
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
             "value": "Denetimler yine de çalan şeyi yönetir"
+          }
+        }
+      }
+    },
+    "Cookies": {
+      "comment": "Download prompt field: which browser's cookies to use",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Çerezler"
           }
         }
       }
@@ -748,6 +1901,7 @@
       }
     },
     "Copied as text": {
+      "comment": "Notch activity",
       "localizations": {
         "tr": {
           "stringUnit": {
@@ -758,11 +1912,66 @@
       }
     },
     "Copy": {
+      "comment": "Chat: copy a code block",
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
             "value": "Kopyala"
+          }
+        }
+      }
+    },
+    "Copy a link and MagicPlus offers to fetch it.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bir bağlantı kopyala, MagicPlus indirmeyi önerir."
+          }
+        }
+      }
+    },
+    "Copy a link and the island offers to fetch it. Dropping one here works too.": {
+      "comment": "Downloads pane, empty",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bir bağlantı kopyalayın; ada indirmeyi teklif eder. Buraya bırakmak da olur."
+          }
+        }
+      }
+    },
+    "Copy install command": {
+      "comment": "Copies the shell command that installs the helper",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kurulum komutunu kopyala"
+          }
+        }
+      }
+    },
+    "Copy link": {
+      "comment": "Download context menu",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bağlantıyı kopyala"
+          }
+        }
+      }
+    },
+    "Copy the answer": {
+      "comment": "Chat",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cevabı kopyala"
           }
         }
       }
@@ -777,12 +1986,153 @@
         }
       }
     },
+    "Could not open a port": {
+      "comment": "Bridge failed to bind",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Port açılamadı"
+          }
+        }
+      }
+    },
+    "Could not write the joined file": {
+      "comment": "Muxing failure",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Birleştirilen dosya yazılamadı"
+          }
+        }
+      }
+    },
+    "CPU": {
+      "comment": "Temperature sensor group",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "CPU"
+          }
+        }
+      }
+    },
+    "CPU load": {
+      "comment": "Menu bar metric option",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "İşlemci yükü"
+          }
+        }
+      }
+    },
+    "CPU temperature": {
+      "comment": "Menu bar metric option",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "CPU sıcaklığı"
+          }
+        }
+      }
+    },
+    "CPU, memory, disk and network readings, and the menu bar metric.": {
+      "comment": "Module summary",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "CPU, bellek, disk ve ağ ölçümleri ile menü çubuğu göstergesi."
+          }
+        }
+      }
+    },
+    "current setup": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "şu anki düzen"
+          }
+        }
+      }
+    },
+    "Custom dock": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kendi dock'un"
+          }
+        }
+      }
+    },
+    "Custom…": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Özel…"
+          }
+        }
+      }
+    },
+    "Cycles": {
+      "comment": "Battery detail",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Döngü"
+          }
+        }
+      }
+    },
+    "Dark glass": {
+      "comment": "Dock theme",
+      "extractionState": "stale",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Koyu cam"
+          }
+        }
+      }
+    },
     "Decode": {
+      "comment": "Clipboard transform: percent-decode a URL",
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
             "value": "Çöz"
+          }
+        }
+      }
+    },
+    "Default (%@)": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Varsayılan (%@)"
+          }
+        }
+      }
+    },
+    "Default quality": {
+      "comment": "Downloads setting",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Varsayılan kalite"
           }
         }
       }
@@ -828,6 +2178,7 @@
       }
     },
     "Delete this layout": {
+      "extractionState": "stale",
       "localizations": {
         "tr": {
           "stringUnit": {
@@ -837,7 +2188,41 @@
         }
       }
     },
+    "Deny": {
+      "comment": "Bridge pairing dialog button",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reddet"
+          }
+        }
+      }
+    },
+    "Dictate": {
+      "comment": "Chat: start speaking a message",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dikte et"
+          }
+        }
+      }
+    },
+    "Dim hidden apps": {
+      "comment": "Dock tweak",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gizli uygulamaları soluklaştır"
+          }
+        }
+      }
+    },
     "Discard": {
+      "extractionState": "stale",
       "localizations": {
         "tr": {
           "stringUnit": {
@@ -847,12 +2232,46 @@
         }
       }
     },
+    "Disconnect": {
+      "comment": "Revokes a paired extension's token",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bağlantıyı kes"
+          }
+        }
+      }
+    },
     "Disk almost full": {
+      "comment": "Notch activity",
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
             "value": "Disk dolmak üzere"
+          }
+        }
+      }
+    },
+    "Dismiss": {
+      "comment": "Closes the download offer",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kapat"
+          }
+        }
+      }
+    },
+    "Display": {
+      "comment": "Menu bar item name",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ekran"
           }
         }
       }
@@ -867,6 +2286,16 @@
         }
       }
     },
+    "Dock": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dock"
+          }
+        }
+      }
+    },
     "Dock previews": {
       "localizations": {
         "tr": {
@@ -877,12 +2306,223 @@
         }
       }
     },
+    "Dock Previews": {
+      "comment": "Module name",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dock Önizlemeleri"
+          }
+        }
+      }
+    },
+    "Dock Settings": {
+      "comment": "Module name",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dock Ayarları"
+          }
+        }
+      }
+    },
+    "Dock Settings…": {
+      "comment": "Bar menu",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dock Ayarları…"
+          }
+        }
+      }
+    },
+    "Don't use cookies": {
+      "comment": "Media cookie source: off",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Çerez kullanma"
+          }
+        }
+      }
+    },
+    "Dot": {
+      "comment": "Dock running indicator",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nokta"
+          }
+        }
+      }
+    },
+    "Dot under running apps": {
+      "extractionState": "stale",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Çalışanların altında nokta"
+          }
+        }
+      }
+    },
+    "Down the left edge, full height, square, with a bar beside what is running.": {
+      "comment": "Dock theme summary",
+      "extractionState": "stale",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sol kenarda, tam yükseklikte, köşesiz; çalışanın yanında bir çizgi."
+          }
+        }
+      }
+    },
+    "Download": {
+      "comment": "Floating panel title",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "İndir"
+          }
+        }
+      }
+    },
+    "Download a link": {
+      "comment": "Manual download prompt title",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bağlantı indir"
+          }
+        }
+      }
+    },
+    "Download failed": {
+      "comment": "Notch activity",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "İndirme başarısız"
+          }
+        }
+      }
+    },
+    "Download file": {
+      "comment": "Download prompt title",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dosyayı indir"
+          }
+        }
+      }
+    },
+    "Download Link on Clipboard": {
+      "comment": "Status item menu",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Panodaki Bağlantıyı İndir"
+          }
+        }
+      }
+    },
+    "Download link on the clipboard": {
+      "comment": "Downloads setting action",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Panodaki bağlantıyı indir"
+          }
+        }
+      }
+    },
+    "Download media": {
+      "comment": "Download prompt title",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Medyayı indir"
+          }
+        }
+      }
+    },
+    "Download progress": {
+      "comment": "Accessibility label for the island's download ring",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "İndirme ilerlemesi"
+          }
+        }
+      }
+    },
     "Downloaded": {
+      "comment": "Notch activity",
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
             "value": "İndirildi"
+          }
+        }
+      }
+    },
+    "Downloading": {
+      "comment": "Bar segment\nNotch activity",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "İndiriliyor"
+          }
+        }
+      }
+    },
+    "Downloads": {
+      "comment": "Module name\nPopover section\nPopover tab: the download queue",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "İndirmeler"
+          }
+        }
+      }
+    },
+    "Downloads at once: %lld": {
+      "comment": "Downloads setting",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aynı anda indirme: %lld"
+          }
+        }
+      }
+    },
+    "Drag items here to hide them": {
+      "comment": "Menu bar tab",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gizlemek için öğeleri buraya sürükleyin"
           }
         }
       }
@@ -893,6 +2533,27 @@
           "stringUnit": {
             "state": "translated",
             "value": "İhtiyacın olduğunda tekrar dışarı sürükle"
+          }
+        }
+      }
+    },
+    "Draw a line along the bottom": {
+      "comment": "Menu bar settings",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alt kenara bir çizgi çiz"
+          }
+        }
+      }
+    },
+    "Draw MagicPlus's own dock": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MagicPlus kendi dock'unu çizsin"
           }
         }
       }
@@ -917,7 +2578,18 @@
         }
       }
     },
+    "Edge": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kenar"
+          }
+        }
+      }
+    },
     "Empty the shelf": {
+      "extractionState": "stale",
       "localizations": {
         "tr": {
           "stringUnit": {
@@ -927,12 +2599,124 @@
         }
       }
     },
+    "Everything below, back to how the bar ships.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aşağıdaki her şey, çubuğun geldiği hâline döner."
+          }
+        }
+      }
+    },
     "External Display %lld": {
+      "comment": "Fallback name for a DDC display",
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
             "value": "Harici Ekran %lld"
+          }
+        }
+      }
+    },
+    "Failed": {
+      "comment": "Download did not finish",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Başarısız"
+          }
+        }
+      }
+    },
+    "Fan %lld": {
+      "comment": "Hardware card",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fan %lld"
+          }
+        }
+      }
+    },
+    "Fans": {
+      "comment": "Battery settings",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fanlar"
+          }
+        }
+      }
+    },
+    "Fast User Switching": {
+      "comment": "Menu bar item name",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hızlı Kullanıcı Değiştirme"
+          }
+        }
+      }
+    },
+    "Faster hide and show": {
+      "comment": "Dock tweak",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Daha hızlı gizlenme ve görünme"
+          }
+        }
+      }
+    },
+    "ffmpeg is missing, so only single-file formats can be asked for — and YouTube refuses those on most videos. Install it and video downloads work; audio only works either way.": {
+      "comment": "Warning shown when ffmpeg is not installed",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ffmpeg yok, bu yüzden yalnızca tek-dosya biçimleri istenebiliyor — YouTube ise bunları çoğu videoda reddediyor. Kurarsanız video indirmeleri çalışır; yalnızca ses her durumda çalışır."
+          }
+        }
+      }
+    },
+    "ffmpeg is needed to assemble this stream": {
+      "comment": "Download failure for an HLS or DASH manifest",
+      "extractionState": "stale",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu akışı birleştirmek için ffmpeg gerekiyor"
+          }
+        }
+      }
+    },
+    "ffmpeg is needed to join the two streams this site serves": {
+      "comment": "Download failure",
+      "extractionState": "stale",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu sitenin ayrı sunduğu iki akışı birleştirmek için ffmpeg gerekiyor"
+          }
+        }
+      }
+    },
+    "File name": {
+      "comment": "Download prompt field placeholder",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dosya adı"
           }
         }
       }
@@ -948,10 +2732,99 @@
         }
       }
     },
+    "Find my most recent PDF": {
+      "comment": "Agent suggestion",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "En son PDF dosyamı bul"
+          }
+        }
+      }
+    },
     "Floor": {
       "shouldTranslate": false
     },
+    "Focus": {
+      "comment": "Menu bar item name",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Odak"
+          }
+        }
+      }
+    },
+    "Focusing “%@”": {
+      "comment": "Agent step",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "“%@” öne getiriliyor"
+          }
+        }
+      }
+    },
+    "Folds menu bar items away behind a chevron, with search and appearance.": {
+      "comment": "Module summary",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menü çubuğu öğelerini bir okun arkasına katlar; arama ve görünüm ayarlarıyla."
+          }
+        }
+      }
+    },
+    "Force Quit": {
+      "comment": "Dock icon menu",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zorla Çık"
+          }
+        }
+      }
+    },
+    "Found automatically": {
+      "comment": "Placeholder for the helper path field",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Otomatik bulunur"
+          }
+        }
+      }
+    },
+    "From the end": {
+      "comment": "Dock alignment",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sondan"
+          }
+        }
+      }
+    },
+    "From the start": {
+      "comment": "Dock alignment",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Baştan"
+          }
+        }
+      }
+    },
     "Full screen": {
+      "comment": "Window zone",
       "localizations": {
         "tr": {
           "stringUnit": {
@@ -991,6 +2864,72 @@
         }
       }
     },
+    "Genie": {
+      "comment": "Dock minimize effect",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cin"
+          }
+        }
+      }
+    },
+    "Get": {
+      "comment": "Notch tab: the download queue",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Al"
+          }
+        }
+      }
+    },
+    "Get the extension…": {
+      "comment": "Opens the extension's instructions",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Eklentiyi edin…"
+          }
+        }
+      }
+    },
+    "Glass": {
+      "comment": "Dock surface",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cam"
+          }
+        }
+      }
+    },
+    "GPU": {
+      "comment": "Temperature sensor group",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "GPU"
+          }
+        }
+      }
+    },
+    "Gradient": {
+      "comment": "Menu bar tint style",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gradyan"
+          }
+        }
+      }
+    },
     "Grant": {
       "localizations": {
         "tr": {
@@ -1011,6 +2950,16 @@
         }
       }
     },
+    "Grant…": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "İzin ver…"
+          }
+        }
+      }
+    },
     "Granted": {
       "localizations": {
         "tr": {
@@ -1021,12 +2970,164 @@
         }
       }
     },
-    "Grant…": {
+    "Group windows by app in Mission Control": {
+      "comment": "Dock tweak",
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "İzin ver…"
+            "value": "Mission Control'de pencereleri uygulamaya göre grupla"
+          }
+        }
+      }
+    },
+    "Grow the icon under the pointer": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "İmlecin altındaki simgeyi büyüt"
+          }
+        }
+      }
+    },
+    "Health": {
+      "comment": "Battery detail",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sağlık"
+          }
+        }
+      }
+    },
+    "Help": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yardım"
+          }
+        }
+      }
+    },
+    "Helper": {
+      "comment": "The external media tool",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yardımcı"
+          }
+        }
+      }
+    },
+    "Helper path": {
+      "comment": "Path to the external media tool",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yardımcı yolu"
+          }
+        }
+      }
+    },
+    "Hidden": {
+      "comment": "Menu bar section: items revealed on demand",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gizli"
+          }
+        }
+      }
+    },
+    "Hidden items are showing": {
+      "comment": "Menu bar tab",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gizli öğeler görünüyor"
+          }
+        }
+      }
+    },
+    "Hidden items are tucked away": {
+      "comment": "Menu bar tab",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gizli öğeler saklandı"
+          }
+        }
+      }
+    },
+    "Hide": {
+      "comment": "Dock icon menu",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gizle"
+          }
+        }
+      }
+    },
+    "Hide again": {
+      "comment": "Menu bar settings",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yeniden gizle"
+          }
+        }
+      }
+    },
+    "Hide it until the pointer reaches the edge": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "İmleç kenara gelene kadar gizle"
+          }
+        }
+      }
+    },
+    "Hide menu bar items": {
+      "comment": "Accessibility label\nControl item tooltip",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menü çubuğu öğelerini gizle"
+          }
+        }
+      }
+    },
+    "Hide Menu Bar Items": {
+      "comment": "Chevron menu\nStatus item menu",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menü Çubuğu Öğelerini Gizle"
+          }
+        }
+      }
+    },
+    "Hides everything that is not open, turning the Dock into a list of what is running.": {
+      "comment": "Dock tweak summary",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Açık olmayan her şeyi gizler; Dock çalışanların listesine dönüşür."
           }
         }
       }
@@ -1051,17 +3152,62 @@
         }
       }
     },
-    "Holds off display sleep, system sleep, disk spin-down and the idle lock screen — the same set of assertions as `caffeinate -dims`. Turning the display option off lets the screen sleep, which also locks the Mac.": {
+    "Hold ⌘ and drag an item across the divider to move it between sections.": {
+      "comment": "Menu bar tab",
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ekran uykusunu, sistem uykusunu, disklerin durmasını ve boştaki kilit ekranını engeller — `caffeinate -dims` ile aynı bildirimleri kullanır. Ekran seçeneğini kapatırsan ekran uyur ve Mac de kilitlenir."
+            "value": "Bir öğeyi bölümler arasında taşımak için ⌘ tuşunu basılı tutarak ayıracın öbür tarafına sürükleyin."
+          }
+        }
+      }
+    },
+    "Hold at": {
+      "comment": "Battery settings",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Şu seviyede tut"
+          }
+        }
+      }
+    },
+    "Holds off display sleep, system sleep, disk spin-down and the idle lock screen — the same set of assertions as `caffeinate -dims`. Turning the display option off lets the screen sleep, which also locks the Mac. Closing the lid still sleeps the Mac — no app can prevent that — and quitting MagicPlus releases the hold, so keep \"Resume when MagicPlus launches\" on if the session must survive restarts.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ekran uykusunu, sistem uykusunu, disklerin durmasını ve boştaki kilit ekranını engeller — `caffeinate -dims` ile aynı bildirimleri kullanır. Ekran seçeneğini kapatırsan ekran uyur ve Mac de kilitlenir. Kapağı kapatmak Mac'i yine uyutur — hiçbir uygulama bunu engelleyemez — ve MagicPlus'tan çıkmak tutmayı bırakır; oturumun yeniden başlatmalara dayanması gerekiyorsa \"MagicPlus açıldığında sürdür\" seçeneğini açık tut."
+          }
+        }
+      }
+    },
+    "Holds off sleep for as long as you choose.": {
+      "comment": "Module summary",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seçtiğiniz süre boyunca uykuyu erteler."
+          }
+        }
+      }
+    },
+    "Homebrew is not installed either — Install… opens brew.sh, which is one command.": {
+      "comment": "Shown when neither the helper nor Homebrew is present",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Homebrew de kurulu değil — Kur…, tek komutluk kurulum sayfası olan brew.sh'yi açar."
           }
         }
       }
     },
     "Hot": {
+      "comment": "Thermal pressure level",
       "localizations": {
         "tr": {
           "stringUnit": {
@@ -1091,6 +3237,20 @@
         }
       }
     },
+    "How is the battery and disk doing?": {
+      "comment": "Agent suggestion",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pil ve disk durumu nasıl?"
+          }
+        }
+      }
+    },
+    "https://": {
+      "shouldTranslate": false
+    },
     "Icon only": {
       "comment": "Menu bar shows no metric",
       "localizations": {
@@ -1098,6 +3258,27 @@
           "stringUnit": {
             "state": "translated",
             "value": "Yalnızca simge"
+          }
+        }
+      }
+    },
+    "Icons": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Simgeler"
+          }
+        }
+      }
+    },
+    "Icons stop hopping while their app starts up.": {
+      "comment": "Dock tweak summary",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uygulama açılırken simgeler zıplamaz."
           }
         }
       }
@@ -1134,7 +3315,129 @@
         }
       }
     },
+    "in %lldm": {
+      "comment": "Minutes until a meeting starts",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld dk sonra"
+          }
+        }
+      }
+    },
+    "In progress": {
+      "comment": "Download with no known size",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sürüyor"
+          }
+        }
+      }
+    },
+    "In the list": {
+      "comment": "How many downloads the queue holds",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Listede"
+          }
+        }
+      }
+    },
+    "Install Helper…": {
+      "comment": "Battery settings",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yardımcıyı Kur…"
+          }
+        }
+      }
+    },
+    "Install…": {
+      "comment": "Starts installing the media helper",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kur…"
+          }
+        }
+      }
+    },
+    "Install… opens a Terminal window and runs it, so you can watch it and stop it.": {
+      "comment": "Explains what the install button does",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kur…, komutu bir Terminal penceresinde çalıştırır; izleyebilir ve durdurabilirsiniz."
+          }
+        }
+      }
+    },
+    "Installed": {
+      "comment": "Helper state",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kurulu"
+          }
+        }
+      }
+    },
+    "Interrupted": {
+      "comment": "Download was cut off",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kesildi"
+          }
+        }
+      }
+    },
+    "issue report": {
+      "comment": "Email subject suffix for a bug report",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "sorun bildirimi"
+          }
+        }
+      }
+    },
+    "It can search your files, open apps, take notes, manage windows and volume.": {
+      "comment": "Agent panel: empty state summary",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dosyalarını arayabilir, uygulama açabilir, not alabilir, pencereleri ve sesi yönetebilir."
+          }
+        }
+      }
+    },
+    "Items dragged to the left of this divider are hidden": {
+      "comment": "Divider tooltip",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu ayıracın soluna sürüklenen öğeler gizlenir"
+          }
+        }
+      }
+    },
     "Join": {
+      "comment": "Open the meeting link",
       "localizations": {
         "tr": {
           "stringUnit": {
@@ -1144,13 +3447,58 @@
         }
       }
     },
+    "Joining picture and sound": {
+      "comment": "A download being muxed",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Görüntü ve ses birleştiriliyor"
+          }
+        }
+      }
+    },
+    "JSON": {
+      "comment": "Clipboard transform: pretty-print JSON",
+      "shouldTranslate": false
+    },
+    "Keep awake": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uyanık tut"
+          }
+        }
+      }
+    },
     "Keep Awake": {
-      "comment": "Status item menu",
+      "comment": "Module name\nShortcut name\nStatus item menu",
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
             "value": "Uyanık Tut"
+          }
+        }
+      }
+    },
+    "Keep awake %@": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ uyanık tut"
+          }
+        }
+      }
+    },
+    "Keep awake for": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Şu kadar uyanık tut"
           }
         }
       }
@@ -1177,42 +3525,88 @@
         }
       }
     },
-    "Keep awake": {
+    "Keep in Dock": {
+      "comment": "Dock icon menu",
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Uyanık tut"
+            "value": "Dock'ta Tut"
           }
         }
       }
     },
-    "Keep awake %@": {
+    "Keep open": {
+      "comment": "Agent panel",
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "%@ uyanık tut"
-          }
-        }
-      }
-    },
-    "Keep awake for": {
-      "localizations": {
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Şu kadar uyanık tut"
+            "value": "Açık tut"
           }
         }
       }
     },
     "Keep the Mac awake": {
+      "comment": "Help tag for the keep-awake button while off",
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
             "value": "Mac'i uyanık tut"
+          }
+        }
+      }
+    },
+    "Keep windows out of its way": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pencereleri alanından uzak tut"
+          }
+        }
+      }
+    },
+    "Keeping a lithium battery off full is the single thing that slows its ageing most, which is why Apple's own optimised charging parks at 80%. The limit holds only while MagicPlus is running: quitting it, or a crash, puts charging back to normal within half a minute.": {
+      "comment": "Battery settings",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lityum bir pili tam dolu tutmamak, yaşlanmasını en çok yavaşlatan tek etken; Apple'ın optimize şarjı da bu yüzden %80'de bekler. Limit yalnızca MagicPlus çalışırken geçerlidir: uygulamayı kapatmak ya da bir çökme, yarım dakika içinde şarjı normale döndürür."
+          }
+        }
+      }
+    },
+    "Keeps what you copy, searchable and pinnable. Polls the pasteboard.": {
+      "comment": "Module summary",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kopyaladıklarınızı saklar; aranabilir ve sabitlenebilir. Panoyu yoklar."
+          }
+        }
+      }
+    },
+    "Keyboard Brightness": {
+      "comment": "Menu bar item name",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Klavye Parlaklığı"
+          }
+        }
+      }
+    },
+    "Keys are kept in your login keychain, one per provider — never in this app's settings file.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anahtarlar oturum açma anahtar zincirinizde, sağlayıcı başına bir tane tutulur — asla bu uygulamanın ayar dosyasında değil."
           }
         }
       }
@@ -1233,6 +3627,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Girişte başlat"
+          }
+        }
+      }
+    },
+    "Launching %@": {
+      "comment": "Agent step",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ başlatılıyor"
           }
         }
       }
@@ -1280,6 +3685,7 @@
       }
     },
     "Left half": {
+      "comment": "Window zone",
       "localizations": {
         "tr": {
           "stringUnit": {
@@ -1290,6 +3696,7 @@
       }
     },
     "Left third": {
+      "comment": "Window zone",
       "localizations": {
         "tr": {
           "stringUnit": {
@@ -1300,6 +3707,7 @@
       }
     },
     "Left two thirds": {
+      "comment": "Window zone",
       "localizations": {
         "tr": {
           "stringUnit": {
@@ -1309,7 +3717,19 @@
         }
       }
     },
+    "Let %@ hand downloads to MagicPlus?": {
+      "comment": "Bridge pairing dialog title",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ indirmeleri MagicPlus'a devretsin mi?"
+          }
+        }
+      }
+    },
     "Lid closed or forced sleep": {
+      "comment": "Why the Mac slept",
       "localizations": {
         "tr": {
           "stringUnit": {
@@ -1319,7 +3739,151 @@
         }
       }
     },
+    "Light up the icon under the pointer": {
+      "extractionState": "stale",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "İmlecin altındaki simgeyi vurgula"
+          }
+        }
+      }
+    },
+    "Link found": {
+      "comment": "Notch activity",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bağlantı bulundu"
+          }
+        }
+      }
+    },
+    "Listening — recognised by Apple's service": {
+      "comment": "Chat: dictation is not on-device",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dinliyor — Apple'ın servisinde tanınıyor"
+          }
+        }
+      }
+    },
+    "Listening — recognised on this Mac": {
+      "comment": "Chat: dictation is on-device",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dinliyor — bu Mac'te tanınıyor"
+          }
+        }
+      }
+    },
+    "Listening on %@": {
+      "comment": "Bridge status with its port",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ portunda dinliyor"
+          }
+        }
+      }
+    },
+    "Listing open windows": {
+      "comment": "Agent step",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Açık pencereler listeleniyor"
+          }
+        }
+      }
+    },
+    "Lists": {
+      "extractionState": "stale",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Listelenen"
+          }
+        }
+      }
+    },
+    "Live stream": {
+      "comment": "A sniffed HLS or DASH playlist",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Canlı akış"
+          }
+        }
+      }
+    },
+    "Live window previews when the pointer rests on a Dock icon.": {
+      "comment": "Module summary",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fare Dock simgesinde beklediğinde canlı pencere önizlemeleri."
+          }
+        }
+      }
+    },
+    "Lock Screen": {
+      "comment": "Start menu session command",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ekranı Kilitle"
+          }
+        }
+      }
+    },
+    "Log Out…": {
+      "comment": "Start menu session command",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Oturumu Kapat…"
+          }
+        }
+      }
+    },
+    "Look again": {
+      "comment": "Re-checks whether the media helper is installed",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yeniden bak"
+          }
+        }
+      }
+    },
+    "Looking up what is on the page": {
+      "comment": "Download prompt, while the helper resolves a page",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sayfada ne olduğuna bakılıyor"
+          }
+        }
+      }
+    },
     "Low battery": {
+      "comment": "Notch activity",
       "localizations": {
         "tr": {
           "stringUnit": {
@@ -1329,7 +3893,19 @@
         }
       }
     },
+    "lower": {
+      "comment": "Clipboard transform: lowercase",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "küçük"
+          }
+        }
+      }
+    },
     "Mac slept despite Keep Awake": {
+      "comment": "Notch activity",
       "localizations": {
         "tr": {
           "stringUnit": {
@@ -1339,8 +3915,51 @@
         }
       }
     },
+    "macOS": {
+      "comment": "Dock preset",
+      "extractionState": "stale",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "macOS"
+          }
+        }
+      }
+    },
+    "macOS exposes nothing about the real Dock's appearance, so the only way to change how a dock looks is to draw one. Yours opens with the icons already arranged the way they are now — they are read from the Dock's own list and never rewritten. While this is on, the system Dock is hidden; switching it off gives it back.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "macOS gerçek Dock'un görünümüyle ilgili hiçbir ayar açmıyor; bir dock'un görünüşünü değiştirmenin tek yolu onu kendin çizmek. Senin dock'un simgeler şu anki dizilimiyle açılır — Dock'un kendi listesinden okunur ve asla üzerine yazılmaz. Bu açıkken sistem Dock'u gizlenir; kapatınca geri gelir."
+          }
+        }
+      }
+    },
+    "macOS refused access to %@": {
+      "comment": "Automation permission was denied for a browser",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "macOS %@ erişimini reddetti"
+          }
+        }
+      }
+    },
     "MagicPlus": {
       "shouldTranslate": false
+    },
+    "MagicPlus needs permission to move windows and paste for you.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MagicPlus'nün pencereleri taşıması ve senin yerine yapıştırması için izin gerekiyor."
+          }
+        }
+      }
     },
     "MagicPlus Settings": {
       "comment": "Settings window title",
@@ -1353,12 +3972,46 @@
         }
       }
     },
-    "MagicPlus needs permission to move windows and paste for you.": {
+    "MagicPlus ships no site extractors. Install `yt-dlp` and this page downloads like anything else, in the same queue.": {
+      "comment": "Shown when the media helper is missing",
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "MagicPlus'nün pencereleri taşıması ve senin yerine yapıştırması için izin gerekiyor."
+            "value": "MagicPlus hiçbir site çözücüsü içermez. `yt-dlp` kurun; bu sayfa da diğer her şey gibi, aynı kuyrukta inecek."
+          }
+        }
+      }
+    },
+    "Magnify on hover": {
+      "extractionState": "stale",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Üstüne gelince büyüt"
+          }
+        }
+      }
+    },
+    "Manage downloads": {
+      "comment": "Downloads setting",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "İndirmeleri yönet"
+          }
+        }
+      }
+    },
+    "Manage menu bar items": {
+      "comment": "Menu bar settings",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menü çubuğu öğelerini yönet"
           }
         }
       }
@@ -1374,12 +4027,35 @@
         }
       }
     },
+    "Media found": {
+      "comment": "Notch activity",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Medya bulundu"
+          }
+        }
+      }
+    },
     "Media keys": {
+      "comment": "Media pane, no track",
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
             "value": "Medya tuşları"
+          }
+        }
+      }
+    },
+    "Media pages": {
+      "comment": "Downloads settings section",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Medya sayfaları"
           }
         }
       }
@@ -1395,6 +4071,50 @@
         }
       }
     },
+    "Menu Bar": {
+      "comment": "Popover tab: menu bar sections",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menü Çubuğu"
+          }
+        }
+      }
+    },
+    "Menu Bar Manager": {
+      "comment": "Module name",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menü Çubuğu Yöneticisi"
+          }
+        }
+      }
+    },
+    "Menu bar sections are off": {
+      "comment": "Menu bar tab",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menü çubuğu bölümleri kapalı"
+          }
+        }
+      }
+    },
+    "Menu Bar Settings…": {
+      "comment": "Chevron menu",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menü Çubuğu Ayarları…"
+          }
+        }
+      }
+    },
     "Menu bar shows": {
       "localizations": {
         "tr": {
@@ -1405,7 +4125,19 @@
         }
       }
     },
+    "Menu Search": {
+      "comment": "Module name",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menü Arama"
+          }
+        }
+      }
+    },
     "Mic live": {
+      "comment": "Notch activity",
       "localizations": {
         "tr": {
           "stringUnit": {
@@ -1416,11 +4148,23 @@
       }
     },
     "Mic muted": {
+      "comment": "Notch activity",
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
             "value": "Mikrofon susturuldu"
+          }
+        }
+      }
+    },
+    "Microphone": {
+      "comment": "Module name",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mikrofon"
           }
         }
       }
@@ -1441,6 +4185,40 @@
           "stringUnit": {
             "state": "translated",
             "value": "Mikrofon susturuldu"
+          }
+        }
+      }
+    },
+    "Minimal": {
+      "comment": "Dock theme",
+      "extractionState": "stale",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yalın"
+          }
+        }
+      }
+    },
+    "Minimise": {
+      "comment": "Sidebar row menu",
+      "extractionState": "stale",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Küçült"
+          }
+        }
+      }
+    },
+    "Minimise effect": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Küçültme efekti"
           }
         }
       }
@@ -1466,12 +4244,55 @@
         }
       }
     },
+    "Mission Control stacks each app's windows together instead of spreading them.": {
+      "comment": "Dock tweak summary",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mission Control her uygulamanın pencerelerini yaymak yerine üst üste toplar."
+          }
+        }
+      }
+    },
     "Mixer": {
+      "comment": "Notch tab: per-app volume",
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
             "value": "Karıştırıcı"
+          }
+        }
+      }
+    },
+    "Model": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Model"
+          }
+        }
+      }
+    },
+    "Model name": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Model adı"
+          }
+        }
+      }
+    },
+    "Modules": {
+      "comment": "Settings tab: which parts of the app are running",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Modüller"
           }
         }
       }
@@ -1498,7 +4319,19 @@
         }
       }
     },
+    "Music Recognition": {
+      "comment": "Menu bar item name",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Müzik Tanıma"
+          }
+        }
+      }
+    },
     "Mute Microphone": {
+      "comment": "Shortcut name",
       "localizations": {
         "tr": {
           "stringUnit": {
@@ -1518,12 +4351,112 @@
         }
       }
     },
+    "Mutes the input device by shortcut, and shows when something is listening.": {
+      "comment": "Module summary",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Giriş aygıtını kısayolla susturur ve bir şey dinlerken bunu gösterir."
+          }
+        }
+      }
+    },
+    "Needs the helper": {
+      "comment": "Charge limit state",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yardımcı gerekiyor"
+          }
+        }
+      }
+    },
+    "Never": {
+      "comment": "Rehide strategy",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Asla"
+          }
+        }
+      }
+    },
+    "New conversation": {
+      "comment": "Agent panel",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yeni konuşma"
+          }
+        }
+      }
+    },
+    "New Window": {
+      "comment": "Dock icon menu",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yeni Pencere"
+          }
+        }
+      }
+    },
     "Next": {
+      "extractionState": "stale",
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
             "value": "Sonraki"
+          }
+        }
+      }
+    },
+    "No API key is set. Add one in Settings → AI.": {
+      "comment": "Agent error",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ayarlanmış bir API anahtarı yok. Ayarlar → Yapay Zekâ bölümünden ekleyin."
+          }
+        }
+      }
+    },
+    "No bounce while an app opens": {
+      "comment": "Dock tweak",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uygulama açılırken zıplama yok"
+          }
+        }
+      }
+    },
+    "No bouncing for attention": {
+      "comment": "Dock tweak",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dikkat için zıplama yok"
+          }
+        }
+      }
+    },
+    "No browser connected": {
+      "comment": "No paired extension yet",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bağlı tarayıcı yok"
           }
         }
       }
@@ -1539,12 +4472,44 @@
         }
       }
     },
+    "No installed application has that in its name.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kurulu hiçbir uygulamanın adında bu geçmiyor."
+          }
+        }
+      }
+    },
+    "No items": {
+      "comment": "Menu bar tab",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Öğe yok"
+          }
+        }
+      }
+    },
     "No matches": {
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
             "value": "Eşleşme yok"
+          }
+        }
+      }
+    },
+    "No menu bar items found": {
+      "comment": "Empty search results",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menü çubuğu öğesi bulunamadı"
           }
         }
       }
@@ -1559,6 +4524,28 @@
         }
       }
     },
+    "No microphone is available.": {
+      "comment": "Voice input error",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kullanılabilir bir mikrofon yok."
+          }
+        }
+      }
+    },
+    "No open windows": {
+      "extractionState": "stale",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Açık pencere yok"
+          }
+        }
+      }
+    },
     "No open windows found": {
       "localizations": {
         "tr": {
@@ -1569,12 +4556,69 @@
         }
       }
     },
+    "No speech recogniser is available for this language.": {
+      "comment": "Voice input error",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu dil için konuşma tanıyıcı yok."
+          }
+        }
+      }
+    },
+    "No surface at all — icons on the wallpaper, growing under the pointer.": {
+      "comment": "Dock theme summary",
+      "extractionState": "stale",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hiç yüzey yok — simgeler duvar kağıdının üstünde, imlecin altında büyüyerek."
+          }
+        }
+      }
+    },
+    "None": {
+      "comment": "Dock running indicator\nDock surface\nMenu bar tint style",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yok"
+          }
+        }
+      }
+    },
     "Normal": {
+      "comment": "Thermal pressure level",
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
             "value": "Normal"
+          }
+        }
+      }
+    },
+    "Not an HTTP response": {
+      "comment": "Download failure",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "HTTP yanıtı değil"
+          }
+        }
+      }
+    },
+    "Not enough room — %@ needed": {
+      "comment": "Download failure when the disk is too full",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yeterli alan yok — %@ gerekiyor"
           }
         }
       }
@@ -1589,12 +4633,45 @@
         }
       }
     },
+    "Not installed": {
+      "comment": "Helper state",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kurulu değil"
+          }
+        }
+      }
+    },
     "Notch": {
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
             "value": "Çentik"
+          }
+        }
+      }
+    },
+    "Notch Panel": {
+      "comment": "Module name",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Çentik Paneli"
+          }
+        }
+      }
+    },
+    "Note down: ": {
+      "comment": "Agent suggestion — intentionally open-ended",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Not al: "
           }
         }
       }
@@ -1609,6 +4686,17 @@
         }
       }
     },
+    "Nothing downloading": {
+      "comment": "Downloads pane, empty",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "İndirilen bir şey yok"
+          }
+        }
+      }
+    },
     "Nothing is playing right now": {
       "localizations": {
         "tr": {
@@ -1619,7 +4707,28 @@
         }
       }
     },
+    "Nothing is sent until you type something, and nothing goes anywhere but the provider chosen above.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Siz bir şey yazana kadar hiçbir şey gönderilmez ve hiçbir şey yukarıda seçilen sağlayıcı dışında bir yere gitmez."
+          }
+        }
+      }
+    },
+    "Nothing matches": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Eşleşen yok"
+          }
+        }
+      }
+    },
     "Nothing playing": {
+      "comment": "Media pane, no track",
       "localizations": {
         "tr": {
           "stringUnit": {
@@ -1639,6 +4748,26 @@
         }
       }
     },
+    "Nothing switched on": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hiçbir modül açık değil"
+          }
+        }
+      }
+    },
+    "Nothing to grant": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verilecek izin yok"
+          }
+        }
+      }
+    },
     "Nothing to save — no windows found.": {
       "comment": "Shown when saving a layout with no open windows",
       "localizations": {
@@ -1646,6 +4775,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "Kaydedilecek bir şey yok — pencere bulunamadı."
+          }
+        }
+      }
+    },
+    "Noticing links": {
+      "comment": "Downloads settings section",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bağlantı algılama"
+          }
+        }
+      }
+    },
+    "now": {
+      "comment": "A meeting that has already started\nAge of a just-captured clipboard entry",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "şimdi"
           }
         }
       }
@@ -1661,12 +4812,57 @@
         }
       }
     },
+    "Now Playing": {
+      "comment": "Menu bar item name",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Şimdi Çalıyor"
+          }
+        }
+      }
+    },
+    "of %@": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "/ %@"
+          }
+        }
+      }
+    },
     "Off": {
+      "comment": "Charge limit state",
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
             "value": "Kapalı"
+          }
+        }
+      }
+    },
+    "Offer to download links you copy": {
+      "comment": "Downloads setting",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kopyaladığınız bağlantıları indirmeyi teklif et"
+          }
+        }
+      }
+    },
+    "Offer video playing on a page": {
+      "comment": "Extension option",
+      "extractionState": "stale",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sayfada oynayan videoyu teklif et"
           }
         }
       }
@@ -1681,7 +4877,30 @@
         }
       }
     },
+    "On battery": {
+      "comment": "Notch activity",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pilde"
+          }
+        }
+      }
+    },
+    "One app at a time: clicking its icon hides every other window.": {
+      "comment": "Dock tweak summary",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tek uygulama: simgesine tıklamak diğer tüm pencereleri gizler."
+          }
+        }
+      }
+    },
     "One line": {
+      "comment": "Clipboard transform: collapse line breaks",
       "localizations": {
         "tr": {
           "stringUnit": {
@@ -1691,7 +4910,64 @@
         }
       }
     },
+    "One strip along the edge: the app in front with its window title, the running apps with their notification counts, what is playing with its controls, and a clock.": {
+      "comment": "Dock theme summary",
+      "extractionState": "stale",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kenarda tek bir şerit: öndeki uygulama ve pencere başlığı, çalışan uygulamalar ve bildirim sayaçları, çalan parça ve denetimleri, bir de saat."
+          }
+        }
+      }
+    },
+    "One strip: front app, running apps, playback, clock": {
+      "comment": "Dock layout",
+      "extractionState": "stale",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tek şerit: öndeki uygulama, çalışanlar, oynatma, saat"
+          }
+        }
+      }
+    },
+    "Only root may tell the charging circuit anything, so this one small background process does that and nothing else: it accepts a fixed list of requests from MagicPlus alone, verified by code signature, and undoes every change it has made if the app stops answering. Removing it here leaves nothing behind.": {
+      "comment": "Battery settings",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Şarj devresine yalnızca root yazabilir; bu küçük arka plan süreci de sadece bunu yapar: yalnızca MagicPlus'tan gelen, kod imzasıyla doğrulanmış sabit bir istek listesini kabul eder ve uygulama yanıt vermeyi bırakırsa yaptığı her değişikliği geri alır. Buradan kaldırdığınızda geride hiçbir şey kalmaz."
+          }
+        }
+      }
+    },
+    "Only running apps": {
+      "comment": "Dock tweak",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yalnızca çalışan uygulamalar"
+          }
+        }
+      }
+    },
+    "Only the Dock and the menu bar can shrink the space macOS gives to windows, so no app can make another app's window respect a strip down the side. What this does is stop MagicPlus putting windows there: tiling, drag-to-edge snapping and saved layouts all leave it alone.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "macOS'un pencerelere verdiği alanı yalnızca Dock ve menü çubuğu küçültebilir; hiçbir uygulama başka bir uygulamanın penceresini kenardaki şeride saygı göstermeye zorlayamaz. Bunun yaptığı şey MagicPlus'ın oraya pencere koymasını durdurmak: döşeme, kenara sürükleyip sabitleme ve kayıtlı düzenler o alana dokunmaz."
+          }
+        }
+      }
+    },
     "Open": {
+      "comment": "Dock icon menu\nDownload control\nStart menu section: running applications",
       "localizations": {
         "tr": {
           "stringUnit": {
@@ -1701,8 +4977,62 @@
         }
       }
     },
+    "Open %@": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aç: %@"
+          }
+        }
+      }
+    },
+    "Open at Login": {
+      "comment": "Dock icon menu",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Girişte Aç"
+          }
+        }
+      }
+    },
+    "Open Automation Settings": {
+      "comment": "Opens System Settings at the Automation pane",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Otomasyon Ayarlarını Aç"
+          }
+        }
+      }
+    },
+    "Open in Finder": {
+      "comment": "Folder stack: hand the whole folder over",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Finder'da Aç"
+          }
+        }
+      }
+    },
+    "Open Login Items": {
+      "comment": "Battery settings",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Giriş Öğeleri'ni Aç"
+          }
+        }
+      }
+    },
     "Open MagicPlus": {
-      "comment": "Status item menu",
+      "comment": "Shortcut name\nStatus item menu",
       "localizations": {
         "tr": {
           "stringUnit": {
@@ -1742,6 +5072,61 @@
         }
       }
     },
+    "Open windows, with titles": {
+      "comment": "Dock layout",
+      "extractionState": "stale",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Açık pencereler, başlıklarıyla"
+          }
+        }
+      }
+    },
+    "Opening %@": {
+      "comment": "Agent step",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ açılıyor"
+          }
+        }
+      }
+    },
+    "Opens an email with the build, this Mac, which modules are on and any errors this session recorded — nothing is sent until you press send.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sürüm, bu Mac, açık modüller ve bu oturumda kaydedilen hatalarla bir e-posta açar — gönder'e basmadan hiçbir şey gitmez."
+          }
+        }
+      }
+    },
+    "Options": {
+      "comment": "Dock icon menu submenu",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seçenekler"
+          }
+        }
+      }
+    },
+    "Other": {
+      "comment": "Temperature sensor group",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Diğer"
+          }
+        }
+      }
+    },
     "Output device": {
       "localizations": {
         "tr": {
@@ -1762,12 +5147,34 @@
         }
       }
     },
+    "Part of the stream did not arrive": {
+      "comment": "HLS failure",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Akışın bir parçası gelmedi"
+          }
+        }
+      }
+    },
     "Paste": {
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
             "value": "Yapıştır"
+          }
+        }
+      }
+    },
+    "Paste a link": {
+      "comment": "Opens the manual download prompt",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bağlantı yapıştır"
           }
         }
       }
@@ -1782,12 +5189,67 @@
         }
       }
     },
+    "Paste or type an address": {
+      "comment": "Manual download prompt subtitle",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bir adres yapıştırın ya da yazın"
+          }
+        }
+      }
+    },
     "Paste with this change applied": {
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
             "value": "Bu değişiklikle yapıştır"
+          }
+        }
+      }
+    },
+    "Paste your key": {
+      "comment": "AI settings: no key yet",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anahtarınızı yapıştırın"
+          }
+        }
+      }
+    },
+    "Pause": {
+      "comment": "Download control",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Duraklat"
+          }
+        }
+      }
+    },
+    "Pause every download": {
+      "comment": "Downloads pane action",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tüm indirmeleri duraklat"
+          }
+        }
+      }
+    },
+    "Paused at %@%@": {
+      "comment": "Download is paused part of the way through",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Duraklatıldı: %@%@"
           }
         }
       }
@@ -1808,6 +5270,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "İzinler"
+          }
+        }
+      }
+    },
+    "Permissions…": {
+      "comment": "Status item menu",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "İzinler…"
+          }
+        }
+      }
+    },
+    "Picture and sound did not line up, so nothing was saved": {
+      "comment": "Muxing failure when the two tracks disagree on length",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Görüntü ve ses hizalanmadı, bu yüzden hiçbir şey kaydedilmedi"
           }
         }
       }
@@ -1833,6 +5317,7 @@
       }
     },
     "Play or pause": {
+      "extractionState": "stale",
       "localizations": {
         "tr": {
           "stringUnit": {
@@ -1863,6 +5348,28 @@
         }
       }
     },
+    "Position": {
+      "comment": "Bar menu",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Konum"
+          }
+        }
+      }
+    },
+    "Power": {
+      "comment": "Temperature sensor group",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Güç"
+          }
+        }
+      }
+    },
     "Power the Mirror tab in the notch panel.": {
       "comment": "What Camera permission unlocks",
       "localizations": {
@@ -1875,11 +5382,23 @@
       }
     },
     "Presentation Mode": {
+      "comment": "Module name\nShortcut name\nStatus item menu",
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
             "value": "Sunum Modu"
+          }
+        }
+      }
+    },
+    "Presets": {
+      "extractionState": "stale",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hazır ayarlar"
           }
         }
       }
@@ -1917,6 +5436,7 @@
       }
     },
     "Previous": {
+      "extractionState": "stale",
       "localizations": {
         "tr": {
           "stringUnit": {
@@ -1926,7 +5446,51 @@
         }
       }
     },
+    "Privileged helper": {
+      "comment": "Battery settings",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ayrıcalıklı yardımcı"
+          }
+        }
+      }
+    },
+    "Provider": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sağlayıcı"
+          }
+        }
+      }
+    },
+    "Quality": {
+      "comment": "Download prompt field",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kalite"
+          }
+        }
+      }
+    },
+    "Queue": {
+      "comment": "Downloads settings section",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kuyruk"
+          }
+        }
+      }
+    },
     "Quick Note": {
+      "comment": "Floating panel title\nModule name\nShortcut name\nStatus item menu",
       "localizations": {
         "tr": {
           "stringUnit": {
@@ -1937,6 +5501,7 @@
       }
     },
     "Quit": {
+      "comment": "Dock icon menu",
       "localizations": {
         "tr": {
           "stringUnit": {
@@ -1967,6 +5532,28 @@
         }
       }
     },
+    "Read straight from the SMC, which every Mac has and no Mac documents. Sensor keys differ from model to model, so what is found here is what this machine reports — and reading them changes nothing. The Stats tab shows the hottest reading in each group; Settings → General can put the CPU temperature in the menu bar.": {
+      "comment": "Battery settings",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Her Mac'te bulunan ama hiçbir Mac'te belgelenmeyen SMC'den doğrudan okunur. Sensör anahtarları modelden modele değişir; burada görünenler bu makinenin bildirdikleridir ve okumak hiçbir şeyi değiştirmez. İstatistikler sekmesi her gruptaki en sıcak değeri gösterir; Ayarlar → Genel'den CPU sıcaklığı menü çubuğuna konabilir."
+          }
+        }
+      }
+    },
+    "Read the answer aloud": {
+      "comment": "Chat",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cevabı sesli oku"
+          }
+        }
+      }
+    },
     "Read what Music, Spotify or your browser is playing.": {
       "comment": "What Automation permission unlocks",
       "localizations": {
@@ -1974,6 +5561,50 @@
           "stringUnit": {
             "state": "translated",
             "value": "Music, Spotify veya tarayıcında ne çaldığını okur."
+          }
+        }
+      }
+    },
+    "Reading %@": {
+      "comment": "Agent step",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ okunuyor"
+          }
+        }
+      }
+    },
+    "Reading sensors…": {
+      "comment": "Hardware card",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensörler okunuyor…"
+          }
+        }
+      }
+    },
+    "Reading the system status": {
+      "comment": "Agent step",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sistem durumu okunuyor"
+          }
+        }
+      }
+    },
+    "Reads text off the screen and copies it.": {
+      "comment": "Module summary",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ekrandaki metni okuyup kopyalar."
           }
         }
       }
@@ -2008,6 +5639,17 @@
         }
       }
     },
+    "Reload the model list": {
+      "comment": "AI settings",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Model listesini yenile"
+          }
+        }
+      }
+    },
     "Remove": {
       "localizations": {
         "tr": {
@@ -2028,12 +5670,54 @@
         }
       }
     },
+    "Remove All": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tümünü Kaldır"
+          }
+        }
+      }
+    },
     "Remove all unpinned items": {
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
             "value": "Sabitlenmemiş tüm öğeleri kaldır"
+          }
+        }
+      }
+    },
+    "Remove from the list": {
+      "comment": "Download control",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Listeden çıkar"
+          }
+        }
+      }
+    },
+    "Remove Helper": {
+      "comment": "Battery settings",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yardımcıyı Kaldır"
+          }
+        }
+      }
+    },
+    "Remove rule for %@": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ kuralını kaldır"
           }
         }
       }
@@ -2054,6 +5738,27 @@
           "stringUnit": {
             "state": "translated",
             "value": "%@ kısayolunu kaldır"
+          }
+        }
+      }
+    },
+    "Removes only the settings on this page. The Dock restarts to pick them up, which takes a moment and loses nothing.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yalnızca bu sayfadaki ayarları geri alır. Dock bunları okumak için yeniden başlar; bir an sürer ve hiçbir şey kaybolmaz."
+          }
+        }
+      }
+    },
+    "Report an Issue…": {
+      "comment": "Status item menu",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sorun Bildir…"
           }
         }
       }
@@ -2079,11 +5784,34 @@
       }
     },
     "Rescue Windows": {
+      "comment": "Shortcut name\nStatus item menu",
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
             "value": "Pencereleri Kurtar"
+          }
+        }
+      }
+    },
+    "Reset": {
+      "comment": "Menu bar settings",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sıfırla"
+          }
+        }
+      }
+    },
+    "Restart…": {
+      "comment": "Start menu session command",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yeniden Başlat…"
           }
         }
       }
@@ -2094,7 +5822,7 @@
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Geri Al"
+            "value": "Geri yükle"
           }
         }
       }
@@ -2115,6 +5843,26 @@
           "stringUnit": {
             "state": "translated",
             "value": "Varsayılanlara Dön"
+          }
+        }
+      }
+    },
+    "Restore macOS Defaults": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "macOS Varsayılanlarına Dön"
+          }
+        }
+      }
+    },
+    "Restore the Default Look": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Varsayılan Görünüme Dön"
           }
         }
       }
@@ -2166,11 +5914,23 @@
       }
     },
     "Resume": {
+      "comment": "Download control",
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
             "value": "Sürdür"
+          }
+        }
+      }
+    },
+    "Resume every download": {
+      "comment": "Downloads pane action",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tüm indirmeleri sürdür"
           }
         }
       }
@@ -2185,12 +5945,45 @@
         }
       }
     },
+    "Returned": {
+      "comment": "Chat: a tool's result",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Döndürdü"
+          }
+        }
+      }
+    },
     "Reveal in Finder": {
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
             "value": "Finder'da Göster"
+          }
+        }
+      }
+    },
+    "Reveal when the pointer is over the menu bar": {
+      "comment": "Menu bar settings",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "İmleç menü çubuğunun üzerindeyken göster"
+          }
+        }
+      }
+    },
+    "Revealing": {
+      "comment": "Menu bar settings",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gösterme"
           }
         }
       }
@@ -2217,6 +6010,7 @@
       }
     },
     "Right half": {
+      "comment": "Window zone",
       "localizations": {
         "tr": {
           "stringUnit": {
@@ -2226,7 +6020,19 @@
         }
       }
     },
+    "Right now": {
+      "comment": "Battery settings",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Şu an"
+          }
+        }
+      }
+    },
     "Right third": {
+      "comment": "Window zone",
       "localizations": {
         "tr": {
           "stringUnit": {
@@ -2237,6 +6043,7 @@
       }
     },
     "Right two thirds": {
+      "comment": "Window zone",
       "localizations": {
         "tr": {
           "stringUnit": {
@@ -2257,11 +6064,22 @@
       }
     },
     "Run": {
+      "extractionState": "stale",
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
             "value": "Çalıştır"
+          }
+        }
+      }
+    },
+    "Running mark": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Çalışma işareti"
           }
         }
       }
@@ -2279,7 +6097,19 @@
         }
       }
     },
+    "Save as": {
+      "comment": "Download prompt field",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Şu adla kaydet"
+          }
+        }
+      }
+    },
     "Save current": {
+      "extractionState": "stale",
       "localizations": {
         "tr": {
           "stringUnit": {
@@ -2309,12 +6139,57 @@
         }
       }
     },
+    "Save to": {
+      "comment": "Downloads setting",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kayıt yeri"
+          }
+        }
+      }
+    },
     "Save to shelf": {
+      "extractionState": "stale",
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
             "value": "Rafa kaydet"
+          }
+        }
+      }
+    },
+    "Saved in your keychain": {
+      "comment": "AI settings: a key is already stored",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anahtar zincirinize kaydedildi"
+          }
+        }
+      }
+    },
+    "Scale": {
+      "comment": "Dock minimize effect",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ölçekle"
+          }
+        }
+      }
+    },
+    "Screen Mirroring": {
+      "comment": "Menu bar item name",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ekran Yansıtma"
           }
         }
       }
@@ -2331,11 +6206,23 @@
       }
     },
     "Screenshot": {
+      "comment": "Notch activity",
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
             "value": "Ekran görüntüsü"
+          }
+        }
+      }
+    },
+    "Scroll up on an icon for its windows": {
+      "comment": "Dock tweak",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Simgede yukarı kaydırınca pencereleri gelsin"
           }
         }
       }
@@ -2350,12 +6237,13 @@
         }
       }
     },
-    "Search Menus": {
+    "Search applications": {
+      "comment": "Start menu search field",
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Menülerde Ara"
+            "value": "Uygulama ara"
           }
         }
       }
@@ -2370,12 +6258,78 @@
         }
       }
     },
+    "Search items": {
+      "comment": "Menu bar tab",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Öğeleri ara"
+          }
+        }
+      }
+    },
+    "Search menu bar items": {
+      "comment": "Button help",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menü çubuğu öğelerini ara"
+          }
+        }
+      }
+    },
+    "Search Menu Bar Items": {
+      "comment": "Floating panel title\nShortcut name",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menü Çubuğu Öğelerini Ara"
+          }
+        }
+      }
+    },
+    "Search menu bar items…": {
+      "comment": "Search field placeholder",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menü çubuğu öğelerini ara…"
+          }
+        }
+      }
+    },
+    "Search Menu Bar Items…": {
+      "comment": "Chevron menu\nStatus item menu",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menü Çubuğu Öğelerini Ara…"
+          }
+        }
+      }
+    },
     "Search menu commands…": {
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
             "value": "Menü komutlarında ara…"
+          }
+        }
+      }
+    },
+    "Search Menus": {
+      "comment": "Floating panel title\nShortcut name",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menülerde Ara"
           }
         }
       }
@@ -2390,12 +6344,110 @@
         }
       }
     },
+    "Searching files for “%@”": {
+      "comment": "Agent step",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dosyalarda “%@” aranıyor"
+          }
+        }
+      }
+    },
+    "Searching the clipboard history": {
+      "comment": "Agent step",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pano geçmişi aranıyor"
+          }
+        }
+      }
+    },
+    "Sections": {
+      "comment": "Menu bar settings",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bölümler"
+          }
+        }
+      }
+    },
     "Select an item to preview it": {
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
             "value": "Önizlemek için bir öğe seç"
+          }
+        }
+      }
+    },
+    "Send": {
+      "comment": "Agent: send the message",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gönder"
+          }
+        }
+      }
+    },
+    "Sensors": {
+      "comment": "Battery settings",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensörler"
+          }
+        }
+      }
+    },
+    "Sensors & Battery": {
+      "comment": "Module name",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sensörler ve Pil"
+          }
+        }
+      }
+    },
+    "Sent": {
+      "comment": "Chat: a tool's arguments",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gönderdi"
+          }
+        }
+      }
+    },
+    "Separators": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ayırıcılar"
+          }
+        }
+      }
+    },
+    "Setting the volume": {
+      "comment": "Agent step",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ses düzeyi ayarlanıyor"
           }
         }
       }
@@ -2417,6 +6469,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Ayarlar…"
+          }
+        }
+      }
+    },
+    "Shape": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Biçim"
           }
         }
       }
@@ -2452,6 +6514,136 @@
         }
       }
     },
+    "Shortens the slide itself, without removing it.": {
+      "comment": "Dock tweak summary",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kaymanın kendisini kısaltır, tamamen kaldırmaz."
+          }
+        }
+      }
+    },
+    "Show": {
+      "comment": "Dock tile menu: bring a running app forward",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Göster"
+          }
+        }
+      }
+    },
+    "Show All Windows": {
+      "comment": "Dock icon menu",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tüm Pencereleri Göster"
+          }
+        }
+      }
+    },
+    "Show Always-Hidden Items": {
+      "comment": "Chevron menu",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Her Zaman Gizli Öğeleri Göster"
+          }
+        }
+      }
+    },
+    "Show Desktop": {
+      "comment": "Bar segment: clears the screen",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Masaüstünü Göster"
+          }
+        }
+      }
+    },
+    "Show hidden items in a strip under the menu bar": {
+      "comment": "Menu bar settings",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gizli öğeleri menü çubuğunun altındaki şeritte göster"
+          }
+        }
+      }
+    },
+    "Show hidden menu bar items": {
+      "comment": "Accessibility label\nControl item tooltip",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gizli menü çubuğu öğelerini göster"
+          }
+        }
+      }
+    },
+    "Show Hidden Menu Bar Items": {
+      "comment": "Shortcut name",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gizli Menü Çubuğu Öğelerini Göster"
+          }
+        }
+      }
+    },
+    "Show in Finder": {
+      "comment": "Dock icon menu",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Finder'da göster"
+          }
+        }
+      }
+    },
+    "Show Menu Bar Items": {
+      "comment": "Chevron menu\nStatus item menu",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menü Çubuğu Öğelerini Göster"
+          }
+        }
+      }
+    },
+    "Show running apps that are not pinned": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sabitlenmemiş çalışan uygulamaları göster"
+          }
+        }
+      }
+    },
+    "Show the assistant in the dock": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Asistanı dock'ta göster"
+          }
+        }
+      }
+    },
     "Show the notch panel": {
       "localizations": {
         "tr": {
@@ -2483,6 +6675,93 @@
         }
       }
     },
+    "Showing %@ in Finder": {
+      "comment": "Agent step",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ Finder'da gösteriliyor"
+          }
+        }
+      }
+    },
+    "Showing a built-in list. Set a key and reload to see the models your account can actually use.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gömülü bir liste gösteriliyor. Hesabınızın gerçekten kullanabileceği modelleri görmek için bir anahtar girip yenileyin."
+          }
+        }
+      }
+    },
+    "Shows what this tool was sent and what it returned": {
+      "comment": "Chat",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu araca ne gönderildiğini ve ne döndürdüğünü gösterir"
+          }
+        }
+      }
+    },
+    "Shut Down…": {
+      "comment": "Start menu session command",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kapat…"
+          }
+        }
+      }
+    },
+    "Sidebar": {
+      "comment": "Dock theme: a vertical list of windows",
+      "extractionState": "stale",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kenar çubuğu"
+          }
+        }
+      }
+    },
+    "Silences notices and keeps the display on while you present.": {
+      "comment": "Module summary",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sunum sırasında bildirimleri susturur ve ekranı açık tutar."
+          }
+        }
+      }
+    },
+    "Siri": {
+      "comment": "Menu bar item name",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Siri"
+          }
+        }
+      }
+    },
+    "Size and position": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Boyut ve konum"
+          }
+        }
+      }
+    },
     "Skip card numbers, keys and tokens": {
       "localizations": {
         "tr": {
@@ -2493,12 +6772,110 @@
         }
       }
     },
+    "Sleep": {
+      "comment": "Start menu session command",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uyut"
+          }
+        }
+      }
+    },
     "Snap when dragged to a screen edge": {
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
             "value": "Ekran kenarına sürüklenince yerleştir"
+          }
+        }
+      }
+    },
+    "Solid colour": {
+      "comment": "Dock surface\nMenu bar tint style",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Düz renk"
+          }
+        }
+      }
+    },
+    "Sort into folders by kind": {
+      "comment": "Downloads setting",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Türüne göre klasörlere ayır"
+          }
+        }
+      }
+    },
+    "Sound": {
+      "comment": "Bar segment\nMenu bar item name\nVolume panel title",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ses"
+          }
+        }
+      }
+    },
+    "Spacing": {
+      "comment": "Menu bar settings",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aralık"
+          }
+        }
+      }
+    },
+    "Spacing is a system-wide setting that each app reads when it creates its menu bar items, so it reaches an app the next time that app launches — log out and back in to change every one of them at once.": {
+      "comment": "Menu bar settings",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aralık, her uygulamanın menü çubuğu öğelerini oluştururken okuduğu sistem genelinde bir ayardır; bu yüzden bir uygulamaya ancak bir sonraki açılışında ulaşır — hepsini birden değiştirmek için oturumu kapatıp yeniden açın."
+          }
+        }
+      }
+    },
+    "Span the whole edge": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kenarın tamamına yay"
+          }
+        }
+      }
+    },
+    "Speech recognition is not allowed. Turn it on in System Settings → Privacy & Security.": {
+      "comment": "Voice input error",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Konuşma tanımaya izin verilmemiş. Sistem Ayarları → Gizlilik ve Güvenlik bölümünden açın."
+          }
+        }
+      }
+    },
+    "Stage Manager": {
+      "comment": "Menu bar item name",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sahne Yöneticisi"
           }
         }
       }
@@ -2514,18 +6891,117 @@
         }
       }
     },
-    "Switch Windows": {
-      "comment": "Floating panel title",
+    "Status": {
+      "comment": "Battery settings",
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Pencere Değiştir"
+            "value": "Durum"
+          }
+        }
+      }
+    },
+    "Stop": {
+      "comment": "Agent: cancel the request in flight",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Durdur"
+          }
+        }
+      }
+    },
+    "Stop charging before the battery is full": {
+      "comment": "Battery settings",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pil dolmadan şarjı durdur"
+          }
+        }
+      }
+    },
+    "Stop reading": {
+      "comment": "Chat",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Okumayı durdur"
+          }
+        }
+      }
+    },
+    "Stopped": {
+      "comment": "Agent: the request was cancelled",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Durduruldu"
+          }
+        }
+      }
+    },
+    "Stopped after %lld rounds of tool use without a final answer.": {
+      "comment": "Agent error: the loop's round limit",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld tur araç kullanımından sonra nihai bir cevap gelmeden durduruldu."
+          }
+        }
+      }
+    },
+    "Storage": {
+      "comment": "Temperature sensor group",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Depolama"
+          }
+        }
+      }
+    },
+    "Strength": {
+      "comment": "Menu bar settings",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yoğunluk"
+          }
+        }
+      }
+    },
+    "Suck": {
+      "comment": "Dock minimize effect, hidden in System Settings",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Emme"
+          }
+        }
+      }
+    },
+    "Surface": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yüzey"
           }
         }
       }
     },
     "Switch or open": {
+      "extractionState": "stale",
       "localizations": {
         "tr": {
           "stringUnit": {
@@ -2545,6 +7021,28 @@
         }
       }
     },
+    "Switch Windows": {
+      "comment": "Floating panel title\nShortcut name",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pencere Değiştir"
+          }
+        }
+      }
+    },
+    "Switching a module off releases what it was holding — its samplers stop, its observers come off, its menu bar items go back, and its keyboard shortcuts are handed back to the system. Each module keeps its own detailed settings in the other tabs.": {
+      "comment": "Explains what a module switch does",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bir modülü kapatmak, tuttuğu her şeyi geri bırakır: örnekleyicileri durur, gözlemcileri kalkar, menü çubuğu öğeleri yerine döner ve klavye kısayolları sisteme geri verilir. Her modülün ayrıntılı ayarları diğer sekmelerde kalır."
+          }
+        }
+      }
+    },
     "System audio": {
       "comment": "Media source that could not be identified",
       "localizations": {
@@ -2557,11 +7055,33 @@
       }
     },
     "System default": {
+      "comment": "Language picker: follow macOS",
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
             "value": "Sistem varsayılanı"
+          }
+        }
+      }
+    },
+    "System Monitor": {
+      "comment": "Module name",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sistem İzleyici"
+          }
+        }
+      }
+    },
+    "System Settings offers two of the three the Dock can draw.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sistem Ayarları, Dock'un çizebildiği üç efektten ikisini sunuyor."
           }
         }
       }
@@ -2572,6 +7092,94 @@
           "stringUnit": {
             "state": "translated",
             "value": "Yeniden başlatınca etkinleşir"
+          }
+        }
+      }
+    },
+    "Taskbar": {
+      "comment": "Dock preset resembling Windows",
+      "extractionState": "stale",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Görev çubuğu"
+          }
+        }
+      }
+    },
+    "Temperature": {
+      "comment": "Battery detail",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sıcaklık"
+          }
+        }
+      }
+    },
+    "Temperature sensors": {
+      "comment": "Battery settings",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sıcaklık sensörleri"
+          }
+        }
+      }
+    },
+    "Temperatures": {
+      "comment": "Sensor card heading",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sıcaklıklar"
+          }
+        }
+      }
+    },
+    "Temperatures, fans, battery condition and the charge limit.": {
+      "comment": "Module summary",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sıcaklıklar, fanlar, pil durumu ve şarj sınırı."
+          }
+        }
+      }
+    },
+    "Test the connection": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bağlantıyı sına"
+          }
+        }
+      }
+    },
+    "Text Capture": {
+      "comment": "Module name",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Metin Yakalama"
+          }
+        }
+      }
+    },
+    "That address is not a stream this can read": {
+      "comment": "HLS failure",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu adres okunabilecek bir akış değil"
           }
         }
       }
@@ -2587,6 +7195,127 @@
         }
       }
     },
+    "The assembled stream held no playable track": {
+      "comment": "Muxing failure",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Birleştirilen akışta çalınabilir bir iz yok"
+          }
+        }
+      }
+    },
+    "The audio part did not arrive in one piece": {
+      "comment": "Muxing failure",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ses parçası eksiksiz gelmemiş"
+          }
+        }
+      }
+    },
+    "The Dock settings Apple ships but never shows: reveal delay, bouncing, separators.": {
+      "comment": "Module summary",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apple'ın gönderdiği ama hiç göstermediği Dock ayarları: açılma gecikmesi, zıplama, ayırıcılar."
+          }
+        }
+      }
+    },
+    "The full width of the edge, centred icons, a bar under what is running, and the icon you are aiming at lit up.": {
+      "comment": "Dock theme summary",
+      "extractionState": "stale",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kenarın tam genişliği, ortalanmış simgeler, çalışanın altında bir çizgi ve nişan aldığın simge vurgulu."
+          }
+        }
+      }
+    },
+    "The helper is missing from this build of MagicPlus.": {
+      "comment": "Privileged helper cannot be found",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu MagicPlus sürümünde yardımcı bulunmuyor."
+          }
+        }
+      }
+    },
+    "The icons themselves come from the system Dock's list, so rearranging them there rearranges them here.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Simgeler sistem Dock'unun listesinden geliyor; orada yeniden dizince burada da öyle dizilir."
+          }
+        }
+      }
+    },
+    "The island: what is playing, the file shelf, the download queue and transient notices.": {
+      "comment": "Module summary",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ada: ne çalıyor, dosya rafı, indirme kuyruğu ve geçici bildirimler."
+          }
+        }
+      }
+    },
+    "The keychain refused to store the key.": {
+      "comment": "AI settings: the keychain write failed",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anahtar zinciri anahtarı saklamayı reddetti."
+          }
+        }
+      }
+    },
+    "The link no longer exists": {
+      "comment": "Download failure",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bağlantı artık mevcut değil"
+          }
+        }
+      }
+    },
+    "The media helper is not installed": {
+      "comment": "Download failure",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Medya yardımcısı kurulu değil"
+          }
+        }
+      }
+    },
+    "The media helper stopped with code %lld": {
+      "comment": "Download failure from the external helper",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Medya yardımcısı %lld koduyla durdu"
+          }
+        }
+      }
+    },
     "The Mirror tab stays empty.": {
       "comment": "What happens without Camera access",
       "localizations": {
@@ -2598,7 +7327,279 @@
         }
       }
     },
+    "The model returned an empty reply. Try asking again.": {
+      "comment": "Agent error: neither text nor a tool call came back",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Model boş bir yanıt döndürdü. Tekrar sormayı deneyin."
+          }
+        }
+      }
+    },
+    "The modules you have switched on need no system permissions. Turn more on in Settings and whatever they need will appear here.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Açık olan modüller hiçbir sistem izni istemiyor. Ayarlar'dan başka modüller açtığında ihtiyaç duydukları izinler burada görünür."
+          }
+        }
+      }
+    },
+    "The provider answered %lld: %@": {
+      "comment": "Agent error: HTTP status and the provider's own message",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "The provider answered %1$lld: %2$@"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sağlayıcı %lld yanıtı verdi: %@"
+          }
+        }
+      }
+    },
+    "The provider's reply could not be read.": {
+      "comment": "Agent error",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sağlayıcının yanıtı okunamadı."
+          }
+        }
+      }
+    },
+    "The rest of the day is yours.": {
+      "comment": "Agenda pane, nothing scheduled",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Günün geri kalanı sizin."
+          }
+        }
+      }
+    },
+    "The same bar, with the icons starting at the left instead of the middle.": {
+      "comment": "Dock theme summary",
+      "extractionState": "stale",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aynı çubuk, ama simgeler ortadan değil soldan başlıyor."
+          }
+        }
+      }
+    },
+    "The server answered %lld": {
+      "comment": "Download failure",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sunucu %lld yanıtı verdi"
+          }
+        }
+      }
+    },
+    "The server had a problem": {
+      "comment": "Download failure",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sunucuda bir sorun oluştu"
+          }
+        }
+      }
+    },
+    "The server is rate limiting — try again later": {
+      "comment": "Download failure",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sunucu hız sınırı uyguluyor — daha sonra tekrar deneyin"
+          }
+        }
+      }
+    },
+    "The server refused the download": {
+      "comment": "Download failure",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sunucu indirmeyi reddetti"
+          }
+        }
+      }
+    },
+    "The site blocked the download partway — turn on browser cookies in Settings": {
+      "comment": "Download failure from a media site that wants a session",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Site indirmeyi yarıda engelledi — Ayarlar'dan tarayıcı çerezlerini açın"
+          }
+        }
+      }
+    },
+    "The site refused part of the stream (%lld)": {
+      "comment": "HLS failure with HTTP status",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Site akışın bir parçasını vermedi (%lld)"
+          }
+        }
+      }
+    },
+    "The site refused the single-file format — install ffmpeg and this works": {
+      "comment": "Download failure explaining a 403 from a media site",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Site tek-dosya biçimini reddetti — ffmpeg kurun, sorun çözülür"
+          }
+        }
+      }
+    },
+    "The site refused the stream — it may have expired, so play the page again": {
+      "comment": "Download failure for an expired media URL",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Site akışı reddetti — süresi geçmiş olabilir, sayfayı yeniden oynatın"
+          }
+        }
+      }
+    },
+    "The site refused the stream list (%lld)": {
+      "comment": "HLS failure with HTTP status",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Site akış listesini vermedi (%lld)"
+          }
+        }
+      }
+    },
+    "The site sent less of the stream than it promised": {
+      "comment": "HLS failure",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Site akışın söz verdiğinden azını gönderdi"
+          }
+        }
+      }
+    },
+    "The stream is encrypted (%@), which this cannot open": {
+      "comment": "HLS failure naming the encryption method",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Akış şifreli (%@), bu açılamıyor"
+          }
+        }
+      }
+    },
+    "The stream listed no quality to download": {
+      "comment": "HLS failure",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Akış indirilecek bir kalite listelemedi"
+          }
+        }
+      }
+    },
+    "The stream listed no segments": {
+      "comment": "HLS failure",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Akış hiç parça listelemedi"
+          }
+        }
+      }
+    },
+    "The streams could not be joined": {
+      "comment": "Download failure",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Akışlar birleştirilemedi"
+          }
+        }
+      }
+    },
+    "The video part did not arrive in one piece": {
+      "comment": "Muxing failure",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Video parçası eksiksiz gelmemiş"
+          }
+        }
+      }
+    },
+    "Theme": {
+      "comment": "Bar menu",
+      "extractionState": "stale",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tema"
+          }
+        }
+      }
+    },
+    "Themes": {
+      "extractionState": "stale",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Temalar"
+          }
+        }
+      }
+    },
+    "There is code in this answer — read it on screen.": {
+      "comment": "Spoken instead of reading a code block aloud",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu cevapta kod var — ekrandan okuyun."
+          }
+        }
+      }
+    },
     "Thermal pressure": {
+      "comment": "System monitor section",
       "localizations": {
         "tr": {
           "stringUnit": {
@@ -2608,7 +7609,108 @@
         }
       }
     },
+    "This address is a web page, so its source is what would be saved. Install yt-dlp and MagicPlus can pull the media out of it instead.": {
+      "comment": "Warning when a pasted address is a page rather than a file",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu adres bir web sayfası, yani kaynak kodu kaydedilir. yt-dlp kurarsanız MagicPlus içindeki medyayı çıkarabilir."
+          }
+        }
+      }
+    },
+    "This folder is empty": {
+      "comment": "Folder stack: nothing in it",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu klasör boş"
+          }
+        }
+      }
+    },
+    "This format cannot be joined on this Mac — pick an MP4 quality": {
+      "comment": "Muxing failure for a codec macOS cannot write",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu biçim bu Mac'te birleştirilemiyor — MP4 bir kalite seçin"
+          }
+        }
+      }
+    },
+    "This is a live stream, so it has no end to download to": {
+      "comment": "HLS failure",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu bir canlı yayın, indirilecek bir sonu yok"
+          }
+        }
+      }
+    },
+    "This Mac does not expose its sensors.": {
+      "comment": "Hardware card",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu Mac sensörlerini paylaşmıyor."
+          }
+        }
+      }
+    },
+    "This Mac does not let software hold its charge level.": {
+      "comment": "Battery settings",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu Mac, şarj seviyesinin yazılımla tutulmasına izin vermiyor."
+          }
+        }
+      }
+    },
+    "This Mac refused the charging change.": {
+      "comment": "Charge limit could not be applied",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu Mac şarj değişikliğini kabul etmedi."
+          }
+        }
+      }
+    },
+    "This quality may arrive as separate video and audio. Install ffmpeg to join them, or pick a lower one.": {
+      "comment": "Download prompt warning",
+      "extractionState": "stale",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu kalite ayrı video ve ses olarak gelebilir. Birleştirmek için ffmpeg kurun ya da daha düşük bir kalite seçin."
+          }
+        }
+      }
+    },
+    "This site serves picture and sound apart; ffmpeg joins them as they arrive.": {
+      "comment": "Note under the stream picker",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu site görüntü ve sesi ayrı sunuyor; ffmpeg onları gelirken birleştiriyor."
+          }
+        }
+      }
+    },
     "Throttling": {
+      "comment": "Thermal pressure level",
       "localizations": {
         "tr": {
           "stringUnit": {
@@ -2628,6 +7730,28 @@
         }
       }
     },
+    "Tiling commands, saved layouts, per-app rules and snapping to screen edges.": {
+      "comment": "Module summary",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Döşeme komutları, kayıtlı düzenler, uygulama kuralları ve ekran kenarına yapışma."
+          }
+        }
+      }
+    },
+    "Time Machine": {
+      "comment": "Menu bar item name",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Time Machine"
+          }
+        }
+      }
+    },
     "Time remaining": {
       "localizations": {
         "tr": {
@@ -2638,7 +7762,29 @@
         }
       }
     },
+    "Tint": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Renk"
+          }
+        }
+      }
+    },
+    "Tint the menu bar": {
+      "comment": "Menu bar settings",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menü çubuğunu renklendir"
+          }
+        }
+      }
+    },
     "Title": {
+      "comment": "Clipboard transform: capitalise each word",
       "localizations": {
         "tr": {
           "stringUnit": {
@@ -2649,12 +7795,23 @@
       }
     },
     "Top": {
-      "comment": "Window placement: top half of the screen",
+      "comment": "Bar edge\nWindow placement: top half of the screen",
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
             "value": "Üst"
+          }
+        }
+      }
+    },
+    "Top half": {
+      "comment": "Window zone",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Üst yarı"
           }
         }
       }
@@ -2670,6 +7827,17 @@
         }
       }
     },
+    "Top left quarter": {
+      "comment": "Window zone",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sol üst çeyrek"
+          }
+        }
+      }
+    },
     "Top Right": {
       "comment": "Window placement: top-right quarter",
       "localizations": {
@@ -2681,27 +7849,8 @@
         }
       }
     },
-    "Top half": {
-      "localizations": {
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Üst yarı"
-          }
-        }
-      }
-    },
-    "Top left quarter": {
-      "localizations": {
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sol üst çeyrek"
-          }
-        }
-      }
-    },
     "Top right quarter": {
+      "comment": "Window zone",
       "localizations": {
         "tr": {
           "stringUnit": {
@@ -2712,6 +7861,7 @@
       }
     },
     "Top third": {
+      "comment": "Window zone",
       "localizations": {
         "tr": {
           "stringUnit": {
@@ -2722,6 +7872,7 @@
       }
     },
     "Top two thirds": {
+      "comment": "Window zone",
       "localizations": {
         "tr": {
           "stringUnit": {
@@ -2731,12 +7882,56 @@
         }
       }
     },
+    "Trash": {
+      "comment": "Dock tile",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Çöp"
+          }
+        }
+      }
+    },
     "Trim": {
+      "comment": "Clipboard transform: strip surrounding whitespace",
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
             "value": "Kırp"
+          }
+        }
+      }
+    },
+    "Try again": {
+      "comment": "Agent: retry a failed request\nDownload control",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yeniden dene"
+          }
+        }
+      }
+    },
+    "Try again now": {
+      "comment": "Download control",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Şimdi dene"
+          }
+        }
+      }
+    },
+    "Turn a module on in Settings and it appears here.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ayarlar'dan bir modül aç, burada görünür."
           }
         }
       }
@@ -2751,12 +7946,35 @@
         }
       }
     },
-    "UPPER": {
+    "Turn On": {
+      "comment": "Menu bar tab",
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "BÜYÜK"
+            "value": "Aç"
+          }
+        }
+      }
+    },
+    "Turning this on adds a chevron and a divider to the menu bar. Items dragged to the left of the divider are hidden until you ask for them.": {
+      "comment": "Menu bar tab",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu ayar açıldığında menü çubuğuna bir ok ve bir ayıraç eklenir. Ayıracın soluna sürüklenen öğeler siz isteyene kadar gizli kalır."
+          }
+        }
+      }
+    },
+    "Unavailable in this build": {
+      "comment": "Helper state",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu sürümde kullanılamıyor"
           }
         }
       }
@@ -2772,6 +7990,7 @@
       }
     },
     "Unpin": {
+      "comment": "Agent panel",
       "localizations": {
         "tr": {
           "stringUnit": {
@@ -2792,15 +8011,126 @@
         }
       }
     },
+    "UPPER": {
+      "comment": "Clipboard transform: uppercase",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "BÜYÜK"
+          }
+        }
+      }
+    },
+    "Use cookies from": {
+      "comment": "Downloads setting: which browser's cookies the helper may read",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Çerezleri şuradan al"
+          }
+        }
+      }
+    },
+    "Use the System Dock": {
+      "comment": "Bar menu: switch the custom dock off",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sistem Dock'unu kullan"
+          }
+        }
+      }
+    },
     "Value": {
       "shouldTranslate": false
     },
+    "Video in a browser tab is not something a menu bar app can fetch on its own: the stream is behind the page, and MagicPlus ships no site extractors. What it can do is hand the page to `yt-dlp` if you have installed it, show the progress in the island, and keep it in the same queue as everything else. Install it with `brew install yt-dlp ffmpeg` — `ffmpeg` is what joins video and audio for the highest qualities.": {
+      "comment": "Explains the media helper",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tarayıcı sekmesindeki videoyu bir menü çubuğu uygulaması kendi başına indiremez: akış sayfanın arkasındadır ve MagicPlus hiçbir site çözücüsü içermez. Yapabileceği şey, kurduysanız sayfayı `yt-dlp`'ye devretmek, ilerlemeyi adada göstermek ve onu diğer her şeyle aynı kuyrukta tutmaktır. Kurmak için `brew install yt-dlp ffmpeg` — en yüksek kalitelerde videoyu ve sesi birleştiren `ffmpeg`'dir."
+          }
+        }
+      }
+    },
+    "Video only": {
+      "comment": "A sniffed stream with no sound",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yalnızca görüntü"
+          }
+        }
+      }
+    },
+    "Visible": {
+      "comment": "Menu bar section: items always on show",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Görünür"
+          }
+        }
+      }
+    },
+    "VPN": {
+      "comment": "Menu bar item name",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "VPN"
+          }
+        }
+      }
+    },
+    "Waiting": {
+      "comment": "Download is queued behind others",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bekliyor"
+          }
+        }
+      }
+    },
+    "Waiting for your approval": {
+      "comment": "Helper state",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Onayınız bekleniyor"
+          }
+        }
+      }
+    },
     "Warm": {
+      "comment": "Thermal pressure level",
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
             "value": "Ilık"
+          }
+        }
+      }
+    },
+    "Watch the front browser tab": {
+      "comment": "Downloads setting",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Öndeki tarayıcı sekmesini izle"
           }
         }
       }
@@ -2816,12 +8146,99 @@
         }
       }
     },
+    "What gets sent": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Neler gönderiliyor"
+          }
+        }
+      }
+    },
+    "What should I do with these?": {
+      "comment": "Agent input placeholder with files waiting",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bunlarla ne yapmamı istersin?"
+          }
+        }
+      }
+    },
+    "What were you doing when it went wrong?": {
+      "comment": "Bug report: the one thing only the user knows",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sorun çıktığında ne yapıyordun?"
+          }
+        }
+      }
+    },
+    "When another app comes to the front": {
+      "comment": "Rehide strategy",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Başka bir uygulama öne gelince"
+          }
+        }
+      }
+    },
     "When one of these apps opens, its first window is placed for you.": {
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
             "value": "Bu uygulamalardan biri açıldığında ilk penceresi senin yerine yerleştirilir."
+          }
+        }
+      }
+    },
+    "When the pointer leaves the menu bar": {
+      "comment": "Rehide strategy",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "İmleç menü çubuğundan ayrılınca"
+          }
+        }
+      }
+    },
+    "Where": {
+      "comment": "Download prompt field",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nereye"
+          }
+        }
+      }
+    },
+    "Wi-Fi": {
+      "comment": "Menu bar item name",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wi-Fi"
+          }
+        }
+      }
+    },
+    "Width": {
+      "extractionState": "stale",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Genişlik"
           }
         }
       }
@@ -2836,12 +8253,34 @@
         }
       }
     },
+    "Window Manager": {
+      "comment": "Module name",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pencere Yöneticisi"
+          }
+        }
+      }
+    },
     "Window switcher": {
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
             "value": "Pencere geçişi"
+          }
+        }
+      }
+    },
+    "Window Switcher": {
+      "comment": "Module name",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pencere Değiştirici"
           }
         }
       }
@@ -2853,6 +8292,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Pencereler"
+          }
+        }
+      }
+    },
+    "Windows, clipboard, downloads and what your Mac is doing — from one menu bar item.\n": {
+      "comment": "About panel: one-line description of the app",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pencereler, pano, indirmeler ve Mac'inin ne yaptığı — tek bir menü çubuğu öğesinden.\n"
           }
         }
       }
@@ -2877,80 +8327,78 @@
         }
       }
     },
-    "com.example.app": {
-      "shouldTranslate": false
-    },
-    "current setup": {
+    "Working…": {
+      "comment": "Agent panel: the model is thinking",
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "şu anki düzen"
+            "value": "Çalışıyor…"
           }
         }
       }
     },
-    "in %lldm": {
-      "comment": "Minutes until a meeting starts",
+    "Writing a note": {
+      "comment": "Agent step",
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lld dk sonra"
+            "value": "Not yazılıyor"
           }
         }
       }
     },
-    "lower": {
+    "Your message, the conversation so far, and what the tools return — file names and paths, not file contents. Nothing is sent until you type something, and nothing goes anywhere but the provider you chose above.": {
+      "extractionState": "stale",
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "küçük"
+            "value": "Mesajınız, o ana kadarki konuşma ve araçların döndürdükleri — dosya adları ve yolları, dosya içerikleri değil. Siz bir şey yazana kadar hiçbir şey gönderilmez ve hiçbir şey yukarıda seçtiğiniz sağlayıcı dışında bir yere gitmez."
           }
         }
       }
     },
-    "now": {
-      "comment": "A meeting that has already started",
+    "Your message, the conversation so far, and whatever a tool returns. Searching files sends their names and paths, never their contents. Two tools do send text: reading the system status sends those readings, and searching your clipboard history sends the matching entries — so treat that one as sending whatever you had copied.": {
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "şimdi"
+            "value": "Mesajınız, o ana kadarki konuşma ve bir aracın döndürdüğü her şey. Dosya arama, adlarını ve yollarını gönderir; içeriklerini asla. İki araç metin gönderir: sistem durumunu okumak o ölçümleri, pano geçmişinizde arama ise eşleşen kayıtları gönderir — yani onu, kopyaladığınız şeyi gönderiyor sayın."
           }
         }
       }
     },
-    "of %@": {
+    "YouTube increasingly refuses the stream it just handed out unless the request carries a session: a few megabytes arrive and then everything comes back 403. Pointing the helper at a browser you are signed into is the documented way through that, and it is also what gets an age-restricted page to play. It hands your session to `yt-dlp`, which is why it is off until you choose it.": {
+      "comment": "Explains the cookie setting",
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "/ %@"
+            "value": "YouTube, az önce verdiği akışı giderek daha sık, istek bir oturum taşımadıkça reddediyor: birkaç megabayt iniyor ve sonrası 403 dönüyor. Yardımcıyı oturum açtığınız bir tarayıcıya yönlendirmek bunun belgelenmiş çözümü; yaş sınırlı bir sayfanın açılmasını da bu sağlıyor. Oturumunuzu `yt-dlp`'ye devrettiği için, siz seçene kadar kapalı."
           }
         }
       }
     },
-    "·": {
-      "shouldTranslate": false
-    },
-    "· click again to cycle": {
+    "YouTube often blocks the download partway without a signed-in session.": {
+      "comment": "Hint next to the cookie picker",
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "· döngü için tekrar tıkla"
+            "value": "YouTube, oturum açılmamış isteklerde indirmeyi çoğu zaman yarıda kesiyor."
           }
         }
       }
     },
-    "· press again to cycle": {
+    "Zone": {
+      "comment": "Window rule: which part of the screen",
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "· döngü için tekrar bas"
+            "value": "Bölge"
           }
         }
       }

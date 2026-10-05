@@ -66,8 +66,6 @@ final class CalendarService {
         }
     }
 
-    var nextEvent: AgendaEvent? { events.first }
-
     // MARK: - Lifecycle
 
     func start() {

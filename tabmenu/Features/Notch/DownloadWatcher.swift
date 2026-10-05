@@ -34,6 +34,12 @@ final class DownloadWatcher {
 
     var isRunning: Bool { source != nil }
 
+    /// Marks a name as already accounted for, so a file this app is about to write itself is
+    /// not announced a second time as an arrival from somewhere else.
+    func claim(_ name: String) {
+        knownNames.insert(name)
+    }
+
     func start() {
         guard source == nil else { return }
 

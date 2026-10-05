@@ -6,60 +6,50 @@
 import SwiftUI
 import UniformTypeIdentifiers
 
-/// Body of the expanded island: tabs and whichever pane is selected.
+/// Body of the expanded island: the pane switcher and whichever pane is selected.
+///
+/// Every pane is the same height. A panel that grew and shrank as the user moved between tabs
+/// would move the very control they are aiming at, and it is the single thing that made the
+/// old layout feel unfinished.
 struct NotchPanelContent: View {
-    let model: NotchModel
+    @Bindable var model: NotchModel
     let morph: Namespace.ID
 
-    @Environment(\.accessibilityReduceMotion) private var reduceMotion
-    @Namespace private var tabHighlight
-
     var body: some View {
-        VStack(spacing: 10) {
-            tabBar
-            content
+        VStack(spacing: Island.Space.m) {
+            IslandTabRail(
+                selection: $model.selectedTab,
+                tabs: model.visibleTabs,
+                trailing: AnyView(paneActions)
+            )
+            pane
         }
     }
 
-    private var tabBar: some View {
-        HStack(spacing: 3) {
-            ForEach(NotchTab.allCases) { tab in
-                Button {
-                    withMotion(Motion.fluid, reduceMotion: reduceMotion) { model.selectedTab = tab }
-                } label: {
-                    HStack(spacing: 5) {
-                        Image(systemName: tab.symbolName)
-                            .font(.system(size: 10, weight: .semibold))
-                            .symbolEffect(.bounce, value: model.selectedTab == tab)
-                        Text(tab.title)
-                            .font(.system(size: 11, weight: .medium))
-                    }
-                    .foregroundStyle(model.selectedTab == tab ? .white : .white.opacity(0.45))
-                    .padding(.horizontal, 10)
-                    .padding(.vertical, 5)
-                    .background {
-                        if model.selectedTab == tab {
-                            Capsule()
-                                .fill(.white.opacity(0.14))
-                                .matchedGeometryEffect(id: "notchTab", in: tabHighlight)
-                        }
-                    }
-                    .contentShape(.capsule)
-                }
-                .buttonStyle(.plain)
-                .accessibilityLabel(tab.title)
-                .accessibilityAddTraits(model.selectedTab == tab ? [.isSelected, .isButton] : .isButton)
-            }
+    /// Fixed slot, always present: buttons that appear and disappear must not resize the rail
+    /// beside them.
+    @ViewBuilder
+    private var paneActions: some View {
+        switch model.selectedTab {
+        case .shelf: shelfActions
+        case .downloads: downloadActions
+        default: emptyActions
+        }
+    }
 
-            Spacer()
+    private var emptyActions: some View {
+        Color.clear.frame(width: 64, height: 28)
+    }
 
-            if model.selectedTab == .shelf, !model.shelf.files.isEmpty {
+    private var shelfActions: some View {
+        HStack(spacing: Island.Space.xs) {
+            if !model.shelf.files.isEmpty {
                 ShareLink(items: model.shelf.urls) {
                     Image(systemName: "square.and.arrow.up")
-                        .font(.system(size: 10, weight: .semibold))
-                        .foregroundStyle(.white.opacity(0.8))
-                        .frame(width: 26, height: 26)
-                        .background(.white.opacity(0.12), in: .circle)
+                        .font(.system(size: 11, weight: .semibold))
+                        .foregroundStyle(Island.Ink.primary.opacity(0.85))
+                        .frame(width: 28, height: 28)
+                        .background(Island.Fill.regular, in: .circle)
                 }
                 .buttonStyle(.plain)
                 .help("Share or AirDrop these files")
@@ -69,24 +59,66 @@ struct NotchPanelContent: View {
                 }
             }
         }
+        .frame(width: 64, alignment: .trailing)
+        .motion(Motion.snappy, value: model.shelf.files.count)
+    }
+
+    /// The two things worth doing to a whole queue: stop it, and tidy up after it.
+    private var downloadActions: some View {
+        let store = model.downloads
+
+        return HStack(spacing: Island.Space.xs) {
+            IslandIconButton(
+                systemImage: "plus",
+                help: String(localized: "Paste a link", comment: "Opens the manual download prompt"),
+                size: 28,
+                action: model.enterLinkManually
+            )
+
+            if store.hasActivity {
+                IslandIconButton(systemImage: "pause.circle", help: String(localized: "Pause every download", comment: "Downloads pane action")) {
+                    store.pauseAll()
+                }
+            } else if store.items.contains(where: { $0.state == .paused || $0.state == .failed }) {
+                IslandIconButton(systemImage: "play.circle", help: String(localized: "Resume every download", comment: "Downloads pane action")) {
+                    store.resumeAll()
+                }
+            }
+
+            if store.items.contains(where: \.state.isFinished) {
+                IslandIconButton(systemImage: "trash", help: String(localized: "Clear finished downloads", comment: "Downloads pane action")) {
+                    store.clearFinished()
+                }
+            }
+        }
+        .frame(width: 96, alignment: .trailing)
+        .motion(Motion.snappy, value: store.items.count)
     }
 
     @ViewBuilder
-    private var content: some View {
+    private var pane: some View {
         switch model.selectedTab {
         case .media:
-            MediaPane(model: model)
+            IslandPane(alignment: .center) { MediaPane(model: model) }
         case .mixer:
-            MixerPane(mixer: model.mixer, brightness: model.brightness)
+            IslandPane(scrolls: true) { MixerPane(mixer: model.mixer, brightness: model.brightness) }
         case .agenda:
-            AgendaPane(model: model)
+            IslandPane(scrolls: true) { AgendaPane(model: model) }
         case .shelf:
-            ShelfPane(model: model)
+            IslandPane { ShelfPane(model: model) }
+        case .downloads:
+            IslandPane { DownloadsPane(model: model, onAddLink: model.enterLinkManually) }
         case .mirror:
-            CameraMirrorView(isActive: model.selectedTab == .mirror)
-                .frame(height: 170)
-                .clipShape(.rect(cornerRadius: 14))
-                .accessibilityLabel("Camera mirror")
+            IslandPane {
+                CameraMirrorView(isActive: model.selectedTab == .mirror)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .clipShape(.rect(cornerRadius: Island.Radius.card, style: .continuous))
+                    .overlay {
+                        RoundedRectangle(cornerRadius: Island.Radius.card, style: .continuous)
+                            .strokeBorder(Island.hairline, lineWidth: 1)
+                    }
+                    .accessibilityLabel("Camera mirror")
+            }
         }
     }
 }
@@ -97,77 +129,157 @@ private struct MediaPane: View {
     let model: NotchModel
 
     var body: some View {
-        VStack(spacing: 12) {
-            HStack(spacing: 12) {
-                ZStack(alignment: .bottomTrailing) {
-                    ArtworkTile(image: model.artwork, size: 60, cornerRadius: 12)
-                    if let icon = sourceIcon {
-                        Image(nsImage: icon)
-                            .resizable()
-                            .frame(width: 20, height: 20)
-                            .offset(x: 6, y: 6)
-                    }
-                }
-
-                VStack(alignment: .leading, spacing: 3) {
-                    Text(model.nowPlaying?.title ?? "Nothing playing")
-                        .font(.system(size: 14, weight: .semibold))
-                        .foregroundStyle(.white)
-                        .lineLimit(1)
-                    Text(model.nowPlaying?.artist ?? "Controls still drive whatever is playing")
-                        .font(.system(size: 11))
-                        .foregroundStyle(.white.opacity(0.55))
-                        .lineLimit(1)
-                    Text(model.nowPlaying?.source.displayName ?? "Media keys")
-                        .font(.system(size: 10))
-                        .foregroundStyle(.white.opacity(0.35))
-                        .lineLimit(1)
-                }
-
-                Spacer(minLength: 0)
-            }
-
-            if let progress = model.nowPlaying?.progress {
-                VStack(spacing: 3) {
-                    LevelBar(value: progress, tint: .white, height: 3)
-                    HStack {
-                        Text(NowPlaying.timestamp(model.nowPlaying?.position ?? 0))
-                        Spacer()
-                        Text(NowPlaying.timestamp(model.nowPlaying?.duration ?? 0))
-                    }
-                    .font(.system(size: 9).monospacedDigit())
-                    .foregroundStyle(.white.opacity(0.4))
-                }
-                .accessibilityElement(children: .ignore)
-                .accessibilityLabel("Playback position")
-                .accessibilityValue(Format.percent(progress))
-            }
-
-            HStack(spacing: 10) {
-                IslandIconButton(systemImage: "backward.fill", help: "Previous", action: model.previousTrack)
-                IslandIconButton(
-                    systemImage: model.isPlaying ? "pause.fill" : "play.fill",
-                    help: "Play or pause",
-                    isPrimary: true,
-                    action: model.playPause
-                )
-                IslandIconButton(systemImage: "forward.fill", help: "Next", action: model.nextTrack)
-
-                Spacer()
-
-                HStack(spacing: 6) {
-                    outputDeviceMenu
-                    DraggableLevelBar(value: model.outputVolume) { model.setVolume($0) }
-                        .frame(width: 88)
-                    Image(systemName: "speaker.wave.3.fill")
-                        .font(.system(size: 9))
-                        .foregroundStyle(.white.opacity(0.5))
-                }
-                .accessibilityElement(children: .contain)
-                .accessibilityLabel("Output volume")
-                .accessibilityValue(Format.percent(model.outputVolume))
-            }
+        VStack(spacing: Island.Space.m) {
+            header
+            scrubber
+            transport
+            volume
         }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.horizontal, Island.Space.m)
+        .background { cover }
+    }
+
+    /// The cover, filling the pane rather than sitting in a square beside the words.
+    ///
+    /// Blurred and darkened, because it is behind text that has to stay readable — but far less
+    /// than a background needs to be when it is only decoration. What is playing is worth
+    /// looking at, and a 68pt thumbnail is not looking at it.
+    private var cover: some View {
+        // `Color.clear` takes the size on offer and the picture is clipped to it. Left to itself,
+        // an image filling its frame decides how big that frame is, and a cover behind one pane
+        // ends up drawn over the tab rail above it.
+        Color.clear
+            .overlay {
+                if let artwork = model.artwork {
+                    Image(nsImage: artwork)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .blur(radius: 12, opaque: true)
+                        .overlay {
+                            LinearGradient(
+                                colors: [.black.opacity(0.45), .black.opacity(0.78)],
+                                startPoint: .top,
+                                endPoint: .bottom
+                            )
+                        }
+                        .transition(.opacity)
+                } else {
+                    Island.Fill.subtle
+                }
+            }
+            .clipShape(.rect(cornerRadius: Island.Radius.card, style: .continuous))
+            .overlay {
+                RoundedRectangle(cornerRadius: Island.Radius.card, style: .continuous)
+                    .strokeBorder(Island.hairline, lineWidth: 1)
+            }
+            .motion(Motion.fluid, value: model.artwork != nil)
+            // Decoration must never take a click. A background that does is a background that
+            // swallows the controls above it the moment it grows a pixel past its pane.
+            .allowsHitTesting(false)
+    }
+
+    private var header: some View {
+        HStack(spacing: Island.Space.m) {
+            // The cover twice over: sharp and small here, spread out and blurred behind. The
+            // small one is the thing itself; the large one is the mood.
+            ZStack(alignment: .bottomTrailing) {
+                ArtworkTile(image: model.artwork, size: 62, cornerRadius: Island.Radius.card)
+                if let icon = sourceIcon {
+                    Image(nsImage: icon)
+                        .resizable()
+                        .frame(width: 18, height: 18)
+                        .clipShape(.rect(cornerRadius: 5, style: .continuous))
+                        .padding(2)
+                        .background(.black, in: .rect(cornerRadius: 7, style: .continuous))
+                        .offset(x: 5, y: 5)
+                }
+            }
+            .shadow(color: .black.opacity(0.5), radius: 8, y: 2)
+
+            VStack(alignment: .leading, spacing: 3) {
+                Text(model.nowPlaying?.title ?? String(localized: "Nothing playing", comment: "Media pane, no track"))
+                    .font(Island.Text.title)
+                    .foregroundStyle(Island.Ink.primary)
+                    .lineLimit(2)
+                    .fixedSize(horizontal: false, vertical: true)
+
+                Text(model.nowPlaying?.artist ?? String(localized: "Controls still drive whatever is playing", comment: "Media pane, no track"))
+                    .font(Island.Text.body)
+                    .foregroundStyle(Island.Ink.secondary)
+                    .lineLimit(1)
+
+                // Always present, so the block keeps its height whether or not a player is
+                // reporting: with nothing playing, the media keys are still what drives this.
+                Text(model.nowPlaying?.source.displayName ?? String(localized: "Media keys", comment: "Media pane, no track"))
+                    .font(Island.Text.caption)
+                    .foregroundStyle(Island.Ink.tertiary)
+                    .lineLimit(1)
+            }
+
+            Spacer(minLength: 0)
+        }
+        .frame(height: 62)
+        // Over a picture, text and artwork both need something under them that is not the
+        // picture.
+        .shadow(color: .black.opacity(model.artwork == nil ? 0 : 0.55), radius: 7)
+    }
+
+    /// Kept in the layout even with nothing to show, so the transport row never moves.
+    private var scrubber: some View {
+        let progress = model.nowPlaying?.progress
+
+        return VStack(spacing: Island.Space.xs) {
+            LevelBar(value: progress ?? 0, tint: Island.Ink.primary.opacity(0.9), height: 4)
+            HStack {
+                Text(NowPlaying.timestamp(model.nowPlaying?.position ?? 0))
+                Spacer()
+                Text(NowPlaying.timestamp(model.nowPlaying?.duration ?? 0))
+            }
+            .font(Island.Text.numericSmall)
+            .foregroundStyle(Island.Ink.tertiary)
+        }
+        // Pinned rather than left to the stack: the bar's geometry reader would otherwise
+        // take whatever height is going and push the transport to the floor.
+        .frame(height: 22)
+        .opacity(progress == nil ? 0 : 1)
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel("Playback position")
+        .accessibilityValue(Format.percent(progress ?? 0))
+        .accessibilityHidden(progress == nil)
+    }
+
+    private var transport: some View {
+        HStack(spacing: Island.Space.l) {
+            Spacer(minLength: 0)
+            IslandIconButton(systemImage: "backward.fill", help: "Previous", action: model.previousTrack)
+            IslandIconButton(
+                systemImage: model.isPlaying ? "pause.fill" : "play.fill",
+                help: "Play or pause",
+                isPrimary: true,
+                action: model.playPause
+            )
+            IslandIconButton(systemImage: "forward.fill", help: "Next", action: model.nextTrack)
+            Spacer(minLength: 0)
+        }
+        .frame(height: 36)
+    }
+
+    private var volume: some View {
+        HStack(spacing: Island.Space.m) {
+            outputDeviceMenu
+
+            IslandSlider(value: model.outputVolume) { model.setVolume($0) }
+
+            Text(Format.percent(model.outputVolume))
+                .font(Island.Text.numeric)
+                .foregroundStyle(Island.Ink.secondary)
+                .contentTransition(.numericText())
+                .frame(width: 38, alignment: .trailing)
+        }
+        .accessibilityElement(children: .contain)
+        .accessibilityLabel("Output volume")
+        .accessibilityValue(Format.percent(model.outputVolume))
     }
 
     private var sourceIcon: NSImage? {
@@ -192,66 +304,22 @@ private struct MediaPane: View {
                 }
             }
         } label: {
-            Image(systemName: model.outputVolume < 0.01 ? "speaker.slash.fill" : "speaker.fill")
-                .font(.system(size: 9))
-                .foregroundStyle(.white.opacity(0.5))
+            HStack(spacing: Island.Space.xs) {
+                Image(systemName: model.outputVolume < 0.01 ? "speaker.slash.fill" : "speaker.wave.2.fill")
+                    .font(.system(size: 10, weight: .medium))
+                Image(systemName: "chevron.down")
+                    .font(.system(size: 7, weight: .bold))
+            }
+            .foregroundStyle(Island.Ink.secondary)
+            .frame(height: 24)
+            .padding(.horizontal, Island.Space.s)
+            .background(Island.Fill.regular, in: .capsule)
         }
         .menuStyle(.borderlessButton)
         .menuIndicator(.hidden)
         .fixedSize()
         .help("Choose the output device")
         .accessibilityLabel("Output device")
-    }
-}
-
-/// Volume slider styled for the black island; the system control looks foreign here.
-private struct DraggableLevelBar: View {
-    let value: Double
-    let onChange: (Double) -> Void
-
-    var body: some View {
-        GeometryReader { proxy in
-            ZStack(alignment: .leading) {
-                Capsule().fill(.white.opacity(0.16))
-                Capsule()
-                    .fill(.white.opacity(0.85))
-                    .frame(width: max(3, proxy.size.width * value.clampedToUnitRange))
-            }
-            .contentShape(.rect)
-            .gesture(
-                DragGesture(minimumDistance: 0)
-                    .onChanged { gesture in
-                        onChange(min(max(gesture.location.x / proxy.size.width, 0), 1))
-                    }
-            )
-        }
-        .frame(height: 5)
-    }
-}
-
-struct IslandIconButton: View {
-    let systemImage: String
-    let help: String
-    var isPrimary = false
-    let action: () -> Void
-
-    @State private var isHovered = false
-
-    var body: some View {
-        Button(action: action) {
-            Image(systemName: systemImage)
-                .font(.system(size: isPrimary ? 12 : 10, weight: .semibold))
-                .foregroundStyle(.white.opacity(isHovered ? 1 : 0.8))
-                .contentTransition(.symbolEffect(.replace))
-                .frame(width: isPrimary ? 30 : 26, height: isPrimary ? 30 : 26)
-                .background(.white.opacity(isHovered ? 0.2 : 0.12), in: .circle)
-                .contentShape(.circle)
-        }
-        .buttonStyle(.plain)
-        .onHover { isHovered = $0 }
-        .motion(Motion.snappy, value: isHovered)
-        .help(help)
-        .accessibilityLabel(help)
     }
 }
 
@@ -263,46 +331,27 @@ private struct AgendaPane: View {
     private var calendar: CalendarService { model.calendar }
 
     var body: some View {
-        Group {
-            if !calendar.isAuthorized {
-                VStack(spacing: 8) {
-                    Image(systemName: "calendar.badge.clock")
-                        .font(.system(size: 20))
-                        .foregroundStyle(.white.opacity(0.5))
-                    Text("Allow Calendar access to see your next meeting")
-                        .font(.system(size: 11))
-                        .foregroundStyle(.white.opacity(0.6))
-                        .multilineTextAlignment(.center)
-                    Button("Allow") { calendar.requestAccess() }
-                        .buttonStyle(.plain)
-                        .font(.system(size: 11, weight: .medium))
-                        .foregroundStyle(.black)
-                        .padding(.horizontal, 12)
-                        .padding(.vertical, 5)
-                        .background(.white, in: .capsule)
-                }
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 12)
-            } else if calendar.events.isEmpty {
-                VStack(spacing: 6) {
-                    Image(systemName: "checkmark.circle")
-                        .font(.system(size: 20))
-                        .foregroundStyle(.white.opacity(0.5))
-                    Text("Nothing scheduled")
-                        .font(.system(size: 12))
-                        .foregroundStyle(.white.opacity(0.6))
-                }
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 18)
-            } else {
-                VStack(spacing: 6) {
-                    ForEach(calendar.events.prefix(3)) { event in
-                        EventRow(event: event) { calendar.join(event) }
-                    }
+        if !calendar.isAuthorized {
+            IslandEmptyState(
+                systemImage: "calendar.badge.clock",
+                title: "Calendar access is off",
+                message: "Allow it and your next meetings appear here, with a button to join them."
+            ) {
+                IslandChipButton(title: "Allow", isProminent: true) { calendar.requestAccess() }
+            }
+        } else if calendar.events.isEmpty {
+            IslandEmptyState(
+                systemImage: "checkmark.circle",
+                title: "Nothing scheduled",
+                message: "The rest of the day is yours."
+            )
+        } else {
+            VStack(spacing: Island.Space.s) {
+                ForEach(calendar.events.prefix(4)) { event in
+                    EventRow(event: event) { calendar.join(event) }
                 }
             }
         }
-        .frame(minHeight: 92)
     }
 }
 
@@ -311,47 +360,36 @@ private struct EventRow: View {
     let onJoin: () -> Void
 
     var body: some View {
-        HStack(spacing: 9) {
-            RoundedRectangle(cornerRadius: 2)
+        HStack(spacing: Island.Space.m) {
+            VStack(alignment: .leading, spacing: 1) {
+                Text(event.startDate.formatted(date: .omitted, time: .shortened))
+                    .font(Island.Text.numeric)
+                    .foregroundStyle(Island.Ink.primary)
+                Text(event.countdownLabel())
+                    .font(Island.Text.caption)
+                    .foregroundStyle(event.isInProgress ? Island.Signal.success : Island.Ink.tertiary)
+            }
+            .frame(width: 62, alignment: .leading)
+
+            Capsule()
                 .fill(event.calendarColor)
                 .frame(width: 3, height: 30)
 
-            VStack(alignment: .leading, spacing: 2) {
-                Text(event.title)
-                    .font(.system(size: 12, weight: .medium))
-                    .foregroundStyle(.white)
-                    .lineLimit(1)
+            Text(event.title)
+                .font(Island.Text.body)
+                .foregroundStyle(Island.Ink.primary)
+                .lineLimit(2)
 
-                HStack(spacing: 5) {
-                    Text(event.startDate.formatted(date: .omitted, time: .shortened))
-                        .font(.system(size: 10).monospacedDigit())
-                    Text("·")
-                    Text(event.countdownLabel())
-                        .font(.system(size: 10, weight: .medium))
-                        .foregroundStyle(event.isInProgress ? .green : .white.opacity(0.55))
-                }
-                .font(.system(size: 10))
-                .foregroundStyle(.white.opacity(0.55))
-            }
-
-            Spacer(minLength: 6)
+            Spacer(minLength: Island.Space.xs)
 
             if event.meetingURL != nil {
-                Button(action: onJoin) {
-                    Text("Join")
-                        .font(.system(size: 11, weight: .semibold))
-                        .foregroundStyle(.black)
-                        .padding(.horizontal, 12)
-                        .padding(.vertical, 5)
-                        .background(.white, in: .capsule)
-                }
-                .buttonStyle(.plain)
-                .help("Open the meeting link")
+                IslandChipButton(title: "Join", action: onJoin)
+                    .help("Open the meeting link")
             }
         }
-        .padding(.horizontal, 10)
-        .padding(.vertical, 7)
-        .background(.white.opacity(0.07), in: .rect(cornerRadius: 11, style: .continuous))
+        .padding(.horizontal, Island.Space.m)
+        .padding(.vertical, Island.Space.s)
+        .background(Island.Fill.subtle, in: .rect(cornerRadius: Island.Radius.card, style: .continuous))
         .accessibilityElement(children: .combine)
         .accessibilityLabel("\(event.title), \(event.countdownLabel())")
     }
@@ -364,83 +402,102 @@ private struct ShelfPane: View {
 
     private var shelf: ShelfStore { model.shelf }
 
+    private static let tileWidth: CGFloat = 76
+    private static let rowHeight: CGFloat = 84
+
     var body: some View {
-        Group {
-            if shelf.files.isEmpty {
-                HStack(spacing: 10) {
-                    Image(systemName: "arrow.down.doc")
-                        .font(.system(size: 20))
-                        .foregroundStyle(.white.opacity(0.5))
-                        .symbolEffect(.bounce, value: model.isDropTargeted)
-                    VStack(alignment: .leading, spacing: 2) {
-                        Text("Drop files here")
-                            .font(.system(size: 13, weight: .medium))
-                            .foregroundStyle(.white)
-                        Text("Drag them out again whenever you need them")
-                            .font(.system(size: 10))
-                            .foregroundStyle(.white.opacity(0.5))
+        if shelf.files.isEmpty {
+            dropZone
+        } else {
+            ScrollView(.horizontal) {
+                LazyHGrid(
+                    rows: [
+                        GridItem(.fixed(Self.rowHeight), spacing: Island.Space.s),
+                        GridItem(.fixed(Self.rowHeight), spacing: Island.Space.s)
+                    ],
+                    spacing: Island.Space.s
+                ) {
+                    ForEach(shelf.files) { file in
+                        ShelfTile(file: file, store: shelf, width: Self.tileWidth)
                     }
-                    Spacer()
                 }
-                .padding(.vertical, 20)
-                .padding(.horizontal, 14)
-                .frame(maxWidth: .infinity)
-                .background(.white.opacity(model.isDropTargeted ? 0.14 : 0.07), in: .rect(cornerRadius: 14, style: .continuous))
-                .overlay {
-                    RoundedRectangle(cornerRadius: 14, style: .continuous)
-                        .strokeBorder(style: .init(lineWidth: 1, dash: [4, 3]))
-                        .foregroundStyle(.white.opacity(0.25))
-                }
-            } else {
-                ScrollView(.horizontal) {
-                    HStack(spacing: 8) {
-                        ForEach(shelf.files) { file in
-                            ShelfTile(file: file, store: shelf)
-                        }
-                    }
-                    .padding(.vertical, 2)
-                }
-                .scrollIndicators(.never)
-                .frame(height: 88)
+                .padding(.horizontal, 1)
             }
+            .scrollIndicators(.never)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
+    }
+
+    private var dropZone: some View {
+        VStack(spacing: Island.Space.s) {
+            Image(systemName: "arrow.down.doc")
+                .font(.system(size: 24, weight: .light))
+                .foregroundStyle(model.isDropTargeted ? Island.Signal.info : Island.Ink.tertiary)
+                .symbolEffect(.bounce, value: model.isDropTargeted)
+
+            Text("Drop files here")
+                .font(Island.Text.body)
+                .foregroundStyle(Island.Ink.secondary)
+            Text("Drag them out again whenever you need them")
+                .font(Island.Text.caption)
+                .foregroundStyle(Island.Ink.tertiary)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(
+            model.isDropTargeted ? Island.Fill.regular : Island.Fill.subtle,
+            in: .rect(cornerRadius: Island.Radius.card, style: .continuous)
+        )
+        .overlay {
+            RoundedRectangle(cornerRadius: Island.Radius.card, style: .continuous)
+                .strokeBorder(
+                    model.isDropTargeted ? Island.Signal.info : Island.Ink.tertiary.opacity(0.5),
+                    style: .init(lineWidth: 1, dash: [5, 4])
+                )
+        }
+        .motion(Motion.snappy, value: model.isDropTargeted)
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("Drop files here")
     }
 }
 
 private struct ShelfTile: View {
     let file: ShelfFile
     let store: ShelfStore
+    let width: CGFloat
 
     @State private var isHovered = false
 
     var body: some View {
-        VStack(spacing: 5) {
+        VStack(spacing: Island.Space.xs) {
             Image(nsImage: file.icon)
                 .resizable()
-                .frame(width: 38, height: 38)
+                .frame(width: 40, height: 40)
+
             Text(file.name)
-                .font(.system(size: 9))
-                .foregroundStyle(.white.opacity(0.75))
+                .font(Island.Text.caption)
+                .foregroundStyle(Island.Ink.secondary)
                 .lineLimit(1)
                 .truncationMode(.middle)
-                .frame(width: 66)
+                .frame(width: width - Island.Space.m)
         }
-        .padding(.vertical, 8)
-        .padding(.horizontal, 5)
-        .background(.white.opacity(isHovered ? 0.16 : 0.07), in: .rect(cornerRadius: 11, style: .continuous))
+        .frame(width: width, height: 78)
+        .background(
+            isHovered ? Island.Fill.strong : Island.Fill.subtle,
+            in: .rect(cornerRadius: Island.Radius.tile, style: .continuous)
+        )
         .overlay(alignment: .topTrailing) {
             if isHovered {
                 Button {
                     store.remove(file)
                 } label: {
                     Image(systemName: "xmark")
-                        .font(.system(size: 7, weight: .bold))
-                        .foregroundStyle(.black)
-                        .frame(width: 15, height: 15)
-                        .background(.white, in: .circle)
+                        .font(.system(size: 8, weight: .bold))
+                        .foregroundStyle(Island.Ink.inverted)
+                        .frame(width: 16, height: 16)
+                        .background(Island.Fill.solid, in: .circle)
                 }
                 .buttonStyle(.plain)
-                .offset(x: 4, y: -4)
+                .offset(x: 5, y: -5)
                 .transition(.scale.combined(with: .opacity))
                 .accessibilityLabel("Remove \(file.name)")
             }
@@ -448,7 +505,7 @@ private struct ShelfTile: View {
         .onHover { isHovered = $0 }
         .motion(Motion.snappy, value: isHovered)
         .draggable(file.url) {
-            Image(nsImage: file.icon).resizable().frame(width: 42, height: 42)
+            Image(nsImage: file.icon).resizable().frame(width: 44, height: 44)
         }
         .onTapGesture(count: 2) { store.open(file) }
         .contextMenu {

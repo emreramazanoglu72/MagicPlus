@@ -9,6 +9,9 @@ import SwiftUI
 /// a row flip to Granted the moment they allow it in System Settings.
 struct OnboardingView: View {
     let catalog: PermissionCatalog
+    /// Only what a switched-on module actually needs. Asking for the Camera on behalf of a part of
+    /// the app the user has turned off is how an app earns a reputation for wanting too much.
+    let kinds: [PermissionKind]
     let onFinish: () -> Void
 
     var body: some View {
@@ -17,7 +20,10 @@ struct OnboardingView: View {
 
             ScrollView {
                 VStack(spacing: 8) {
-                    ForEach(PermissionKind.allCases) { kind in
+                    if kinds.isEmpty {
+                        nothingToGrant
+                    }
+                    ForEach(kinds) { kind in
                         PermissionRow(
                             kind: kind,
                             state: catalog.state(for: kind),
@@ -75,15 +81,38 @@ struct OnboardingView: View {
         }
     }
 
+    private var nothingToGrant: some View {
+        VStack(spacing: 6) {
+            Image(systemName: "checkmark.seal")
+                .font(.system(size: 26))
+                .foregroundStyle(.green)
+            Text("Nothing to grant")
+                .font(.callout.weight(.medium))
+            Text("The modules you have switched on need no system permissions. Turn more on in Settings and whatever they need will appear here.")
+                .font(.caption)
+                .foregroundStyle(.secondary)
+                .multilineTextAlignment(.center)
+                .fixedSize(horizontal: false, vertical: true)
+        }
+        .padding(.vertical, 40)
+        .padding(.horizontal, 20)
+    }
+
+    /// Whether everything on the list in front of the user has been granted — a permission some
+    /// other module would have needed is not this screen's business.
+    private var isReady: Bool {
+        kinds.filter(\.isRequired).allSatisfy { catalog.state(for: $0).isGranted }
+    }
+
     private var footer: some View {
         HStack {
             Label(
-                catalog.isReady ? "Ready to go" : "Accessibility is required",
-                systemImage: catalog.isReady ? "checkmark.circle.fill" : "exclamationmark.circle"
+                isReady ? "Ready to go" : "Accessibility is required",
+                systemImage: isReady ? "checkmark.circle.fill" : "exclamationmark.circle"
             )
             .font(.caption)
-            .foregroundStyle(catalog.isReady ? .green : .orange)
-            .motion(Motion.snappy, value: catalog.isReady)
+            .foregroundStyle(isReady ? .green : .orange)
+            .motion(Motion.snappy, value: isReady)
 
             Spacer()
 

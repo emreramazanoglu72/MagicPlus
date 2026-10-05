@@ -23,6 +23,7 @@ enum Accent {
     static let disk = Color.orange
     static let network = Color.teal
     static let keepAwake = Color.yellow
+    static let menuBar = Color.indigo
 
     /// Green through amber to red as a resource approaches saturation.
     static func pressure(_ value: Double) -> Color {
@@ -160,5 +161,5 @@ struct KeyHint: View {
 }
 
 extension Double {
-    var clampedToUnitRange: Double { min(max(self, 0), 1) }
+    nonisolated var clampedToUnitRange: Double { min(max(self, 0), 1) }
 }

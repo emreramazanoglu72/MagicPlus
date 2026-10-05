@@ -14,6 +14,8 @@ enum NotchActivity: Equatable {
     case filesAdded(Int)
     case screenshot(URL)
     case download(name: String)
+    case downloadStarted(name: String)
+    case downloadFailed(name: String)
     case micStatus(muted: Bool)
     case textCaptured(Int)
     case lowBattery(Int)
@@ -32,6 +34,8 @@ enum NotchActivity: Equatable {
         case .filesAdded: 15
         case .screenshot: 25
         case .download: 22
+        case .downloadStarted: 18
+        case .downloadFailed: 37
         case .micStatus: 45
         case .textCaptured: 28
         case .lowBattery: 38
@@ -50,6 +54,8 @@ enum NotchActivity: Equatable {
         case .filesAdded: .seconds(2)
         case .screenshot: .seconds(3)
         case .download: .seconds(3)
+        case .downloadStarted: .seconds(2)
+        case .downloadFailed: .seconds(5)
         case .micStatus: .milliseconds(1400)
         case .textCaptured: .milliseconds(2500)
         case .lowBattery: .seconds(5)
@@ -64,11 +70,13 @@ enum NotchActivity: Equatable {
     /// Width of the content on each side of the physical notch.
     var sideWidth: CGFloat {
         switch self {
-        case .volume: 78
+        case .volume: 92
         case .power: 66
         case .filesAdded: 74
         case .screenshot: 96
         case .download: 104
+        case .downloadStarted: 104
+        case .downloadFailed: 110
         case .micStatus: 70
         case .textCaptured: 92
         case .lowBattery: 84
@@ -76,24 +84,6 @@ enum NotchActivity: Equatable {
         case .windowsRescued: 92
         case .sleepDespiteKeepAwake: 108
         case .nowPlaying, .meeting: 96
-        }
-    }
-
-    var tint: Color {
-        switch self {
-        case .nowPlaying: Accent.clipboard
-        case .volume: .cyan
-        case .meeting(let event): event.calendarColor
-        case .filesAdded: Accent.windows
-        case .screenshot: Accent.clipboard
-        case .download: .green
-        case .micStatus(let muted): muted ? .red : .orange
-        case .textCaptured: Accent.clipboard
-        case .lowBattery: .red
-        case .diskFull: .orange
-        case .windowsRescued: Accent.windows
-        case .sleepDespiteKeepAwake: .yellow
-        case .power(let isCharging, _): isCharging ? .green : .orange
         }
     }
 
@@ -107,6 +97,8 @@ enum NotchActivity: Equatable {
         case .filesAdded: "filesAdded"
         case .screenshot: "screenshot"
         case .download: "download"
+        case .downloadStarted: "downloadStarted"
+        case .downloadFailed: "downloadFailed"
         case .micStatus: "micStatus"
         case .textCaptured: "textCaptured"
         case .lowBattery: "lowBattery"

@@ -5,31 +5,37 @@
 
 import SwiftUI
 
-/// Per-app volume sliders inside the expanded island.
+/// Per-app volume sliders inside the expanded island, plus external display brightness.
+///
+/// Built from the island's own controls rather than its own: a slider that behaves subtly
+/// differently from the one in the media pane is the kind of detail that reads as sloppiness
+/// without anyone being able to say why.
 struct MixerPane: View {
     let mixer: AudioMixerService
     let brightness: DisplayBrightnessService
 
     var body: some View {
-        Group {
-            VStack(spacing: 7) {
-                if mixer.apps.isEmpty {
-                    emptyState
-                } else {
-                    if mixer.needsPermission {
-                        permissionHint
-                    }
-                    ForEach(mixer.apps.prefix(5)) { app in
-                        MixerRow(app: app) { mixer.setVolume($0, for: app) }
-                    }
+        VStack(alignment: .leading, spacing: Island.Space.s) {
+            if mixer.apps.isEmpty {
+                IslandEmptyState(
+                    systemImage: "slider.horizontal.3",
+                    title: "Nothing is playing right now",
+                    message: "Apps appear here as soon as they make a sound."
+                )
+                .frame(height: brightness.displays.isEmpty ? Island.paneHeight : 104)
+            } else {
+                if mixer.needsPermission {
+                    permissionHint
                 }
-
-                if !brightness.displays.isEmpty {
-                    displaysSection
+                ForEach(mixer.apps.prefix(5)) { app in
+                    MixerRow(app: app) { mixer.setVolume($0, for: app) }
                 }
             }
+
+            if !brightness.displays.isEmpty {
+                displaysSection
+            }
         }
-        .frame(minHeight: 92)
         .task {
             // Live refresh while the pane is on screen; cancelled the moment it leaves.
             brightness.refresh()
@@ -42,40 +48,41 @@ struct MixerPane: View {
 
     /// DDC brightness for external displays; hidden entirely on a bare laptop.
     private var displaysSection: some View {
-        VStack(alignment: .leading, spacing: 6) {
-            HStack(spacing: 5) {
+        VStack(alignment: .leading, spacing: Island.Space.s) {
+            HStack(spacing: Island.Space.xs) {
                 Image(systemName: "sun.max")
                     .font(.system(size: 9, weight: .semibold))
-                    .foregroundStyle(.white.opacity(0.5))
                 Text("Displays")
                     .font(.system(size: 10, weight: .semibold))
-                    .foregroundStyle(.white.opacity(0.5))
                 Spacer()
             }
-            .padding(.top, 2)
+            .foregroundStyle(Island.Ink.tertiary)
+            .padding(.top, Island.Space.xs)
 
             ForEach(brightness.displays) { display in
-                HStack(spacing: 9) {
+                HStack(spacing: Island.Space.s) {
                     Image(systemName: "display")
                         .font(.system(size: 11))
-                        .foregroundStyle(.white.opacity(0.7))
+                        .foregroundStyle(Island.Ink.secondary)
                         .frame(width: 22)
 
-                    VStack(alignment: .leading, spacing: 3) {
+                    VStack(alignment: .leading, spacing: 2) {
                         Text(display.name)
-                            .font(.system(size: 11, weight: .medium))
-                            .foregroundStyle(.white)
+                            .font(Island.Text.label)
+                            .foregroundStyle(Island.Ink.primary)
                             .lineLimit(1)
 
-                        HStack(spacing: 7) {
+                        HStack(spacing: Island.Space.s) {
                             Image(systemName: "sun.min")
                                 .font(.system(size: 9))
-                                .foregroundStyle(.white.opacity(0.5))
+                                .foregroundStyle(Island.Ink.tertiary)
                                 .frame(width: 14)
-                            MixerSlider(value: display.percent) { brightness.setBrightness($0, for: display) }
+
+                            IslandSlider(value: display.percent) { brightness.setBrightness($0, for: display) }
+
                             Text(Format.percent(display.percent))
-                                .font(.system(size: 10, weight: .medium).monospacedDigit())
-                                .foregroundStyle(.white.opacity(0.7))
+                                .font(Island.Text.numericSmall)
+                                .foregroundStyle(Island.Ink.secondary)
                                 .frame(width: 38, alignment: .trailing)
                                 .contentTransition(.numericText())
                                 .motion(Motion.snappy, value: display.percent)
@@ -89,45 +96,28 @@ struct MixerPane: View {
         }
     }
 
-    private var emptyState: some View {
-        VStack(spacing: 6) {
-            Image(systemName: "slider.horizontal.3")
-                .font(.system(size: 20))
-                .foregroundStyle(.white.opacity(0.5))
-            Text("Nothing is playing right now")
-                .font(.system(size: 12))
-                .foregroundStyle(.white.opacity(0.6))
-        }
-        .frame(maxWidth: .infinity)
-        .padding(.vertical, 18)
-    }
-
     private var permissionHint: some View {
-        HStack(spacing: 7) {
+        HStack(spacing: Island.Space.s) {
             Image(systemName: "exclamationmark.triangle.fill")
-                .font(.system(size: 10))
-                .foregroundStyle(.orange)
+                .font(.system(size: 11))
+                .foregroundStyle(Island.Signal.warning)
+
             Text("Allow MagicPlus under Screen & System Audio Recording to control app volume")
-                .font(.system(size: 10))
-                .foregroundStyle(.white.opacity(0.7))
+                .font(Island.Text.caption)
+                .foregroundStyle(Island.Ink.secondary)
                 .fixedSize(horizontal: false, vertical: true)
-            Spacer(minLength: 4)
-            Button {
-                if let url = URL(string: "x-apple.systempreferences:com.apple.preference.security?Privacy_ScreenCapture") {
-                    NSWorkspace.shared.open(url)
-                }
-            } label: {
-                Text("Open")
-                    .font(.system(size: 10, weight: .semibold))
-                    .foregroundStyle(.black)
-                    .padding(.horizontal, 9)
-                    .padding(.vertical, 3)
-                    .background(.white, in: .capsule)
+
+            Spacer(minLength: Island.Space.xs)
+
+            IslandChipButton(title: "Open", isProminent: true) {
+                guard let url = URL(
+                    string: "x-apple.systempreferences:com.apple.preference.security?Privacy_ScreenCapture"
+                ) else { return }
+                NSWorkspace.shared.open(url)
             }
-            .buttonStyle(.plain)
         }
-        .padding(8)
-        .background(.white.opacity(0.07), in: .rect(cornerRadius: 10, style: .continuous))
+        .padding(Island.Space.s)
+        .background(Island.Fill.subtle, in: .rect(cornerRadius: Island.Radius.tile, style: .continuous))
     }
 }
 
@@ -135,46 +125,62 @@ private struct MixerRow: View {
     let app: MixerApp
     let onVolume: (Double) -> Void
 
+    private var isMuted: Bool { app.volume < 0.005 }
+
+    /// Background helpers report their bundle identifier instead of a name. The last
+    /// component is at least a word rather than a paragraph of reverse DNS.
+    private var displayName: String {
+        guard app.name.contains("."), !app.name.contains(" "),
+              let last = app.name.split(separator: ".").last, last.count > 1
+        else { return app.name }
+        return last.prefix(1).uppercased() + last.dropFirst()
+    }
+
     var body: some View {
-        HStack(spacing: 9) {
+        HStack(spacing: Island.Space.s) {
             Group {
                 if let icon = app.icon {
                     Image(nsImage: icon).resizable()
                 } else {
                     Image(systemName: "app.dashed")
-                        .foregroundStyle(.white.opacity(0.5))
+                        .foregroundStyle(Island.Ink.tertiary)
                 }
             }
             .frame(width: 22, height: 22)
 
-            VStack(alignment: .leading, spacing: 3) {
-                HStack(spacing: 5) {
-                    Text(app.name)
-                        .font(.system(size: 11, weight: .medium))
-                        .foregroundStyle(.white)
+            VStack(alignment: .leading, spacing: 2) {
+                HStack(spacing: Island.Space.xs) {
+                    Text(displayName)
+                        .font(Island.Text.label)
+                        .foregroundStyle(Island.Ink.primary)
                         .lineLimit(1)
                     if app.isPlaying {
                         Waveform(isPlaying: true, barCount: 3, height: 8)
                     }
                 }
 
-                HStack(spacing: 7) {
+                HStack(spacing: Island.Space.s) {
                     Button {
-                        onVolume(app.volume < 0.005 ? 1.0 : 0.0)
+                        onVolume(isMuted ? 1.0 : 0.0)
                     } label: {
-                        Image(systemName: app.volume < 0.005 ? "speaker.slash.fill" : "speaker.fill")
+                        Image(systemName: isMuted ? "speaker.slash.fill" : "speaker.fill")
                             .font(.system(size: 9))
-                            .foregroundStyle(app.volume < 0.005 ? .red : .white.opacity(0.5))
+                            .foregroundStyle(isMuted ? Island.Signal.danger : Island.Ink.tertiary)
                             .frame(width: 14)
+                            .contentShape(.rect)
                     }
                     .buttonStyle(.plain)
-                    .help(app.volume < 0.005 ? "Unmute" : "Mute this app")
+                    .help(isMuted ? "Unmute" : "Mute this app")
 
-                    MixerSlider(value: app.volume, onChange: onVolume)
+                    IslandSlider(
+                        value: app.volume,
+                        tint: isMuted ? Island.Signal.danger.opacity(0.8) : Island.Ink.primary.opacity(0.9),
+                        onChange: onVolume
+                    )
 
                     Text(Format.percent(app.volume))
-                        .font(.system(size: 10, weight: .medium).monospacedDigit())
-                        .foregroundStyle(.white.opacity(0.7))
+                        .font(Island.Text.numericSmall)
+                        .foregroundStyle(Island.Ink.secondary)
                         .frame(width: 38, alignment: .trailing)
                         .contentTransition(.numericText())
                         .motion(Motion.snappy, value: app.volume)
@@ -184,30 +190,5 @@ private struct MixerRow: View {
         .accessibilityElement(children: .contain)
         .accessibilityLabel("\(app.name) volume")
         .accessibilityValue(Format.percent(app.volume))
-    }
-}
-
-private struct MixerSlider: View {
-    let value: Double
-    let onChange: (Double) -> Void
-
-    var body: some View {
-        GeometryReader { proxy in
-            ZStack(alignment: .leading) {
-                Capsule().fill(.white.opacity(0.16))
-                Capsule()
-                    .fill(value < 0.005 ? AnyShapeStyle(.red.opacity(0.7)) : AnyShapeStyle(.white.opacity(0.85)))
-                    .frame(width: max(3, proxy.size.width * value.clampedToUnitRange))
-            }
-            .contentShape(.rect)
-            .gesture(
-                DragGesture(minimumDistance: 0)
-                    .onChanged { gesture in
-                        onChange(min(max(gesture.location.x / proxy.size.width, 0), 1))
-                    }
-            )
-        }
-        .frame(height: 5)
-        .motion(Motion.snappy, value: value)
     }
 }

@@ -104,11 +104,14 @@ final class MirrorNSView: NSView {
             isConfigured = true
         }
 
-        Task.detached(priority: .userInitiated) { [session, weak self] in
-            session.startRunning()
+        Task { [weak self, session] in
+            // Starting a capture session blocks, so only that part is detached; the decision
+            // that follows belongs where this object lives.
+            await Task.detached(priority: .userInitiated) { session.startRunning() }.value
+
             // A stop that landed while startup was in flight must still win.
-            let stillWanted = await MainActor.run { self?.wantsRunning ?? false }
-            if !stillWanted { session.stopRunning() }
+            guard self?.wantsRunning != true else { return }
+            await Task.detached(priority: .userInitiated) { session.stopRunning() }.value
         }
     }
 }

@@ -268,14 +268,27 @@ nonisolated enum AudioProcessRegistry {
         }
     }
 
-    private static func scalar<T>(_ object: AudioObjectID, _ selector: AudioObjectPropertySelector, _ value: inout T) -> Bool {
+    /// Reads a fixed-size property into `value`.
+    ///
+    /// `BitwiseCopyable` is the whole safety argument: Core Audio writes raw bytes over whatever it
+    /// is given, which is only ever correct for a type that holds no references. Without the
+    /// constraint the compiler can only warn that a `T` containing an object reference would be
+    /// silently corrupted here, and it is right to.
+    private static func scalar<T: BitwiseCopyable>(
+        _ object: AudioObjectID,
+        _ selector: AudioObjectPropertySelector,
+        _ value: inout T
+    ) -> Bool {
         var address = AudioObjectPropertyAddress(
             mSelector: selector,
             mScope: kAudioObjectPropertyScopeGlobal,
             mElement: kAudioObjectPropertyElementMain
         )
         var size = UInt32(MemoryLayout<T>.size)
-        return AudioObjectGetPropertyData(object, &address, 0, nil, &size, &value) == noErr
+        return withUnsafeMutableBytes(of: &value) { buffer in
+            guard let destination = buffer.baseAddress else { return false }
+            return AudioObjectGetPropertyData(object, &address, 0, nil, &size, destination) == noErr
+        }
     }
 
     private static func bundleID(of object: AudioObjectID) -> String? {

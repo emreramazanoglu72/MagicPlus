@@ -89,74 +89,113 @@ final class StatusItemController: NSObject, NSPopoverDelegate {
 
     private func showContextMenu() {
         let menu = NSMenu()
-        menu.addItem(
-            withTitle: String(localized: "Open MagicPlus", comment: "Status item menu"),
-            action: #selector(openPanel),
-            keyEquivalent: ""
-        ).target = self
-        menu.addItem(
-            withTitle: String(localized: "Clipboard History", comment: "Status item menu"),
-            action: #selector(openClipboard),
-            keyEquivalent: ""
-        ).target = self
-        menu.addItem(
-            withTitle: String(localized: "Capture Text (OCR)", comment: "Status item menu"),
-            action: #selector(captureText),
-            keyEquivalent: ""
-        ).target = self
-        menu.addItem(
-            withTitle: String(localized: "Quick Note", comment: "Status item menu"),
-            action: #selector(openQuickNote),
-            keyEquivalent: ""
-        ).target = self
-        menu.addItem(
-            withTitle: String(localized: "Rescue Windows", comment: "Status item menu"),
-            action: #selector(rescueWindows),
-            keyEquivalent: ""
-        ).target = self
-        menu.addItem(.separator())
+        let preferences = environment.preferences
+        func on(_ module: AppModule) -> Bool { preferences.isEnabled(module) }
 
-        let presentationItem = menu.addItem(
-            withTitle: String(localized: "Presentation Mode", comment: "Status item menu"),
-            action: #selector(togglePresentation),
-            keyEquivalent: ""
-        )
-        presentationItem.target = self
-        presentationItem.state = environment.presentation.isActive ? .on : .off
-
-        let keepAwakeItem = menu.addItem(
-            withTitle: environment.keepAwake.isActive
-                ? environment.keepAwake.statusText
-                : String(localized: "Keep Awake", comment: "Status item menu"),
-            action: #selector(toggleKeepAwake),
-            keyEquivalent: ""
-        )
-        keepAwakeItem.target = self
-        keepAwakeItem.state = environment.keepAwake.isActive ? .on : .off
-        menu.addItem(.separator())
-        menu.addItem(
-            withTitle: String(localized: "Permissions…", comment: "Status item menu"),
-            action: #selector(openPermissions),
-            keyEquivalent: ""
-        ).target = self
-        if UpdaterService.isConfigured {
-            menu.addItem(
-                withTitle: String(localized: "Check for Updates…", comment: "Status item menu"),
-                action: #selector(checkForUpdates),
-                keyEquivalent: ""
-            ).target = self
+        func add(
+            _ title: String,
+            _ action: Selector,
+            state: NSControl.StateValue = .off,
+            key: String = ""
+        ) {
+            let item = menu.addItem(withTitle: title, action: action, keyEquivalent: key)
+            item.target = self
+            item.state = state
         }
-        menu.addItem(
-            withTitle: String(localized: "Settings…", comment: "Status item menu"),
-            action: #selector(openSettings),
-            keyEquivalent: ","
-        ).target = self
-        menu.addItem(.separator())
-        menu.addItem(
-            withTitle: String(localized: "Quit MagicPlus", comment: "Status item menu"),
-            action: #selector(quit),
-            keyEquivalent: "q"
-        ).target = self
+
+        /// A separator only between items that exist. A module switched off left its separator
+        /// behind, and two rules in a row read as a menu that failed to load.
+        func separate() {
+            guard let last = menu.items.last, !last.isSeparatorItem else { return }
+            menu.addItem(.separator())
+        }
+
+        add(String(localized: "Open MagicPlus", comment: "Status item menu"), #selector(openPanel))
+
+        if on(.clipboard) {
+            add(
+                String(localized: "Clipboard History", comment: "Status item menu"),
+                #selector(openClipboard)
+            )
+        }
+        if on(.downloads) {
+            add(
+                String(localized: "Download Link on Clipboard", comment: "Status item menu"),
+                #selector(downloadClipboardLink)
+            )
+        }
+        if on(.textCapture) {
+            add(
+                String(localized: "Capture Text (OCR)", comment: "Status item menu"),
+                #selector(captureText)
+            )
+        }
+        if on(.quickNote) {
+            add(String(localized: "Quick Note", comment: "Status item menu"), #selector(openQuickNote))
+        }
+        if on(.windows) {
+            add(
+                String(localized: "Rescue Windows", comment: "Status item menu"),
+                #selector(rescueWindows)
+            )
+        }
+        if on(.menuBar) {
+            add(
+                environment.menuBarManager.isRevealed(.hidden)
+                    ? String(localized: "Hide Menu Bar Items", comment: "Status item menu")
+                    : String(localized: "Show Menu Bar Items", comment: "Status item menu"),
+                #selector(toggleHiddenItems)
+            )
+            add(
+                String(localized: "Search Menu Bar Items…", comment: "Status item menu"),
+                #selector(searchMenuBarItems)
+            )
+        }
+
+        separate()
+
+        if on(.presentation) {
+            add(
+                String(localized: "Presentation Mode", comment: "Status item menu"),
+                #selector(togglePresentation),
+                state: environment.presentation.isActive ? .on : .off
+            )
+        }
+        if on(.keepAwake) {
+            add(
+                environment.keepAwake.isActive
+                    ? environment.keepAwake.statusText
+                    : String(localized: "Keep Awake", comment: "Status item menu"),
+                #selector(toggleKeepAwake),
+                state: environment.keepAwake.isActive ? .on : .off
+            )
+        }
+
+        separate()
+
+        add(String(localized: "About MagicPlus", comment: "Status item menu"), #selector(openAbout))
+        add(String(localized: "Report an Issue…", comment: "Status item menu"), #selector(reportIssue))
+        // Only worth offering while some switched-on module needs something granted.
+        if !AppModule.permissionsNeeded(where: preferences.isEnabled).isEmpty {
+            add(
+                String(localized: "Permissions…", comment: "Status item menu"),
+                #selector(openPermissions)
+            )
+        }
+        if UpdaterService.isConfigured {
+            add(
+                String(localized: "Check for Updates…", comment: "Status item menu"),
+                #selector(checkForUpdates)
+            )
+        }
+        add(
+            String(localized: "Settings…", comment: "Status item menu"),
+            #selector(openSettings),
+            key: ","
+        )
+
+        separate()
+        add(String(localized: "Quit MagicPlus", comment: "Status item menu"), #selector(quit), key: "q")
 
         statusItem.menu = menu
         statusItem.button?.performClick(nil)
@@ -168,6 +207,14 @@ final class StatusItemController: NSObject, NSPopoverDelegate {
     @objc private func openClipboard() { environment.clipboardPanel.toggle() }
     @objc private func openSettings() { SettingsWindow.open() }
     @objc private func openPermissions() { environment.onboarding.show() }
+    @objc private func openAbout() { AboutPanel.show() }
+    @objc private func reportIssue() {
+        IssueReport.compose(
+            preferences: environment.preferences,
+            accessibility: environment.permission,
+            screenRecording: environment.screenRecordingPermission
+        )
+    }
     @objc private func checkForUpdates() { environment.updater.checkForUpdates() }
     @objc private func captureText() {
         Task { [environment] in
@@ -176,10 +223,13 @@ final class StatusItemController: NSObject, NSPopoverDelegate {
         }
     }
     @objc private func openQuickNote() { environment.quickNote.toggle() }
+    @objc private func downloadClipboardLink() { environment.downloads.promptForClipboardLink() }
     @objc private func rescueWindows() {
         let rescued = WindowRescuer.rescueOffscreenWindows()
         environment.notchPanel.announce(.windowsRescued(rescued))
     }
+    @objc private func toggleHiddenItems() { environment.menuBarManager.toggleHiddenItems() }
+    @objc private func searchMenuBarItems() { environment.menuBarSearch.toggle() }
     @objc private func togglePresentation() { environment.presentation.toggle() }
     @objc private func toggleKeepAwake() { environment.keepAwake.toggle() }
     @objc private func quit() { NSApp.terminate(nil) }
@@ -195,6 +245,7 @@ final class StatusItemController: NSObject, NSPopoverDelegate {
         withObservationTracking {
             _ = environment.preferences.menuBarMetric
             _ = environment.monitor.snapshot
+            _ = environment.hardware.sensors
             _ = environment.keepAwake.isActive
             _ = environment.keepAwake.remaining
         } onChange: {
@@ -217,6 +268,13 @@ final class StatusItemController: NSObject, NSPopoverDelegate {
             button.title = " \(Format.percent(snapshot.cpu.total))"
         case .memory:
             button.title = " \(Format.percent(snapshot.memory.pressure))"
+        case .temperature:
+            // Blank until the first sensor pass lands, rather than showing a made-up zero.
+            if let celsius = environment.hardware.cpuTemperature {
+                button.title = " \(Int(celsius.rounded()))°"
+            } else {
+                button.title = ""
+            }
         }
 
         button.font = .monospacedDigitSystemFont(ofSize: 11, weight: .regular)

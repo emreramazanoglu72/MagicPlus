@@ -41,10 +41,6 @@ enum NotchGeometry {
         )
     }
 
-    static func hasNotch(_ screen: NSScreen) -> Bool {
-        notchFrame(on: screen) != nil
-    }
-
     /// Screen the notch panel lives on: the one holding the menu bar.
     static var primaryScreen: NSScreen? {
         NSScreen.screens.first

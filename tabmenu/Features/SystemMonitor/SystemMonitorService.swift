@@ -17,10 +17,9 @@ nonisolated struct SystemSnapshot: Sendable, Equatable {
 
 /// How hard the system says it is being pushed.
 ///
-/// This is `ProcessInfo.thermalState`, not a sensor reading: per-sensor temperature and fan
-/// RPM on Apple Silicon are only reachable through private IOKit interfaces, which Apple has
-/// been closing off. Thermal pressure is public, stable, and is what actually matters —
-/// it is the signal the system itself throttles on.
+/// This is `ProcessInfo.thermalState`, not a sensor reading, and the dashboard shows both
+/// because they answer different questions: `SensorSampler` reports what each sensor in the
+/// machine says, while thermal pressure is the signal the system itself throttles on.
 nonisolated enum ThermalPressure: String, Sendable, Equatable {
     case nominal, fair, serious, critical
 

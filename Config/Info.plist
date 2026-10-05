@@ -7,16 +7,35 @@
 	  Xcode's INFOPLIST_KEY_ build settings cannot express live here.
 	-->
 	<!--
-	  Sparkle updates. Before the first public release:
-	  1. Generate keys once:   ./bin/generate_keys   (from the Sparkle distribution)
-	  2. Put the printed public key into SUPublicEDKey below.
-	  3. Point SUFeedURL at the hosted appcast (site/appcast.xml on your server).
-	  4. Flip SUEnableAutomaticChecks to true.
+	  Sparkle updates.
+
+	  The matching private key lives in the login keychain (service
+	  "https://sparkle-project.org", account "ed25519") and is the only thing that can sign an
+	  update this app will accept. Back it up somewhere safe:
+
+	      ./Tools/sparkle/bin/generate_keys -x sparkle-private-key.txt   # then store it offline
+
+	  Losing it means no build after this one can ever be shipped as an update: every existing
+	  install would have to be replaced by hand. Never commit the export.
 	-->
+	<key>SUPublicEDKey</key>
+	<string>+lU/JaFvlYx4Cvmpyf4ue3X1MYgjI8+eBcBjyGCgmWc=</string>
 	<key>SUFeedURL</key>
 	<string>https://magicplus.emreramazanoglu.com.tr/appcast.xml</string>
 	<key>SUEnableAutomaticChecks</key>
-	<false/>
+	<true/>
+	<!--
+	  Set explicitly so Sparkle does not open its "may I check for updates?" prompt on the second
+	  launch: an app that checks daily and says so in its own About panel does not need to ask.
+	-->
+	<key>SUScheduledCheckInterval</key>
+	<integer>86400</integer>
+	<key>NSHumanReadableCopyright</key>
+	<string>Copyright © 2026 Emre Ramazanoğlu. MIT licensed.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>MagicPlus listens to the microphone only while you hold the dictation button in the assistant's chat, so you can speak a message instead of typing it.</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>MagicPlus turns what you dictate into text for the assistant's chat. Recognition runs on this Mac when macOS can do it on-device.</string>
 	<key>NSAudioCaptureUsageDescription</key>
 	<string>MagicPlus adjusts each app's volume by tapping its audio and replaying it at the level you set.</string>
 </dict>

@@ -1,0 +1,146 @@
+{
+  "sourceLanguage": "en",
+  "strings": {
+    "CFBundleDisplayName": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MagicPlus"
+          }
+        }
+      },
+      "shouldTranslate": false
+    },
+    "CFBundleName": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MagicPlus"
+          }
+        }
+      },
+      "shouldTranslate": false
+    },
+    "NSAppleEventsUsageDescription": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MagicPlus asks Music and Spotify what is playing, and asks the browser in front for the address of its current tab so it can offer to download what is on the page."
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MagicPlus, ne çaldığını Music ve Spotify'a sorar; öndeki tarayıcıya da açık sekmesinin adresini sorar, böylece sayfadakini indirmeyi önerebilir."
+          }
+        }
+      }
+    },
+    "NSAudioCaptureUsageDescription": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MagicPlus adjusts each app's volume by tapping its audio and replaying it at the level you set."
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MagicPlus, her uygulamanın sesini yakalayıp senin belirlediğin düzeyde yeniden çalarak ses seviyesini ayarlar."
+          }
+        }
+      }
+    },
+    "NSCalendarsFullAccessUsageDescription": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MagicPlus shows your next meeting in the notch, with a button to join it."
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MagicPlus, sıradaki toplantını çentikte gösterir ve katılmak için bir düğme koyar."
+          }
+        }
+      }
+    },
+    "NSCameraUsageDescription": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The notch panel shows a live camera mirror when you open its Mirror tab."
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Çentik paneli, Ayna sekmesini açtığında canlı kamera görüntüsü gösterir."
+          }
+        }
+      }
+    },
+    "NSHumanReadableCopyright": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copyright © 2026 Emre Ramazanoğlu. MIT licensed."
+          }
+        }
+      },
+      "shouldTranslate": false
+    },
+    "NSMicrophoneUsageDescription": {
+      "comment": "Privacy - Microphone Usage Description",
+      "extractionState": "extracted_with_value",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "MagicPlus listens to the microphone only while you hold the dictation button in the assistant's chat, so you can speak a message instead of typing it."
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MagicPlus mikrofonu yalnızca asistanın sohbetinde dikte düğmesine bastığınız sürece dinler; böylece mesajı yazmak yerine söyleyebilirsiniz."
+          }
+        }
+      }
+    },
+    "NSSpeechRecognitionUsageDescription": {
+      "comment": "Privacy - Speech Recognition Usage Description",
+      "extractionState": "extracted_with_value",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "MagicPlus turns what you dictate into text for the assistant's chat. Recognition runs on this Mac when macOS can do it on-device."
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MagicPlus dikte ettiğinizi asistanın sohbeti için metne çevirir. macOS cihaz üzerinde yapabildiğinde tanıma bu Mac'te çalışır."
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}

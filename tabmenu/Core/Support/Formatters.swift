@@ -5,21 +5,27 @@
 
 import Foundation
 
-enum Format {
-    private static let byteFormatter: ByteCountFormatter = {
+/// Formatting has no business belonging to an actor.
+///
+/// These were shared formatter instances, which made the whole type main-actor-bound — and every
+/// value type that wanted to describe itself had to reach across an actor to do it. A formatter
+/// per call costs an allocation and buys back a utility that can be used from anywhere, which is
+/// what a formatter should be.
+nonisolated enum Format {
+    private static var byteFormatter: ByteCountFormatter {
         let formatter = ByteCountFormatter()
         formatter.countStyle = .memory
         formatter.allowedUnits = [.useKB, .useMB, .useGB, .useTB]
         return formatter
-    }()
+    }
 
-    private static let compactByteFormatter: ByteCountFormatter = {
+    private static var compactByteFormatter: ByteCountFormatter {
         let formatter = ByteCountFormatter()
         formatter.countStyle = .memory
         formatter.allowedUnits = [.useKB, .useMB, .useGB]
         formatter.allowsNonnumericFormatting = false
         return formatter
-    }()
+    }
 
     static func bytes(_ value: Int64) -> String {
         byteFormatter.string(fromByteCount: max(0, value))
@@ -30,20 +36,38 @@ enum Format {
     }
 
     /// Percent sign placement differs by locale, so the number formatter decides it.
-    private static let percentFormatter: NumberFormatter = {
+    private static var percentFormatter: NumberFormatter {
         let formatter = NumberFormatter()
         formatter.numberStyle = .percent
         formatter.maximumFractionDigits = 0
         return formatter
-    }()
+    }
 
-    private static let relativeFormatter: RelativeDateTimeFormatter = {
+    private static var relativeFormatter: RelativeDateTimeFormatter {
         let formatter = RelativeDateTimeFormatter()
         formatter.unitsStyle = .abbreviated
         return formatter
-    }()
+    }
 
     /// - Parameter fraction: A ratio in the `0...1` range.
+    /// Temperatures follow the reader's locale: the same reading is °C in Ankara and °F in
+    /// Ohio, which a hand-rolled string could never be.
+    private static var temperatureFormatter: MeasurementFormatter {
+        let formatter = MeasurementFormatter()
+        formatter.numberFormatter.maximumFractionDigits = 0
+        return formatter
+    }
+
+    static func celsius(_ value: Double) -> String {
+        temperatureFormatter.string(from: Measurement(value: value, unit: UnitTemperature.celsius))
+    }
+
+    /// Where a temperature sits on the bar. Below 30°C nothing interesting is happening, and
+    /// silicon that reaches 100°C is already throttling.
+    static func temperatureRatio(_ celsius: Double) -> Double {
+        ((celsius - 30) / 70).clampedToUnitRange
+    }
+
     static func percent(_ fraction: Double) -> String {
         percentFormatter.string(from: NSNumber(value: fraction))
             ?? "\(Int((fraction * 100).rounded()))%"

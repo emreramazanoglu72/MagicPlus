@@ -21,7 +21,7 @@ final class NotchWindowController {
     private var leaveTask: Task<Void, Never>?
     private var screenObserver: NSObjectProtocol?
 
-    private static let windowWidth: CGFloat = 560
+    private static let windowWidth: CGFloat = 640
     private static let windowHeight: CGFloat = 440
     /// Grace period so the pointer can travel from the notch down onto the panel.
     private static let leaveDelay: Duration = .milliseconds(220)
@@ -29,13 +29,14 @@ final class NotchWindowController {
 
     init(
         shelf: ShelfStore,
+        downloads: DownloadStore,
         calendar: CalendarService,
         mixer: AudioMixerService,
         brightness: DisplayBrightnessService,
         preferences: Preferences
     ) {
         self.model = NotchModel(
-            shelf: shelf, calendar: calendar, mixer: mixer,
+            shelf: shelf, downloads: downloads, calendar: calendar, mixer: mixer,
             brightness: brightness, preferences: preferences
         )
         self.preferences = preferences
@@ -45,6 +46,9 @@ final class NotchWindowController {
         }
         monitor.onClick = { [weak self] location in
             self?.handleClick(at: location)
+        }
+        model.onStageChange = { [weak self] stage in
+            self?.applyInteractivity(for: stage)
         }
 
         // Displays come and go; the window must follow the notch or the island ends up
@@ -86,11 +90,89 @@ final class NotchWindowController {
         window = nil
     }
 
+    /// Passes on which tab a browser is making sound with.
+    func setBrowserPlayback(_ playback: BrowserPlayback?) {
+        model.setBrowserPlayback(playback)
+    }
+
+    /// Grows the island into a card asking about a link it found.
+    func presentOffer(_ offer: DownloadOffer) {
+        model.presentOffer(offer)
+    }
+
+    /// The window is inert while the island is only reporting, and takes the pointer the moment
+    /// there is something on it to press.
+    private func applyInteractivity(for stage: NotchModel.Stage) {
+        if stage == .expanded || stage == .offer {
+            window?.orderFrontRegardless()
+            updatePointerCapture(at: NSEvent.mouseLocation)
+        } else {
+            window?.ignoresMouseEvents = true
+        }
+    }
+
+    /// Takes the pointer only where the island actually is.
+    ///
+    /// The window is the full expanded size and almost entirely transparent, so leaving it
+    /// interactive swallows clicks across a wide strip of the menu bar that has nothing drawn on
+    /// it — and, worse, counts the pointer as being on the island when it is nowhere near it,
+    /// which is what stopped a card from ever timing out.
+    private func updatePointerCapture(at location: CGPoint) {
+        guard let window, let screen = NotchGeometry.primaryScreen else { return }
+        let isInteractive = model.isExpanded || model.isOffering
+        window.ignoresMouseEvents = !(isInteractive && islandRect(on: screen).contains(location))
+    }
+
+    /// Where the island is drawn right now, in screen coordinates.
+    private func islandRect(on screen: NSScreen) -> CGRect {
+        let anchor = NotchGeometry.anchorFrame(on: screen)
+        let strip = anchor.height + NotchIslandView.verticalPadding
+
+        let size: CGSize
+        switch model.stage {
+        case .offer:
+            // A capsule until it is pointed at, and the pointer has to be able to find it there.
+            size = model.isOfferExpanded
+                ? CGSize(
+                    width: NotchIslandView.offerWidthValue,
+                    height: strip + DownloadOfferCard.contentHeight
+                )
+                : CGSize(
+                    width: anchor.width + NotchIslandView.offerCapsuleSideWidthValue * 2
+                        + NotchIslandView.contentInset * 2,
+                    height: strip
+                )
+        case .expanded:
+            size = CGSize(
+                width: NotchIslandView.expandedWidthValue,
+                height: strip + NotchIslandView.panelContentHeight
+            )
+        case .activity:
+            let sideWidth = model.activity?.sideWidth ?? NotchIslandView.defaultSideWidth
+            size = CGSize(
+                width: anchor.width + sideWidth * 2 + NotchIslandView.contentInset * 2,
+                height: strip
+            )
+        case .idle:
+            size = anchor.size
+        }
+
+        return CGRect(
+            x: anchor.midX - size.width / 2,
+            y: screen.frame.maxY - size.height,
+            width: size.width,
+            height: size.height
+        )
+    }
+
     /// Lets other features surface a transient activity in the island.
     func announce(_ activity: NotchActivity) {
         model.present(activity)
         model.refreshHardwareState()
     }
+
+    /// Wiring for the download queue, which lives outside the island but reports into it.
+    var island: NotchModel { model }
 
     func setActivitiesSuppressed(_ suppressed: Bool) {
         model.suppressesActivities = suppressed
@@ -99,27 +181,43 @@ final class NotchWindowController {
     // MARK: - Hover
 
     private func handle(location: CGPoint, isDragging: Bool) {
-        guard let screen = NotchGeometry.primaryScreen, let window else { return }
+        guard let screen = NotchGeometry.primaryScreen, window != nil else { return }
 
         let anchor = NotchGeometry.anchorFrame(on: screen)
             .insetBy(dx: -Self.hitPadding, dy: -Self.hitPadding)
         let isOverAnchor = anchor.contains(location)
-        let isOverPanel = model.isExpanded && window.frame.contains(location)
+        // Measured against what is drawn, not against the window: the window is mostly empty
+        // space, and treating a pointer in it as a pointer on the island is what kept a card
+        // alive indefinitely and swallowed clicks meant for the menu bar.
+        let isOverIsland = (model.isExpanded || model.isOffering)
+            && islandRect(on: screen).contains(location)
+        updatePointerCapture(at: location)
 
-        if isOverAnchor || isOverPanel {
+        if isOverAnchor || isOverIsland {
             leaveTask?.cancel()
             leaveTask = nil
             expand()
         } else if model.isExpanded, !isDragging {
             scheduleLeave()
+        } else if model.isOffering {
+            // A card is not held open by the pointer; leaving it simply restarts its clock.
+            model.setHovering(false)
         }
     }
 
     /// A click on the collapsed capsule either joins the meeting it shows or opens the
     /// panel on the matching tab.
     private func handleClick(at location: CGPoint) {
+        guard let screen = NotchGeometry.primaryScreen else { return }
+
+        // The capsule an offer arrives as: aiming and clicking in one motion opens the prompt
+        // rather than requiring the card to unfold first.
+        if model.isOffering, !model.isOfferExpanded, islandRect(on: screen).contains(location) {
+            model.acceptOffer()
+            return
+        }
+
         guard model.stage == .activity,
-              let screen = NotchGeometry.primaryScreen,
               activityCapsuleRect(on: screen).contains(location)
         else { return }
 
@@ -161,7 +259,7 @@ final class NotchWindowController {
     private func collapse() {
         leaveTask = nil
         model.setHovering(false)
-        window?.ignoresMouseEvents = true
+        updatePointerCapture(at: NSEvent.mouseLocation)
     }
 
     // MARK: - Window

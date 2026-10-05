@@ -5,99 +5,188 @@
 
 import SwiftUI
 
-/// Left of the notch during a transient activity: always a single glyph or the artwork, so
-/// the eye lands in the same place whatever happened.
-struct ActivityLeadingView: View {
-    let activity: NotchActivity
-    let model: NotchModel
-    let morph: Namespace.ID
+/// What an activity looks like, in one shape shared by all of them.
+///
+/// Thirteen bespoke layouts read as thirteen different apps taking turns in the same island.
+/// Every activity now fills the same slots — a glyph on the left of the notch, a headline and
+/// a detail line on the right, and at most one accessory — so the eye lands in the same place
+/// whatever just happened, and only the content changes.
+struct ActivityPresentation {
+    enum Glyph {
+        case symbol(String)
+        case artwork
+        case screenshot(URL)
+    }
 
-    var body: some View {
-        HStack(spacing: 7) {
-            switch activity {
-            case .nowPlaying:
-                ArtworkTile(image: model.artwork, size: 22, cornerRadius: 6)
-                    .matchedGeometryEffect(id: "artwork", in: morph)
-                Waveform(isPlaying: model.isPlaying, height: 12)
+    var glyph: Glyph
+    var tint: Color
+    var title: String
+    var detail: String?
+    /// A 0...1 bar shown to the left of the text, for values rather than events.
+    var meter: Double?
+    /// A pill shown to the right of the text, for the activities you can act on.
+    var badge: String?
+    var showsWaveform: Bool
+    /// Warnings colour their headline; everything else keeps a white headline so the tint
+    /// stays in the glyph where it belongs.
+    var isAlert: Bool
 
-            case .volume(let level):
-                Image(systemName: volumeSymbol(for: level))
-                    .font(.system(size: 13, weight: .medium))
-                    .foregroundStyle(.white)
-                    .contentTransition(.symbolEffect(.replace))
-                    .frame(width: 22)
+    init(
+        glyph: Glyph,
+        tint: Color = Island.Ink.primary,
+        title: String,
+        detail: String? = nil,
+        meter: Double? = nil,
+        badge: String? = nil,
+        showsWaveform: Bool = false,
+        isAlert: Bool = false
+    ) {
+        self.glyph = glyph
+        self.tint = tint
+        self.title = title
+        self.detail = detail
+        self.meter = meter
+        self.badge = badge
+        self.showsWaveform = showsWaveform
+        self.isAlert = isAlert
+    }
+}
 
-            case .meeting(let event):
-                Circle()
-                    .fill(event.calendarColor)
-                    .frame(width: 8, height: 8)
-                Image(systemName: "calendar")
-                    .font(.system(size: 11, weight: .medium))
-                    .foregroundStyle(.white)
+extension NotchActivity {
+    var presentation: ActivityPresentation {
+        switch self {
+        case .nowPlaying(let info):
+            ActivityPresentation(
+                glyph: .artwork,
+                tint: Island.Signal.media,
+                title: info.title,
+                detail: info.artist,
+                showsWaveform: true
+            )
 
-            case .filesAdded:
-                Image(systemName: "tray.and.arrow.down.fill")
-                    .font(.system(size: 13))
-                    .foregroundStyle(Accent.windows)
-                    .symbolEffect(.bounce, value: activity)
+        case .volume(let level):
+            ActivityPresentation(
+                glyph: .symbol(Self.volumeSymbol(for: level)),
+                title: Format.percent(level),
+                meter: level
+            )
 
-            case .screenshot(let url):
-                ScreenshotThumbnail(url: url)
+        case .meeting(let event):
+            ActivityPresentation(
+                glyph: .symbol("calendar"),
+                tint: event.calendarColor,
+                title: event.title,
+                detail: event.countdownLabel(),
+                badge: event.meetingURL == nil ? nil : String(localized: "Join", comment: "Open the meeting link")
+            )
 
-            case .download:
-                Image(systemName: "arrow.down.circle.fill")
-                    .font(.system(size: 13))
-                    .foregroundStyle(.green)
-                    .symbolEffect(.bounce, value: activity)
+        case .filesAdded(let count):
+            ActivityPresentation(
+                glyph: .symbol("tray.and.arrow.down.fill"),
+                tint: Island.Signal.info,
+                title: String(localized: "\(count) files", comment: "Files added to the shelf"),
+                detail: String(localized: "Added to shelf", comment: "Where the files went")
+            )
 
-            case .micStatus(let muted):
-                Image(systemName: muted ? "mic.slash.fill" : "mic.fill")
-                    .font(.system(size: 13, weight: .medium))
-                    .foregroundStyle(muted ? .red : .orange)
-                    .contentTransition(.symbolEffect(.replace))
+        case .screenshot(let url):
+            ActivityPresentation(
+                glyph: .screenshot(url),
+                tint: Island.Signal.media,
+                title: String(localized: "Screenshot", comment: "Notch activity"),
+                detail: String(localized: "Added to shelf", comment: "Where the files went")
+            )
 
-            case .textCaptured:
-                Image(systemName: "text.viewfinder")
-                    .font(.system(size: 13))
-                    .foregroundStyle(Accent.clipboard)
-                    .symbolEffect(.bounce, value: activity)
+        case .download(let name):
+            ActivityPresentation(
+                glyph: .symbol("arrow.down.circle.fill"),
+                tint: Island.Signal.success,
+                title: name,
+                detail: String(localized: "Downloaded", comment: "Notch activity")
+            )
 
-            case .lowBattery:
-                Image(systemName: "battery.25")
-                    .font(.system(size: 13))
-                    .foregroundStyle(.red)
-                    .symbolEffect(.pulse)
+        case .downloadStarted(let name):
+            ActivityPresentation(
+                glyph: .symbol("arrow.down.circle"),
+                tint: Island.Signal.info,
+                title: name,
+                detail: String(localized: "Downloading", comment: "Notch activity")
+            )
 
-            case .diskFull:
-                Image(systemName: "externaldrive.fill.badge.exclamationmark")
-                    .font(.system(size: 13))
-                    .foregroundStyle(.orange)
-                    .symbolEffect(.bounce, value: activity)
+        case .downloadFailed(let name):
+            ActivityPresentation(
+                glyph: .symbol("exclamationmark.triangle.fill"),
+                tint: Island.Signal.danger,
+                title: name,
+                detail: String(localized: "Download failed", comment: "Notch activity"),
+                isAlert: true
+            )
 
-            case .windowsRescued:
-                Image(systemName: "macwindow.and.cursorarrow")
-                    .font(.system(size: 13))
-                    .foregroundStyle(Accent.windows)
-                    .symbolEffect(.bounce, value: activity)
+        case .micStatus(let muted):
+            ActivityPresentation(
+                glyph: .symbol(muted ? "mic.slash.fill" : "mic.fill"),
+                tint: muted ? Island.Signal.danger : Island.Signal.warning,
+                title: muted
+                    ? String(localized: "Mic muted", comment: "Notch activity")
+                    : String(localized: "Mic live", comment: "Notch activity"),
+                isAlert: muted
+            )
 
-            case .sleepDespiteKeepAwake:
-                Image(systemName: "cup.and.saucer.fill")
-                    .font(.system(size: 13))
-                    .foregroundStyle(.yellow)
-                    .symbolEffect(.pulse)
+        case .textCaptured(let characters):
+            ActivityPresentation(
+                glyph: .symbol("text.viewfinder"),
+                tint: Island.Signal.media,
+                title: String(localized: "\(characters) characters", comment: "Length of captured text"),
+                detail: String(localized: "Copied as text", comment: "Notch activity")
+            )
 
-            case .power(let isCharging, _):
-                Image(systemName: isCharging ? "bolt.fill" : "powerplug.fill")
-                    .font(.system(size: 12))
-                    .foregroundStyle(isCharging ? .green : .orange)
-                    .symbolEffect(.bounce, value: activity)
-            }
+        case .lowBattery(let percentage):
+            ActivityPresentation(
+                glyph: .symbol("battery.25"),
+                tint: Island.Signal.danger,
+                title: Format.percent(Double(percentage) / 100),
+                detail: String(localized: "Low battery", comment: "Notch activity"),
+                isAlert: true
+            )
 
-            Spacer(minLength: 0)
+        case .diskFull(let freeBytes):
+            ActivityPresentation(
+                glyph: .symbol("externaldrive.fill.badge.exclamationmark"),
+                tint: Island.Signal.warning,
+                title: Format.bytes(freeBytes),
+                detail: String(localized: "Disk almost full", comment: "Notch activity"),
+                isAlert: true
+            )
+
+        case .windowsRescued(let count):
+            ActivityPresentation(
+                glyph: .symbol("macwindow.and.cursorarrow"),
+                tint: Island.Signal.info,
+                title: String(localized: "\(count) windows", comment: "Windows pulled back on screen"),
+                detail: String(localized: "Back on screen", comment: "Notch activity")
+            )
+
+        case .sleepDespiteKeepAwake:
+            ActivityPresentation(
+                glyph: .symbol("cup.and.saucer.fill"),
+                tint: Island.Signal.warning,
+                title: String(localized: "Mac slept despite Keep Awake", comment: "Notch activity"),
+                detail: String(localized: "Lid closed or forced sleep", comment: "Why the Mac slept"),
+                isAlert: true
+            )
+
+        case .power(let isCharging, let percentage):
+            ActivityPresentation(
+                glyph: .symbol(isCharging ? "bolt.fill" : "powerplug.fill"),
+                tint: isCharging ? Island.Signal.success : Island.Signal.warning,
+                title: Format.percent(Double(percentage) / 100),
+                detail: isCharging
+                    ? String(localized: "Charging", comment: "Notch activity")
+                    : String(localized: "On battery", comment: "Notch activity")
+            )
         }
     }
 
-    private func volumeSymbol(for level: Double) -> String {
+    private static func volumeSymbol(for level: Double) -> String {
         switch level {
         case ..<0.001: "speaker.slash.fill"
         case ..<0.34: "speaker.wave.1.fill"
@@ -107,169 +196,108 @@ struct ActivityLeadingView: View {
     }
 }
 
-/// Right of the notch: the detail that explains the glyph on the left.
-struct ActivityTrailingView: View {
+/// Left of the notch during an activity: one glyph, always in the same place and at the same
+/// size, so a glance lands on it without hunting.
+struct ActivityLeadingView: View {
     let activity: NotchActivity
     let model: NotchModel
+    let morph: Namespace.ID
+
+    private var presentation: ActivityPresentation { activity.presentation }
 
     var body: some View {
-        HStack(spacing: 0) {
-            Spacer(minLength: 0)
+        HStack(spacing: Island.Space.s) {
+            glyph
+                .frame(width: 24, height: 20)
 
-            switch activity {
-            case .nowPlaying(let info):
-                VStack(alignment: .trailing, spacing: 0) {
-                    Text(info.title)
-                        .font(.system(size: 10, weight: .semibold))
-                        .foregroundStyle(.white)
-                    Text(info.artist)
-                        .font(.system(size: 9))
-                        .foregroundStyle(.white.opacity(0.55))
-                }
-                .lineLimit(1)
-                .truncationMode(.tail)
-
-            case .volume(let level):
-                HStack(spacing: 6) {
-                    LevelBar(value: level, tint: .cyan)
-                        .frame(width: 46)
-                    Text(Format.percent(level))
-                        .font(.system(size: 10, weight: .medium).monospacedDigit())
-                        .foregroundStyle(.white)
-                        .contentTransition(.numericText())
-                }
-
-            case .meeting(let event):
-                HStack(spacing: 7) {
-                    VStack(alignment: .trailing, spacing: 0) {
-                        Text(event.title)
-                            .font(.system(size: 10, weight: .semibold))
-                            .foregroundStyle(.white)
-                            .lineLimit(1)
-                        Text(event.countdownLabel())
-                            .font(.system(size: 9, weight: .medium))
-                            .foregroundStyle(event.isInProgress ? .green : .white.opacity(0.6))
-                    }
-                    if event.meetingURL != nil {
-                        // The whole capsule is the click target; this is the affordance.
-                        Text("Join")
-                            .font(.system(size: 9, weight: .semibold))
-                            .foregroundStyle(.black)
-                            .padding(.horizontal, 7)
-                            .padding(.vertical, 2)
-                            .background(.white, in: .capsule)
-                    }
-                }
-
-            case .filesAdded(let count):
-                Text("\(count) files")
-                    .font(.system(size: 10, weight: .medium))
-                    .foregroundStyle(.white)
-
-            case .screenshot:
-                VStack(alignment: .trailing, spacing: 0) {
-                    Text("Screenshot")
-                        .font(.system(size: 10, weight: .semibold))
-                        .foregroundStyle(.white)
-                    Text("Added to shelf")
-                        .font(.system(size: 9))
-                        .foregroundStyle(.white.opacity(0.55))
-                }
-
-            case .download(let name):
-                VStack(alignment: .trailing, spacing: 0) {
-                    Text(name)
-                        .font(.system(size: 10, weight: .semibold))
-                        .foregroundStyle(.white)
-                        .lineLimit(1)
-                        .truncationMode(.middle)
-                    Text("Downloaded")
-                        .font(.system(size: 9))
-                        .foregroundStyle(.white.opacity(0.55))
-                }
-
-            case .micStatus(let muted):
-                Text(muted ? "Mic muted" : "Mic live")
-                    .font(.system(size: 10, weight: .semibold))
-                    .foregroundStyle(muted ? .red : .white)
-
-            case .textCaptured(let characters):
-                VStack(alignment: .trailing, spacing: 0) {
-                    Text("\(characters) characters")
-                        .font(.system(size: 10, weight: .semibold))
-                        .foregroundStyle(.white)
-                    Text("Copied as text")
-                        .font(.system(size: 9))
-                        .foregroundStyle(.white.opacity(0.55))
-                }
-
-            case .lowBattery(let percentage):
-                VStack(alignment: .trailing, spacing: 0) {
-                    Text("\(percentage)%")
-                        .font(.system(size: 11, weight: .semibold).monospacedDigit())
-                        .foregroundStyle(.red)
-                    Text("Low battery")
-                        .font(.system(size: 9))
-                        .foregroundStyle(.white.opacity(0.55))
-                }
-
-            case .diskFull(let freeBytes):
-                VStack(alignment: .trailing, spacing: 0) {
-                    Text(Format.bytes(freeBytes))
-                        .font(.system(size: 10, weight: .semibold).monospacedDigit())
-                        .foregroundStyle(.white)
-                    Text("Disk almost full")
-                        .font(.system(size: 9))
-                        .foregroundStyle(.orange)
-                }
-
-            case .windowsRescued(let count):
-                VStack(alignment: .trailing, spacing: 0) {
-                    Text("\(count) windows")
-                        .font(.system(size: 10, weight: .semibold))
-                        .foregroundStyle(.white)
-                    Text("Back on screen")
-                        .font(.system(size: 9))
-                        .foregroundStyle(.white.opacity(0.55))
-                }
-
-            case .sleepDespiteKeepAwake:
-                VStack(alignment: .trailing, spacing: 0) {
-                    Text("Mac slept despite Keep Awake")
-                        .font(.system(size: 10, weight: .semibold))
-                        .foregroundStyle(.white)
-                    Text("Lid closed or forced sleep")
-                        .font(.system(size: 9))
-                        .foregroundStyle(.white.opacity(0.55))
-                }
-
-            case .power(let isCharging, let percentage):
-                HStack(spacing: 5) {
-                    Text("\(percentage)%")
-                        .font(.system(size: 11, weight: .semibold).monospacedDigit())
-                        .foregroundStyle(.white)
-                    Image(systemName: isCharging ? "battery.100.bolt" : "battery.50")
-                        .font(.system(size: 11))
-                        .foregroundStyle(.white.opacity(0.7))
-                }
+            if presentation.showsWaveform {
+                Waveform(isPlaying: model.isPlaying, tint: presentation.tint, height: 12)
             }
+
+            Spacer(minLength: 0)
+        }
+        .accessibilityHidden(true)
+    }
+
+    @ViewBuilder
+    private var glyph: some View {
+        switch presentation.glyph {
+        case .symbol(let name):
+            Image(systemName: name)
+                .font(.system(size: 13, weight: .medium))
+                .foregroundStyle(presentation.tint)
+                .contentTransition(.symbolEffect(.replace))
+                .symbolEffect(.bounce, value: activity)
+
+        case .artwork:
+            ArtworkTile(image: model.artwork, size: 20, cornerRadius: 6)
+                .matchedGeometryEffect(id: "artwork", in: morph)
+
+        case .screenshot(let url):
+            ScreenshotThumbnail(url: url)
         }
     }
 }
 
-/// Left of the notch while the panel is open.
+/// Right of the notch: the words that explain the glyph, in the same two lines every time.
+struct ActivityTrailingView: View {
+    let activity: NotchActivity
+    let model: NotchModel
+
+    private var presentation: ActivityPresentation { activity.presentation }
+
+    var body: some View {
+        HStack(spacing: Island.Space.s) {
+            Spacer(minLength: 0)
+
+            if let meter = presentation.meter {
+                LevelBar(value: meter, tint: presentation.tint, height: 4)
+                    .frame(width: 36)
+            }
+
+            VStack(alignment: .trailing, spacing: 0) {
+                Text(presentation.title)
+                    .font(.system(size: 11, weight: .semibold))
+                    .foregroundStyle(presentation.isAlert ? presentation.tint : Island.Ink.primary)
+                    .contentTransition(.numericText())
+
+                if let detail = presentation.detail {
+                    Text(detail)
+                        .font(Island.Text.caption)
+                        .foregroundStyle(Island.Ink.secondary)
+                }
+            }
+            .lineLimit(1)
+            .truncationMode(.tail)
+
+            if let badge = presentation.badge {
+                // The whole capsule is the click target; this is only the affordance.
+                Text(badge)
+                    .font(.system(size: 10, weight: .semibold))
+                    .foregroundStyle(Island.Ink.inverted)
+                    .padding(.horizontal, Island.Space.s)
+                    .padding(.vertical, 2)
+                    .background(Island.Fill.solid, in: .capsule)
+            }
+        }
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel(presentation.detail.map { "\(presentation.title), \($0)" } ?? presentation.title)
+    }
+}
+
+/// Left of the notch while the panel is open: what is playing, quietly.
 struct ExpandedLeadingView: View {
     let model: NotchModel
     let morph: Namespace.ID
 
     var body: some View {
-        HStack(spacing: 7) {
-            ArtworkTile(image: model.artwork, size: 22, cornerRadius: 6)
+        HStack(spacing: Island.Space.s) {
+            ArtworkTile(image: model.artwork, size: 20, cornerRadius: 6)
                 .matchedGeometryEffect(id: "artwork", in: morph)
 
             Text(model.nowPlaying?.title ?? "MagicPlus")
-                .font(.system(size: 11, weight: .medium))
-                .foregroundStyle(.white)
+                .font(Island.Text.label)
+                .foregroundStyle(model.nowPlaying == nil ? Island.Ink.secondary : Island.Ink.primary)
                 .lineLimit(1)
 
             Spacer(minLength: 0)
@@ -277,26 +305,37 @@ struct ExpandedLeadingView: View {
     }
 }
 
-/// Right of the notch while the panel is open: quiet status, not a headline.
+/// Right of the notch while the panel is open: status, not headlines.
 struct ExpandedTrailingView: View {
     let model: NotchModel
 
     var body: some View {
-        HStack(spacing: 8) {
+        HStack(spacing: Island.Space.m) {
             Spacer(minLength: 0)
 
-            if model.battery.isPresent {
-                HStack(spacing: 3) {
-                    Image(systemName: model.battery.symbolName)
-                        .font(.system(size: 10))
-                    Text("\(model.battery.percentage)%")
-                        .font(.system(size: 10, weight: .medium).monospacedDigit())
-                }
-                .foregroundStyle(.white.opacity(0.6))
+            if model.micLive {
+                Image(systemName: model.micMuted ? "mic.slash.fill" : "mic.fill")
+                    .font(.system(size: 10, weight: .medium))
+                    .foregroundStyle(model.micMuted ? Island.Signal.danger : Island.Signal.warning)
+                    .accessibilityLabel(model.micMuted ? "Microphone muted" : "Microphone in use")
+            }
+
+            if model.cameraLive {
+                Circle()
+                    .fill(Island.Signal.success)
+                    .frame(width: 6, height: 6)
+                    .accessibilityLabel("Camera in use")
             }
 
             if model.nowPlaying != nil {
-                Waveform(isPlaying: model.isPlaying, height: 12)
+                Waveform(isPlaying: model.isPlaying, height: 11)
+            }
+
+            if model.battery.isPresent {
+                IslandStatusChip(
+                    systemImage: model.battery.symbolName,
+                    value: Format.percent(Double(model.battery.percentage) / 100)
+                )
             }
         }
     }
@@ -314,67 +353,19 @@ private struct ScreenshotThumbnail: View {
                     .resizable()
                     .aspectRatio(contentMode: .fill)
             } else {
-                Color.white.opacity(0.14)
+                Island.Fill.regular
                     .overlay {
                         Image(systemName: "camera.viewfinder")
-                            .font(.system(size: 11))
-                            .foregroundStyle(.white.opacity(0.7))
+                            .font(.system(size: 10))
+                            .foregroundStyle(Island.Ink.secondary)
                     }
             }
         }
         .frame(width: 30, height: 20)
-        .clipShape(.rect(cornerRadius: 4, style: .continuous))
+        .clipShape(.rect(cornerRadius: 5, style: .continuous))
         .task(id: url) {
             let loaded = await Task.detached(priority: .utility) { NSImage(contentsOf: url) }.value
             image = loaded
         }
-    }
-}
-
-// MARK: - Shared pieces
-
-struct ArtworkTile: View {
-    let image: NSImage?
-    var size: CGFloat
-    var cornerRadius: CGFloat
-
-    var body: some View {
-        Group {
-            if let image {
-                Image(nsImage: image)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-            } else {
-                RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-                    .fill(.white.opacity(0.16))
-                    .overlay {
-                        Image(systemName: "music.note")
-                            .font(.system(size: size * 0.45))
-                            .foregroundStyle(.white.opacity(0.7))
-                    }
-            }
-        }
-        .frame(width: size, height: size)
-        .clipShape(.rect(cornerRadius: cornerRadius, style: .continuous))
-    }
-}
-
-/// Filled capsule used for volume and playback position.
-struct LevelBar: View {
-    let value: Double
-    var tint: Color = .white
-    var height: CGFloat = 4
-
-    var body: some View {
-        GeometryReader { proxy in
-            ZStack(alignment: .leading) {
-                Capsule().fill(.white.opacity(0.18))
-                Capsule()
-                    .fill(tint)
-                    .frame(width: max(2, proxy.size.width * value.clampedToUnitRange))
-            }
-        }
-        .frame(height: height)
-        .motion(Motion.snappy, value: value)
     }
 }

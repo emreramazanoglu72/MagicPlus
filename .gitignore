@@ -31,3 +31,4 @@ Config/Local.xcconfig
 # Marketing site, developed and deployed separately
 website/
 node_modules/
+Tools/

@@ -26,6 +26,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         AppEnvironment.shared.monitor.stop()
         AppEnvironment.shared.keepAwake.deactivate()
         AppEnvironment.shared.audioMixer.stopAll()
+        // Nothing this app does to the hardware may outlive it: charging goes back to normal
+        // before the process is gone, and the helper's watchdog covers the crash case.
+        AppEnvironment.shared.chargeLimit.shutDown()
         HotKeyManager.shared.unregisterAll()
     }
 

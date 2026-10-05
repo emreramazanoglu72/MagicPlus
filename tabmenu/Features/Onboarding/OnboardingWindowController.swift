@@ -24,8 +24,18 @@ final class OnboardingWindowController: NSObject, NSWindowDelegate {
         show()
     }
 
+    /// Rebuilt on every showing rather than once: the list depends on which modules are on, and a
+    /// window kept from last time would be answering a question that has since changed.
+    private func makeRootView() -> OnboardingView {
+        OnboardingView(
+            catalog: catalog,
+            kinds: AppModule.permissionsNeeded(where: preferences.isEnabled)
+        ) { [weak self] in self?.finish() }
+    }
+
     func show() {
         if let window {
+            (window.contentView as? NSHostingView<OnboardingView>)?.rootView = makeRootView()
             NSApp.activate(ignoringOtherApps: true)
             window.makeKeyAndOrderFront(nil)
             return
@@ -42,9 +52,7 @@ final class OnboardingWindowController: NSObject, NSWindowDelegate {
         window.titleVisibility = .hidden
         window.isReleasedWhenClosed = false
         window.delegate = self
-        window.contentView = NSHostingView(
-            rootView: OnboardingView(catalog: catalog) { [weak self] in self?.finish() }
-        )
+        window.contentView = NSHostingView(rootView: makeRootView())
         window.center()
         self.window = window
 

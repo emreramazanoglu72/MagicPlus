@@ -1,0 +1,71 @@
+{
+  "extensionName": {
+    "message": "MagicPlus Downloads"
+  },
+  "extensionDescription": {
+    "message": "Hands downloads to MagicPlus with the cookies and referer the site expects."
+  },
+  "contextMenu": {
+    "message": "Download with MagicPlus"
+  },
+  "notConnectedTitle": {
+    "message": "MagicPlus is not connected"
+  },
+  "notConnectedBody": {
+    "message": "Open the extension and connect it once."
+  },
+  "notRunningTitle": {
+    "message": "MagicPlus is not running"
+  },
+  "notRunningBody": {
+    "message": "Start MagicPlus and try again."
+  },
+  "optionsTitle": {
+    "message": "MagicPlus Downloads"
+  },
+  "checking": {
+    "message": "Checking…"
+  },
+  "connect": {
+    "message": "Connect"
+  },
+  "connected": {
+    "message": "Connected to MagicPlus"
+  },
+  "notConnected": {
+    "message": "Not connected"
+  },
+  "appNotRunning": {
+    "message": "MagicPlus not running"
+  },
+  "appNotRunningBody": {
+    "message": "Start MagicPlus, then check again. Its download manager has to be on."
+  },
+  "connectBody": {
+    "message": "Connecting asks MagicPlus for permission — it puts a dialog on screen naming this extension."
+  },
+  "connectedBody": {
+    "message": "Downloads are handed over with the cookies and referer this browser would have sent, which is what keeps signed links working."
+  },
+  "refused": {
+    "message": "MagicPlus refused the connection. Press Connect to ask again."
+  },
+  "autoCatch": {
+    "message": "Catch downloads automatically"
+  },
+  "sniffMedia": {
+    "message": "Offer video playing on a page"
+  },
+  "onlyOver": {
+    "message": "Only files over"
+  },
+  "megabytes": {
+    "message": "MB"
+  },
+  "contextHint": {
+    "message": "Right-click any link, video, image — or the page itself — to send it over even when auto-catch is off."
+  },
+  "waiting": {
+    "message": "Waiting for MagicPlus…"
+  }
+}

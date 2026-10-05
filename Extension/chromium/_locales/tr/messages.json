@@ -1,0 +1,71 @@
+{
+  "extensionName": {
+    "message": "MagicPlus İndirmeler"
+  },
+  "extensionDescription": {
+    "message": "İndirmeleri, sitenin beklediği çerez ve referer ile birlikte MagicPlus'a devreder."
+  },
+  "contextMenu": {
+    "message": "MagicPlus ile indir"
+  },
+  "notConnectedTitle": {
+    "message": "MagicPlus bağlı değil"
+  },
+  "notConnectedBody": {
+    "message": "Eklentiyi açıp bir kez bağlayın."
+  },
+  "notRunningTitle": {
+    "message": "MagicPlus çalışmıyor"
+  },
+  "notRunningBody": {
+    "message": "MagicPlus'ı başlatıp tekrar deneyin."
+  },
+  "optionsTitle": {
+    "message": "MagicPlus İndirmeler"
+  },
+  "checking": {
+    "message": "Denetleniyor…"
+  },
+  "connect": {
+    "message": "Bağlan"
+  },
+  "connected": {
+    "message": "MagicPlus'a bağlı"
+  },
+  "notConnected": {
+    "message": "Bağlı değil"
+  },
+  "appNotRunning": {
+    "message": "MagicPlus çalışmıyor"
+  },
+  "appNotRunningBody": {
+    "message": "MagicPlus'ı başlatıp yeniden denetleyin. İndirme yöneticisinin açık olması gerekiyor."
+  },
+  "connectBody": {
+    "message": "Bağlanmak MagicPlus'tan izin ister — ekrana bu eklentinin adını yazan bir pencere çıkarır."
+  },
+  "connectedBody": {
+    "message": "İndirmeler, bu tarayıcının göndereceği çerez ve referer ile devredilir; imzalı bağlantıların çalışmasını sağlayan şey bu."
+  },
+  "refused": {
+    "message": "MagicPlus bağlantıyı reddetti. Yeniden istemek için Bağlan'a basın."
+  },
+  "autoCatch": {
+    "message": "İndirmeleri otomatik yakala"
+  },
+  "sniffMedia": {
+    "message": "Sayfada oynayan videoyu teklif et"
+  },
+  "onlyOver": {
+    "message": "Yalnızca şundan büyük dosyalar:"
+  },
+  "megabytes": {
+    "message": "MB"
+  },
+  "contextHint": {
+    "message": "Herhangi bir bağlantıya, videoya, resme — ya da sayfanın kendisine — sağ tıklayıp gönderebilirsiniz; otomatik yakalama kapalı olsa da çalışır."
+  },
+  "waiting": {
+    "message": "MagicPlus bekleniyor…"
+  }
+}
